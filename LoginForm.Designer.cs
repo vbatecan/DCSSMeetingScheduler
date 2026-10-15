@@ -1,9 +1,20 @@
-﻿namespace DCSSMeetingScheduler {
+namespace DCSSMeetingScheduler {
     partial class LoginForm {
         /// <summary>
         ///  Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblSubtitle;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.CheckBox chkShowPassword;
+        private System.Windows.Forms.Label lblErrorMessage;
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button btnCancel;
 
         /// <summary>
         ///  Clean up any resources being used.
@@ -23,17 +34,166 @@
         ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            lblTitle = new Label();
+            lblSubtitle = new Label();
+            lblUsername = new Label();
+            txtUsername = new TextBox();
+            lblPassword = new Label();
+            txtPassword = new TextBox();
+            chkShowPassword = new CheckBox();
+            lblErrorMessage = new Label();
+            btnLogin = new Button();
+            btnCancel = new Button();
             SuspendLayout();
+            // 
+            // lblTitle
+            // 
+            lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTitle.ForeColor = Color.FromArgb(30, 41, 59);
+            lblTitle.Location = new Point(30, 30);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(340, 35);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "DCSS Meeting Scheduler";
+            lblTitle.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblSubtitle
+            // 
+            lblSubtitle.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblSubtitle.ForeColor = Color.FromArgb(100, 116, 139);
+            lblSubtitle.Location = new Point(30, 68);
+            lblSubtitle.Name = "lblSubtitle";
+            lblSubtitle.Size = new Size(340, 22);
+            lblSubtitle.TabIndex = 1;
+            lblSubtitle.Text = "Sign in to continue";
+            lblSubtitle.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblUsername
+            // 
+            lblUsername.AutoSize = true;
+            lblUsername.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold, GraphicsUnit.Point);
+            lblUsername.ForeColor = Color.FromArgb(51, 65, 85);
+            lblUsername.Location = new Point(35, 112);
+            lblUsername.Name = "lblUsername";
+            lblUsername.Size = new Size(69, 17);
+            lblUsername.TabIndex = 2;
+            lblUsername.Text = "Username";
+            // 
+            // txtUsername
+            // 
+            txtUsername.BorderStyle = BorderStyle.FixedSingle;
+            txtUsername.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular, GraphicsUnit.Point);
+            txtUsername.Location = new Point(35, 135);
+            txtUsername.Name = "txtUsername";
+            txtUsername.PlaceholderText = "Enter your username";
+            txtUsername.Size = new Size(330, 26);
+            txtUsername.TabIndex = 3;
+            // 
+            // lblPassword
+            // 
+            lblPassword.AutoSize = true;
+            lblPassword.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold, GraphicsUnit.Point);
+            lblPassword.ForeColor = Color.FromArgb(51, 65, 85);
+            lblPassword.Location = new Point(35, 180);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(66, 17);
+            lblPassword.TabIndex = 4;
+            lblPassword.Text = "Password";
+            // 
+            // txtPassword
+            // 
+            txtPassword.BorderStyle = BorderStyle.FixedSingle;
+            txtPassword.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPassword.Location = new Point(35, 203);
+            txtPassword.Name = "txtPassword";
+            txtPassword.PlaceholderText = "Enter your password";
+            txtPassword.Size = new Size(330, 26);
+            txtPassword.TabIndex = 5;
+            txtPassword.UseSystemPasswordChar = true;
+            // 
+            // chkShowPassword
+            // 
+            chkShowPassword.AutoSize = true;
+            chkShowPassword.Cursor = Cursors.Hand;
+            chkShowPassword.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            chkShowPassword.ForeColor = Color.FromArgb(71, 85, 105);
+            chkShowPassword.Location = new Point(35, 240);
+            chkShowPassword.Name = "chkShowPassword";
+            chkShowPassword.Size = new Size(108, 19);
+            chkShowPassword.TabIndex = 6;
+            chkShowPassword.Text = "Show password";
+            chkShowPassword.UseVisualStyleBackColor = true;
+            chkShowPassword.CheckedChanged += chkShowPassword_CheckedChanged;
+            // 
+            // lblErrorMessage
+            // 
+            lblErrorMessage.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lblErrorMessage.ForeColor = Color.FromArgb(220, 38, 38);
+            lblErrorMessage.Location = new Point(35, 270);
+            lblErrorMessage.Name = "lblErrorMessage";
+            lblErrorMessage.Size = new Size(330, 38);
+            lblErrorMessage.TabIndex = 7;
+            lblErrorMessage.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // btnLogin
+            // 
+            btnLogin.BackColor = Color.FromArgb(37, 99, 235);
+            btnLogin.Cursor = Cursors.Hand;
+            btnLogin.FlatAppearance.BorderSize = 0;
+            btnLogin.FlatStyle = FlatStyle.Flat;
+            btnLogin.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLogin.ForeColor = Color.White;
+            btnLogin.Location = new Point(35, 318);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(330, 42);
+            btnLogin.TabIndex = 8;
+            btnLogin.Text = "Sign In";
+            btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
+            // 
+            // btnCancel
+            // 
+            btnCancel.BackColor = Color.FromArgb(248, 250, 252);
+            btnCancel.Cursor = Cursors.Hand;
+            btnCancel.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
+            btnCancel.FlatStyle = FlatStyle.Flat;
+            btnCancel.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCancel.ForeColor = Color.FromArgb(71, 85, 105);
+            btnCancel.Location = new Point(35, 370);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(330, 36);
+            btnCancel.TabIndex = 9;
+            btnCancel.Text = "Cancel";
+            btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
             // 
             // LoginForm
             // 
+            AcceptButton = btnLogin;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(384, 510);
+            BackColor = Color.White;
+            CancelButton = btnCancel;
+            ClientSize = new Size(400, 440);
+            Controls.Add(lblTitle);
+            Controls.Add(lblSubtitle);
+            Controls.Add(lblUsername);
+            Controls.Add(txtUsername);
+            Controls.Add(lblPassword);
+            Controls.Add(txtPassword);
+            Controls.Add(chkShowPassword);
+            Controls.Add(lblErrorMessage);
+            Controls.Add(btnLogin);
+            Controls.Add(btnCancel);
+            Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "LoginForm";
-            SizeGripStyle = SizeGripStyle.Show;
-            Text = "Login";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "DCSS Meeting Scheduler - Login";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
