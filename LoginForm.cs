@@ -1,3 +1,6 @@
+using DCSSMeetingScheduler.Shared;
+using MySqlConnector;
+
 namespace DCSSMeetingScheduler {
     public partial class LoginForm : Form {
         public LoginForm() {
@@ -19,7 +22,25 @@ namespace DCSSMeetingScheduler {
                 return;
             }
 
-            DialogResult = DialogResult.OK;
+            using (MySqlConnection conn = Connection.GetConnection()) {
+                MySqlCommand cmd = new MySqlCommand("SELECT ue_email, password, role FROM users WHERE ue_email = @email AND password = @password", conn);
+                cmd.Parameters.AddWithValue("@email", txtEmail.Text);
+                cmd.Parameters.AddWithValue("@password", txtPassword.Text);
+                using (MySqlDataReader reader = cmd.ExecuteReader()) {
+                    while (reader.Read()) {
+
+                        string email = reader.GetString("ue_email");
+                        string password = reader.GetString("password");
+                        string role = reader.GetString("role");
+
+                        switch (role) {
+                            case 
+                        }
+                    }
+                }
+            }
+
+                DialogResult = DialogResult.OK;
             Close();
         }
 
