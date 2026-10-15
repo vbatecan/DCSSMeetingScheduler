@@ -1,6 +1,6 @@
 namespace DCSSMeetingScheduler {
-    public partial class Form1 : Form {
-        public Form1() {
+    public partial class LoginForm : Form {
+        public LoginForm() {
             InitializeComponent();
         }
     }

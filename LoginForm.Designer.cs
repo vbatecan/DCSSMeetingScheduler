@@ -1,5 +1,5 @@
 ﻿namespace DCSSMeetingScheduler {
-    partial class Form1 {
+    partial class LoginForm {
         /// <summary>
         ///  Required designer variable.
         /// </summary>
@@ -23,10 +23,17 @@
         ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            components = new System.ComponentModel.Container();
+            SuspendLayout();
+            // 
+            // LoginForm
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Text = "Form1";
+            ClientSize = new Size(384, 510);
+            Name = "LoginForm";
+            SizeGripStyle = SizeGripStyle.Show;
+            Text = "Login";
+            ResumeLayout(false);
         }
 
         #endregion
