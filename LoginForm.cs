@@ -1,3 +1,4 @@
+using System.Data;
 using DCSSMeetingScheduler.Shared;
 using MySqlConnector;
 
@@ -33,7 +34,7 @@ namespace DCSSMeetingScheduler
                 MySqlCommand cmd = new MySqlCommand("SELECT ue_email, password, role FROM users WHERE ue_email = @email AND password = @password", conn);
                 cmd.Parameters.AddWithValue("@email", txtEmail.Text);
                 cmd.Parameters.AddWithValue("@password", txtPassword.Text);
-                using (MySqlDataReader reader = cmd.ExecuteReader())
+                using (MySqlDataReader reader = cmd.ExecuteReader(CommandBehavior.SingleRow))
                 {
                     while (reader.Read())
                     {
