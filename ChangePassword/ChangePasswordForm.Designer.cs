@@ -57,8 +57,8 @@ namespace DCSSMeetingScheduler.ChangePassword
             // 
             // lblTitle
             // 
-            lblTitle.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTitle.ForeColor = Color.FromArgb(163, 29, 36);
+            lblTitle.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblTitle.ForeColor = Color.FromArgb(0, 64, 0);
             lblTitle.Location = new Point(30, 24);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(360, 32);
@@ -68,7 +68,7 @@ namespace DCSSMeetingScheduler.ChangePassword
             // 
             // lblSubtitle
             // 
-            lblSubtitle.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblSubtitle.Font = new Font("Segoe UI", 9.5F);
             lblSubtitle.ForeColor = Color.FromArgb(100, 116, 139);
             lblSubtitle.Location = new Point(30, 58);
             lblSubtitle.Name = "lblSubtitle";
@@ -80,7 +80,7 @@ namespace DCSSMeetingScheduler.ChangePassword
             // lblCurrentPassword
             // 
             lblCurrentPassword.AutoSize = true;
-            lblCurrentPassword.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold, GraphicsUnit.Point);
+            lblCurrentPassword.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold);
             lblCurrentPassword.ForeColor = Color.FromArgb(51, 65, 85);
             lblCurrentPassword.Location = new Point(40, 96);
             lblCurrentPassword.Name = "lblCurrentPassword";
@@ -91,7 +91,7 @@ namespace DCSSMeetingScheduler.ChangePassword
             // txtCurrentPassword
             // 
             txtCurrentPassword.BorderStyle = BorderStyle.FixedSingle;
-            txtCurrentPassword.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            txtCurrentPassword.Font = new Font("Segoe UI", 10F);
             txtCurrentPassword.Location = new Point(40, 118);
             txtCurrentPassword.Name = "txtCurrentPassword";
             txtCurrentPassword.PlaceholderText = "Enter your current password";
@@ -102,18 +102,18 @@ namespace DCSSMeetingScheduler.ChangePassword
             // lblNewPassword
             // 
             lblNewPassword.AutoSize = true;
-            lblNewPassword.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold, GraphicsUnit.Point);
+            lblNewPassword.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold);
             lblNewPassword.ForeColor = Color.FromArgb(51, 65, 85);
             lblNewPassword.Location = new Point(40, 156);
             lblNewPassword.Name = "lblNewPassword";
-            lblNewPassword.Size = new Size(98, 17);
+            lblNewPassword.Size = new Size(97, 17);
             lblNewPassword.TabIndex = 4;
             lblNewPassword.Text = "New Password";
             // 
             // txtNewPassword
             // 
             txtNewPassword.BorderStyle = BorderStyle.FixedSingle;
-            txtNewPassword.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNewPassword.Font = new Font("Segoe UI", 10F);
             txtNewPassword.Location = new Point(40, 178);
             txtNewPassword.Name = "txtNewPassword";
             txtNewPassword.PlaceholderText = "Enter your new password";
@@ -124,18 +124,18 @@ namespace DCSSMeetingScheduler.ChangePassword
             // lblConfirmPassword
             // 
             lblConfirmPassword.AutoSize = true;
-            lblConfirmPassword.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold, GraphicsUnit.Point);
+            lblConfirmPassword.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold);
             lblConfirmPassword.ForeColor = Color.FromArgb(51, 65, 85);
             lblConfirmPassword.Location = new Point(40, 216);
             lblConfirmPassword.Name = "lblConfirmPassword";
-            lblConfirmPassword.Size = new Size(150, 17);
+            lblConfirmPassword.Size = new Size(149, 17);
             lblConfirmPassword.TabIndex = 6;
             lblConfirmPassword.Text = "Confirm New Password";
             // 
             // txtConfirmPassword
             // 
             txtConfirmPassword.BorderStyle = BorderStyle.FixedSingle;
-            txtConfirmPassword.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            txtConfirmPassword.Font = new Font("Segoe UI", 10F);
             txtConfirmPassword.Location = new Point(40, 238);
             txtConfirmPassword.Name = "txtConfirmPassword";
             txtConfirmPassword.PlaceholderText = "Re-enter your new password";
@@ -147,7 +147,7 @@ namespace DCSSMeetingScheduler.ChangePassword
             // 
             chkShowPassword.AutoSize = true;
             chkShowPassword.Cursor = Cursors.Hand;
-            chkShowPassword.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            chkShowPassword.Font = new Font("Segoe UI", 9F);
             chkShowPassword.ForeColor = Color.FromArgb(71, 85, 105);
             chkShowPassword.Location = new Point(40, 274);
             chkShowPassword.Name = "chkShowPassword";
@@ -159,7 +159,7 @@ namespace DCSSMeetingScheduler.ChangePassword
             // 
             // lblErrorMessage
             // 
-            lblErrorMessage.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lblErrorMessage.Font = new Font("Segoe UI", 9F);
             lblErrorMessage.ForeColor = Color.FromArgb(220, 38, 38);
             lblErrorMessage.Location = new Point(40, 302);
             lblErrorMessage.Name = "lblErrorMessage";
@@ -169,11 +169,11 @@ namespace DCSSMeetingScheduler.ChangePassword
             // 
             // btnChangePassword
             // 
-            btnChangePassword.BackColor = Color.FromArgb(163, 29, 36);
+            btnChangePassword.BackColor = Color.FromArgb(0, 64, 0);
             btnChangePassword.Cursor = Cursors.Hand;
             btnChangePassword.FlatAppearance.BorderSize = 0;
             btnChangePassword.FlatStyle = FlatStyle.Flat;
-            btnChangePassword.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            btnChangePassword.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
             btnChangePassword.ForeColor = Color.White;
             btnChangePassword.Location = new Point(40, 336);
             btnChangePassword.Name = "btnChangePassword";
@@ -189,7 +189,7 @@ namespace DCSSMeetingScheduler.ChangePassword
             btnCancel.Cursor = Cursors.Hand;
             btnCancel.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
             btnCancel.FlatStyle = FlatStyle.Flat;
-            btnCancel.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCancel.Font = new Font("Segoe UI", 9.5F);
             btnCancel.ForeColor = Color.FromArgb(71, 85, 105);
             btnCancel.Location = new Point(40, 390);
             btnCancel.Name = "btnCancel";
@@ -219,7 +219,7 @@ namespace DCSSMeetingScheduler.ChangePassword
             Controls.Add(lblErrorMessage);
             Controls.Add(btnChangePassword);
             Controls.Add(btnCancel);
-            Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            Font = new Font("Segoe UI", 9F);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;

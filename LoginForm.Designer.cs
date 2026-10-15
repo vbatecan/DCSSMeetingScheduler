@@ -140,7 +140,7 @@ namespace DCSSMeetingScheduler {
             // 
             // btnLogin
             // 
-            btnLogin.BackColor = Color.FromArgb(163, 29, 36);
+            btnLogin.BackColor = Color.FromArgb(0, 64, 0);
             btnLogin.Cursor = Cursors.Hand;
             btnLogin.FlatAppearance.BorderSize = 0;
             btnLogin.FlatStyle = FlatStyle.Flat;
@@ -172,12 +172,12 @@ namespace DCSSMeetingScheduler {
             // 
             // btnChangePassword
             // 
-            btnChangePassword.BackColor = Color.FromArgb(248, 250, 252);
+            btnChangePassword.BackColor = Color.White;
             btnChangePassword.Cursor = Cursors.Hand;
             btnChangePassword.FlatAppearance.BorderColor = Color.FromArgb(163, 29, 36);
             btnChangePassword.FlatStyle = FlatStyle.Flat;
             btnChangePassword.Font = new Font("Segoe UI", 9.5F);
-            btnChangePassword.ForeColor = Color.FromArgb(163, 29, 36);
+            btnChangePassword.ForeColor = Color.FromArgb(0, 64, 0);
             btnChangePassword.Location = new Point(35, 415);
             btnChangePassword.Name = "btnChangePassword";
             btnChangePassword.Size = new Size(330, 36);
