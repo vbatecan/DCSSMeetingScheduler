@@ -4,15 +4,15 @@ namespace DCSSMeetingScheduler {
             InitializeComponent();
         }
 
-        public string Username => txtUsername.Text.Trim();
+        public string Email => txtEmail.Text.Trim();
         public string Password => txtPassword.Text;
 
         private void btnLogin_Click(object? sender, EventArgs e) {
-            lblErrorMessage.Text = "";
+            lblErrorMessage.Text = string.Empty;
 
-            if (string.IsNullOrWhiteSpace(txtUsername.Text)) {
-                lblErrorMessage.Text = "Please enter your username.";
-                txtUsername.Focus();
+            if (string.IsNullOrWhiteSpace(txtEmail.Text)) {
+                lblErrorMessage.Text = "Please enter your UE email.";
+                txtEmail.Focus();
                 return;
             }
 
@@ -22,6 +22,8 @@ namespace DCSSMeetingScheduler {
                 return;
             }
 
+            // Authentication logic placeholder:
+            // Set DialogResult to OK so caller can proceed.
             DialogResult = DialogResult.OK;
             Close();
         }
