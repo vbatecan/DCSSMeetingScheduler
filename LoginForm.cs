@@ -63,7 +63,6 @@ namespace DCSSMeetingScheduler
                                     break;
                             }
 
-                            Dispose();
                         }
                         else
                         {
