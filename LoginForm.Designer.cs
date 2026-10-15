@@ -48,7 +48,7 @@ namespace DCSSMeetingScheduler {
             // 
             // lblTitle
             // 
-            lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblTitle.ForeColor = Color.FromArgb(30, 41, 59);
             lblTitle.Location = new Point(30, 30);
             lblTitle.Name = "lblTitle";
@@ -59,7 +59,7 @@ namespace DCSSMeetingScheduler {
             // 
             // lblSubtitle
             // 
-            lblSubtitle.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblSubtitle.Font = new Font("Segoe UI", 9.5F);
             lblSubtitle.ForeColor = Color.FromArgb(100, 116, 139);
             lblSubtitle.Location = new Point(30, 68);
             lblSubtitle.Name = "lblSubtitle";
@@ -71,7 +71,7 @@ namespace DCSSMeetingScheduler {
             // lblUsername
             // 
             lblUsername.AutoSize = true;
-            lblUsername.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold, GraphicsUnit.Point);
+            lblUsername.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold);
             lblUsername.ForeColor = Color.FromArgb(51, 65, 85);
             lblUsername.Location = new Point(35, 112);
             lblUsername.Name = "lblUsername";
@@ -82,7 +82,7 @@ namespace DCSSMeetingScheduler {
             // txtUsername
             // 
             txtUsername.BorderStyle = BorderStyle.FixedSingle;
-            txtUsername.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular, GraphicsUnit.Point);
+            txtUsername.Font = new Font("Segoe UI", 10.5F);
             txtUsername.Location = new Point(35, 135);
             txtUsername.Name = "txtUsername";
             txtUsername.PlaceholderText = "Enter your username";
@@ -92,7 +92,7 @@ namespace DCSSMeetingScheduler {
             // lblPassword
             // 
             lblPassword.AutoSize = true;
-            lblPassword.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold, GraphicsUnit.Point);
+            lblPassword.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold);
             lblPassword.ForeColor = Color.FromArgb(51, 65, 85);
             lblPassword.Location = new Point(35, 180);
             lblPassword.Name = "lblPassword";
@@ -103,7 +103,7 @@ namespace DCSSMeetingScheduler {
             // txtPassword
             // 
             txtPassword.BorderStyle = BorderStyle.FixedSingle;
-            txtPassword.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPassword.Font = new Font("Segoe UI", 10.5F);
             txtPassword.Location = new Point(35, 203);
             txtPassword.Name = "txtPassword";
             txtPassword.PlaceholderText = "Enter your password";
@@ -115,7 +115,7 @@ namespace DCSSMeetingScheduler {
             // 
             chkShowPassword.AutoSize = true;
             chkShowPassword.Cursor = Cursors.Hand;
-            chkShowPassword.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            chkShowPassword.Font = new Font("Segoe UI", 9F);
             chkShowPassword.ForeColor = Color.FromArgb(71, 85, 105);
             chkShowPassword.Location = new Point(35, 240);
             chkShowPassword.Name = "chkShowPassword";
@@ -127,7 +127,7 @@ namespace DCSSMeetingScheduler {
             // 
             // lblErrorMessage
             // 
-            lblErrorMessage.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lblErrorMessage.Font = new Font("Segoe UI", 9F);
             lblErrorMessage.ForeColor = Color.FromArgb(220, 38, 38);
             lblErrorMessage.Location = new Point(35, 270);
             lblErrorMessage.Name = "lblErrorMessage";
@@ -141,7 +141,7 @@ namespace DCSSMeetingScheduler {
             btnLogin.Cursor = Cursors.Hand;
             btnLogin.FlatAppearance.BorderSize = 0;
             btnLogin.FlatStyle = FlatStyle.Flat;
-            btnLogin.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLogin.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
             btnLogin.ForeColor = Color.White;
             btnLogin.Location = new Point(35, 318);
             btnLogin.Name = "btnLogin";
@@ -157,7 +157,7 @@ namespace DCSSMeetingScheduler {
             btnCancel.Cursor = Cursors.Hand;
             btnCancel.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
             btnCancel.FlatStyle = FlatStyle.Flat;
-            btnCancel.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCancel.Font = new Font("Segoe UI", 9.5F);
             btnCancel.ForeColor = Color.FromArgb(71, 85, 105);
             btnCancel.Location = new Point(35, 370);
             btnCancel.Name = "btnCancel";
@@ -185,7 +185,7 @@ namespace DCSSMeetingScheduler {
             Controls.Add(lblErrorMessage);
             Controls.Add(btnLogin);
             Controls.Add(btnCancel);
-            Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            Font = new Font("Segoe UI", 9F);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;

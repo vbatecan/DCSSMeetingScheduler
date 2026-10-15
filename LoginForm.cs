@@ -8,7 +8,7 @@ namespace DCSSMeetingScheduler {
         public string Password => txtPassword.Text;
 
         private void btnLogin_Click(object? sender, EventArgs e) {
-            lblErrorMessage.Text = string.Empty;
+            lblErrorMessage.Text = "";
 
             if (string.IsNullOrWhiteSpace(txtUsername.Text)) {
                 lblErrorMessage.Text = "Please enter your username.";
@@ -22,8 +22,6 @@ namespace DCSSMeetingScheduler {
                 return;
             }
 
-            // Authentication logic placeholder:
-            // Set DialogResult to OK so caller can proceed.
             DialogResult = DialogResult.OK;
             Close();
         }
