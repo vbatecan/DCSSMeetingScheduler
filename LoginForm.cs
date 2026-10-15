@@ -4,18 +4,6 @@ namespace DCSSMeetingScheduler {
             InitializeComponent();
         }
 
-        public string Email {
-            get {
-                return txtEmail.Text.Trim();
-            }
-        }
-
-        public string Password {
-            get {
-                return txtPassword.Text;
-            }
-        }
-
         private void btnLogin_Click(object? sender, EventArgs e) {
             lblErrorMessage.Text = "";
 
