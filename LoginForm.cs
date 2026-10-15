@@ -56,5 +56,10 @@ namespace DCSSMeetingScheduler {
                 txtPassword.UseSystemPasswordChar = true;
             }
         }
+
+        private void btnChangePassword_Click(object? sender, EventArgs e) {
+            ChangePassword.ChangePasswordForm changePasswordForm = new ChangePassword.ChangePasswordForm();
+            changePasswordForm.ShowDialog();
+        }
     }
 }
