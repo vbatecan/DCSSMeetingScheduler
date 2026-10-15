@@ -174,7 +174,7 @@ namespace DCSSMeetingScheduler {
             // 
             btnChangePassword.BackColor = Color.White;
             btnChangePassword.Cursor = Cursors.Hand;
-            btnChangePassword.FlatAppearance.BorderColor = Color.FromArgb(163, 29, 36);
+            btnChangePassword.FlatAppearance.BorderColor = Color.Green;
             btnChangePassword.FlatStyle = FlatStyle.Flat;
             btnChangePassword.Font = new Font("Segoe UI", 9.5F);
             btnChangePassword.ForeColor = Color.FromArgb(0, 64, 0);
