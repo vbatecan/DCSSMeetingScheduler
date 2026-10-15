@@ -1,5 +1,7 @@
 using System.Data;
+using DCSSMeetingScheduler.Faculty;
 using DCSSMeetingScheduler.Shared;
+using DCSSMeetingScheduler.Student;
 using MySqlConnector;
 
 namespace DCSSMeetingScheduler
@@ -31,7 +33,7 @@ namespace DCSSMeetingScheduler
 
             using (MySqlConnection conn = Connection.GetConnection())
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT ue_email, password, role FROM users WHERE ue_email = @email AND password = @password", conn);
+                MySqlCommand cmd = new MySqlCommand("SELECT ue_email, user_password, role FROM users WHERE ue_email = @email AND user_password = @password", conn);
                 cmd.Parameters.AddWithValue("@email", txtEmail.Text);
                 cmd.Parameters.AddWithValue("@password", txtPassword.Text);
                 using (MySqlDataReader reader = cmd.ExecuteReader(CommandBehavior.SingleRow))
@@ -40,7 +42,7 @@ namespace DCSSMeetingScheduler
                     {
 
                         string email = reader.GetString("ue_email");
-                        string password = reader.GetString("password");
+                        string password = reader.GetString("user_password");
 
                         if (email.Equals(txtEmail.Text, StringComparison.OrdinalIgnoreCase) && password == txtPassword.Text)
                         {
@@ -49,12 +51,19 @@ namespace DCSSMeetingScheduler
                             switch (userRole)
                             {
                                 case UserRole.Admin:
+                                    MessageBox.Show("Admin page coming soon.");
                                     break;
                                 case UserRole.Faculty:
+                                    FacultyForm facultyForm = new FacultyForm();
+                                    facultyForm.Show();
                                     break;
                                 case UserRole.Student:
+                                    StudentForm studentForm = new StudentForm();
+                                    studentForm.Show();
                                     break;
                             }
+
+                            Dispose();
                         }
                         else
                         {
@@ -67,7 +76,6 @@ namespace DCSSMeetingScheduler
             }
 
             DialogResult = DialogResult.OK;
-            Close();
         }
 
         private void btnCancel_Click(object? sender, EventArgs e)

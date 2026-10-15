@@ -42,20 +42,16 @@ namespace DCSSMeetingScheduler.Faculty
 
         private void tabfaculty_TabIndexChanged(object sender, EventArgs e)
         {
-            if (tabfaculty.SelectedTab == tabhome)
-            {
-                LoadDashboardCounts();
-                LoadRecentRequests();
+            if (tabfaculty.SelectedTab == tabhome) {
+                //LoadDashboardCounts();
+                //LoadRecentRequests();
+            } else if (tabfaculty.SelectedTab == tabrequest) {
+                //Loadrequests();
+            } else if (tabfaculty.SelectedTab == tabavail) {
+                //Loadavailability();
+            } else if (tabfaculty.SelectedTab == tabsetting) {
+
             }
-            else if (tabfaculty.SelectedTab == tabrequest)
-            {
-                Loadrequests();
-            }
-            else if (tabfaculty.SelectedTab == tabavail)
-            {
-                Loadavailability();
-            }
-            else if (tabfaculty.SelectedTab == tabsetting) ;
         }
 
         private void panel8_Paint(object sender, PaintEventArgs e)
@@ -69,4 +65,4 @@ namespace DCSSMeetingScheduler.Faculty
         }
     }
 }
-}
+
