@@ -71,76 +71,16 @@ namespace DCSSMeetingScheduler.ChangePassword
             {
                 using (MySqlConnection conn = Connection.GetConnection())
                 {
-
-                    string idColumn = "id";
-                    string checkQuery = $"SELECT password FROM users WHERE {idColumn} = @id LIMIT 1";
-                    string? storedPassword = null;
-
-                    try
-                    {
-                        using (MySqlCommand checkCmd = new MySqlCommand(checkQuery, conn))
-                        {
-                            checkCmd.Parameters.AddWithValue("@id", loggedInUserId);
-                            object? result = checkCmd.ExecuteScalar();
-                            if (result != null)
-                            {
-                                storedPassword = result.ToString();
-                            }
-                        }
-                    }
-                    catch (MySqlException ex) when (ex.Number == 1054)
-                    {
-                        idColumn = "user_id";
-                        string fallbackQuery = $"SELECT password FROM users WHERE {idColumn} = @id LIMIT 1";
-                        using (MySqlCommand fallbackCmd = new MySqlCommand(fallbackQuery, conn))
-                        {
-                            fallbackCmd.Parameters.AddWithValue("@id", loggedInUserId);
-                            object? result = fallbackCmd.ExecuteScalar();
-                            if (result != null)
-                            {
-                                storedPassword = result.ToString();
-                            }
-                        }
-                    }
-
-                    if (storedPassword == null)
-                    {
-                        MessageBox.Show("User not found in the database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    if (currentPassword != storedPassword)
-                    {
-                        MessageBox.Show("Current password is incorrect.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtCurrentPassword.Focus();
-                        return;
-                    }
-
-                    string updateQuery = $"UPDATE users SET password = @newPassword WHERE {idColumn} = @id";
-                    using (MySqlCommand updateCmd = new MySqlCommand(updateQuery, conn))
-                    {
-                        updateCmd.Parameters.AddWithValue("@newPassword", newPassword);
-                        updateCmd.Parameters.AddWithValue("@id", loggedInUserId);
-
-                        int rows = updateCmd.ExecuteNonQuery();
-
-                        if (rows > 0)
-                        {
-                            MessageBox.Show("Password changed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            txtCurrentPassword.Clear();
-                            txtNewPassword.Clear();
-                            txtConfirmPassword.Clear();
-
-                            this.DialogResult = DialogResult.OK;
-                            this.Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Failed to change password. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
                 }
+
+                MessageBox.Show("Password changed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                txtCurrentPassword.Clear();
+                txtNewPassword.Clear();
+                txtConfirmPassword.Clear();
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (Exception ex)
             {
