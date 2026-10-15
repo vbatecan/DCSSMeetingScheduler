@@ -1,12 +1,12 @@
 using System;
 using System.Windows.Forms;
+using DCSSMeetingScheduler.Shared;
 using MySqlConnector;
 
 namespace DCSSMeetingScheduler.ChangePassword
 {
     public partial class ChangePasswordForm : Form
     {
-        private string connectionString = "server=localhost;port=3306;database=dcss_db;uid=root;pwd=;";
         private int loggedInUserId = 1;
 
         public ChangePasswordForm()
@@ -18,16 +18,6 @@ namespace DCSSMeetingScheduler.ChangePassword
         {
             InitializeComponent();
             loggedInUserId = userId;
-        }
-
-        public ChangePasswordForm(int userId, string connStr)
-        {
-            InitializeComponent();
-            loggedInUserId = userId;
-            if (!string.IsNullOrEmpty(connStr))
-            {
-                connectionString = connStr;
-            }
         }
 
         private void chkShowPassword_CheckedChanged(object? sender, EventArgs e)
@@ -79,9 +69,8 @@ namespace DCSSMeetingScheduler.ChangePassword
 
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                using (MySqlConnection conn = Connection.GetConnection())
                 {
-                    conn.Open();
 
                     string idColumn = "id";
                     string checkQuery = $"SELECT password FROM users WHERE {idColumn} = @id LIMIT 1";
