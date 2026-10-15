@@ -15,7 +15,6 @@ namespace DCSSMeetingScheduler {
         private System.Windows.Forms.Label lblErrorMessage;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnChangePassword;
 
         /// <summary>
         ///  Clean up any resources being used.
@@ -34,8 +33,7 @@ namespace DCSSMeetingScheduler {
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             lblTitle = new Label();
             lblSubtitle = new Label();
             lblEmail = new Label();
@@ -217,5 +215,7 @@ namespace DCSSMeetingScheduler {
         }
 
         #endregion
+
+        private Button btnChangePassword;
     }
 }
