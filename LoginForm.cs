@@ -4,26 +4,33 @@ namespace DCSSMeetingScheduler {
             InitializeComponent();
         }
 
-        public string Email => txtEmail.Text.Trim();
-        public string Password => txtPassword.Text;
+        public string Email {
+            get {
+                return txtEmail.Text.Trim();
+            }
+        }
+
+        public string Password {
+            get {
+                return txtPassword.Text;
+            }
+        }
 
         private void btnLogin_Click(object? sender, EventArgs e) {
-            lblErrorMessage.Text = string.Empty;
+            lblErrorMessage.Text = "";
 
-            if (string.IsNullOrWhiteSpace(txtEmail.Text)) {
+            if (txtEmail.Text.Trim() == "") {
                 lblErrorMessage.Text = "Please enter your UE email.";
                 txtEmail.Focus();
                 return;
             }
 
-            if (string.IsNullOrEmpty(txtPassword.Text)) {
+            if (txtPassword.Text == "") {
                 lblErrorMessage.Text = "Please enter your password.";
                 txtPassword.Focus();
                 return;
             }
 
-            // Authentication logic placeholder:
-            // Set DialogResult to OK so caller can proceed.
             DialogResult = DialogResult.OK;
             Close();
         }
@@ -34,7 +41,11 @@ namespace DCSSMeetingScheduler {
         }
 
         private void chkShowPassword_CheckedChanged(object? sender, EventArgs e) {
-            txtPassword.UseSystemPasswordChar = !chkShowPassword.Checked;
+            if (chkShowPassword.Checked) {
+                txtPassword.UseSystemPasswordChar = false;
+            } else {
+                txtPassword.UseSystemPasswordChar = true;
+            }
         }
     }
 }
