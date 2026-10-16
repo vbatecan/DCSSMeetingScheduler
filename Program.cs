@@ -1,5 +1,3 @@
-using DCSSMeetingScheduler.UI.Forms;
-
 namespace DCSSMeetingScheduler {
     internal static class Program {
         /// <summary>
