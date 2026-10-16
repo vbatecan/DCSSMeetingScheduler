@@ -23,7 +23,138 @@ namespace DCSSMeetingScheduler.Admin {
         }
 
         private void AdminForm_Load(object sender, EventArgs e) {
+            cmbFilterStatus.SelectedIndex = 0;
+            LoadDashboardStatistics();
+            LoadAppointments();
             LoadUsers();
+        }
+
+        private void LoadDashboardStatistics() {
+            try {
+                using (MySqlConnection conn = Connection.GetConnection()) {
+                    string facultyQuery = "SELECT COUNT(*) FROM users WHERE role = 'Faculty'";
+                    using (MySqlCommand facultyCmd = new MySqlCommand(facultyQuery, conn)) {
+                        int facultyCount = Convert.ToInt32(facultyCmd.ExecuteScalar());
+                        lblFacultyCount.Text = facultyCount.ToString();
+                    }
+
+                    string studentQuery = "SELECT COUNT(*) FROM users WHERE role = 'Student'";
+                    using (MySqlCommand studentCmd = new MySqlCommand(studentQuery, conn)) {
+                        int studentCount = Convert.ToInt32(studentCmd.ExecuteScalar());
+                        lblStudentsCount.Text = studentCount.ToString();
+                    }
+
+                    string meetingsQuery = "SELECT COUNT(*) FROM appointments";
+                    using (MySqlCommand meetingsCmd = new MySqlCommand(meetingsQuery, conn)) {
+                        int meetingsCount = Convert.ToInt32(meetingsCmd.ExecuteScalar());
+                        lblMeetingsCount.Text = meetingsCount.ToString();
+                    }
+
+                    string pendingQuery = "SELECT COUNT(*) FROM appointments WHERE status = 'Pending'";
+                    using (MySqlCommand pendingCmd = new MySqlCommand(pendingQuery, conn)) {
+                        int pendingCount = Convert.ToInt32(pendingCmd.ExecuteScalar());
+                        lblPendingCount.Text = pendingCount.ToString();
+                    }
+                }
+            } catch (Exception ex) {
+                MessageBox.Show("Error loading statistics: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LoadAppointments(string searchKeyword = "", string statusFilter = "All") {
+            try {
+                using (MySqlConnection conn = Connection.GetConnection()) {
+                    string query = "SELECT a.appointment_id AS 'ID', " +
+                                   "CONCAT(s.first_name, ' ', s.last_name) AS 'Student', " +
+                                   "CONCAT(f.first_name, ' ', f.last_name) AS 'Faculty', " +
+                                   "a.meeting_datetime AS 'Date & Time', " +
+                                   "a.purpose AS 'Purpose', " +
+                                   "a.status AS 'Status', " +
+                                   "a.faculty_remarks AS 'Faculty Remarks', " +
+                                   "a.created_at AS 'Created At' " +
+                                   "FROM appointments a " +
+                                   "INNER JOIN users s ON a.student_id = s.user_id " +
+                                   "INNER JOIN users f ON a.faculty_id = f.user_id ";
+
+                    if (!string.IsNullOrWhiteSpace(statusFilter) && statusFilter != "All") {
+                        query += " AND a.status = @status";
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(searchKeyword)) {
+                        query += " AND (s.first_name LIKE @search OR s.last_name LIKE @search OR CONCAT(s.first_name, ' ', s.last_name) LIKE @search OR f.first_name LIKE @search OR f.last_name LIKE @search OR CONCAT(f.first_name, ' ', f.last_name) LIKE @search OR a.purpose LIKE @search)";
+                    }
+
+                    query += " ORDER BY a.meeting_datetime DESC";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn)) {
+                        if (!string.IsNullOrWhiteSpace(statusFilter) && statusFilter != "All") {
+                            cmd.Parameters.AddWithValue("@status", statusFilter);
+                        }
+
+                        if (!string.IsNullOrWhiteSpace(searchKeyword)) {
+                            cmd.Parameters.AddWithValue("@search", "%" + searchKeyword.Trim() + "%");
+                        }
+
+                        using (MySqlDataAdapter da = new MySqlDataAdapter(cmd)) {
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            dgvAppointments.DataSource = dt;
+                        }
+                    }
+                }
+            } catch (Exception ex) {
+                MessageBox.Show("Error loading appointments: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnRefreshHome_Click(object sender, EventArgs e) {
+            LoadDashboardStatistics();
+            string selectedStatus = cmbFilterStatus.SelectedItem != null ? cmbFilterStatus.SelectedItem.ToString()! : "All";
+            string searchKeyword = txtSearchAppointment.Text.Trim();
+            LoadAppointments(searchKeyword, selectedStatus);
+        }
+
+        private void cmbFilterStatus_SelectedIndexChanged(object sender, EventArgs e) {
+            string selectedStatus = cmbFilterStatus.SelectedItem != null ? cmbFilterStatus.SelectedItem.ToString()! : "All";
+            string searchKeyword = txtSearchAppointment.Text.Trim();
+            LoadAppointments(searchKeyword, selectedStatus);
+        }
+
+        private void btnSearchAppointment_Click(object sender, EventArgs e) {
+            string selectedStatus = cmbFilterStatus.SelectedItem != null ? cmbFilterStatus.SelectedItem.ToString()! : "All";
+            string searchKeyword = txtSearchAppointment.Text.Trim();
+            LoadAppointments(searchKeyword, selectedStatus);
+        }
+
+        private void txtSearchAppointment_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Enter) {
+                e.SuppressKeyPress = true;
+                btnSearchAppointment_Click(sender, e);
+            }
+        }
+
+        private void txtSearchAppointment_TextChanged(object sender, EventArgs e) {
+            if (string.IsNullOrWhiteSpace(txtSearchAppointment.Text)) {
+                string selectedStatus = cmbFilterStatus.SelectedItem != null ? cmbFilterStatus.SelectedItem.ToString()! : "All";
+                LoadAppointments("", selectedStatus);
+            }
+        }
+
+        private void btnResetAppointmentFilter_Click(object sender, EventArgs e) {
+            txtSearchAppointment.Text = "";
+            cmbFilterStatus.SelectedIndex = 0;
+            LoadAppointments("", "All");
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e) {
+            if (tabControl1.SelectedTab == tabHome) {
+                LoadDashboardStatistics();
+                string selectedStatus = cmbFilterStatus.SelectedItem != null ? cmbFilterStatus.SelectedItem.ToString()! : "All";
+                string searchKeyword = txtSearchAppointment.Text.Trim();
+                LoadAppointments(searchKeyword, selectedStatus);
+            } else if (tabControl1.SelectedTab == tabUsers) {
+                LoadUsers();
+            }
         }
 
         private void LoadUsers(string searchKeyword = "") {
