@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,13 +6,21 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace DCSSMeetingScheduler.Forms.Faculty
+namespace DCSSMeetingScheduler.Faculty
 {
     public partial class faculty : Form
     {
+        private User? loggedInUser = null;
+
         public faculty()
         {
             InitializeComponent();
+        }
+
+        public faculty(User user)
+        {
+            InitializeComponent();
+            loggedInUser = user;
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
