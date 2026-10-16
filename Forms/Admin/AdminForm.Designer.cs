@@ -75,10 +75,10 @@ namespace DCSSMeetingScheduler.Admin {
             tabUsers.Controls.Add(label2);
             tabUsers.Controls.Add(dgvUsers);
             tabUsers.Font = new Font("Microsoft Sans Serif", 12.25F);
-            tabUsers.Location = new Point(4, 24);
+            tabUsers.Location = new Point(4, 22);
             tabUsers.Name = "tabUsers";
             tabUsers.Padding = new Padding(8);
-            tabUsers.Size = new Size(1234, 582);
+            tabUsers.Size = new Size(1234, 584);
             tabUsers.TabIndex = 1;
             tabUsers.Text = "Users";
             tabUsers.UseVisualStyleBackColor = true;
