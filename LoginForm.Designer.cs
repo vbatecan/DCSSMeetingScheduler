@@ -44,16 +44,17 @@ namespace DCSSMeetingScheduler {
             lblErrorMessage = new Label();
             btnLogin = new Button();
             btnCancel = new Button();
-            btnChangePassword = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // lblTitle
             // 
             lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblTitle.ForeColor = Color.FromArgb(30, 41, 59);
-            lblTitle.Location = new Point(30, 30);
+            lblTitle.Location = new Point(35, 143);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(340, 35);
+            lblTitle.Size = new Size(330, 35);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "DCSS Meeting Scheduler";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -62,9 +63,9 @@ namespace DCSSMeetingScheduler {
             // 
             lblSubtitle.Font = new Font("Segoe UI", 9.5F);
             lblSubtitle.ForeColor = Color.FromArgb(100, 116, 139);
-            lblSubtitle.Location = new Point(30, 68);
+            lblSubtitle.Location = new Point(35, 181);
             lblSubtitle.Name = "lblSubtitle";
-            lblSubtitle.Size = new Size(340, 22);
+            lblSubtitle.Size = new Size(330, 22);
             lblSubtitle.TabIndex = 1;
             lblSubtitle.Text = "Sign in to continue";
             lblSubtitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -74,7 +75,7 @@ namespace DCSSMeetingScheduler {
             lblEmail.AutoSize = true;
             lblEmail.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold);
             lblEmail.ForeColor = Color.FromArgb(51, 65, 85);
-            lblEmail.Location = new Point(35, 112);
+            lblEmail.Location = new Point(35, 222);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(60, 17);
             lblEmail.TabIndex = 2;
@@ -84,7 +85,7 @@ namespace DCSSMeetingScheduler {
             // 
             txtEmail.BorderStyle = BorderStyle.FixedSingle;
             txtEmail.Font = new Font("Segoe UI", 10.5F);
-            txtEmail.Location = new Point(35, 135);
+            txtEmail.Location = new Point(35, 245);
             txtEmail.Name = "txtEmail";
             txtEmail.PlaceholderText = "Enter your UE email";
             txtEmail.Size = new Size(330, 26);
@@ -95,7 +96,7 @@ namespace DCSSMeetingScheduler {
             lblPassword.AutoSize = true;
             lblPassword.Font = new Font("Segoe UI Semibold", 9.5F, FontStyle.Bold);
             lblPassword.ForeColor = Color.FromArgb(51, 65, 85);
-            lblPassword.Location = new Point(35, 180);
+            lblPassword.Location = new Point(35, 290);
             lblPassword.Name = "lblPassword";
             lblPassword.Size = new Size(66, 17);
             lblPassword.TabIndex = 4;
@@ -105,7 +106,7 @@ namespace DCSSMeetingScheduler {
             // 
             txtPassword.BorderStyle = BorderStyle.FixedSingle;
             txtPassword.Font = new Font("Segoe UI", 10.5F);
-            txtPassword.Location = new Point(35, 203);
+            txtPassword.Location = new Point(35, 313);
             txtPassword.Name = "txtPassword";
             txtPassword.PlaceholderText = "Enter your password";
             txtPassword.Size = new Size(330, 26);
@@ -118,7 +119,7 @@ namespace DCSSMeetingScheduler {
             chkShowPassword.Cursor = Cursors.Hand;
             chkShowPassword.Font = new Font("Segoe UI", 9F);
             chkShowPassword.ForeColor = Color.FromArgb(71, 85, 105);
-            chkShowPassword.Location = new Point(35, 240);
+            chkShowPassword.Location = new Point(35, 350);
             chkShowPassword.Name = "chkShowPassword";
             chkShowPassword.Size = new Size(108, 19);
             chkShowPassword.TabIndex = 6;
@@ -130,7 +131,7 @@ namespace DCSSMeetingScheduler {
             // 
             lblErrorMessage.Font = new Font("Segoe UI", 9F);
             lblErrorMessage.ForeColor = Color.FromArgb(220, 38, 38);
-            lblErrorMessage.Location = new Point(35, 270);
+            lblErrorMessage.Location = new Point(35, 291);
             lblErrorMessage.Name = "lblErrorMessage";
             lblErrorMessage.Size = new Size(330, 38);
             lblErrorMessage.TabIndex = 7;
@@ -144,9 +145,9 @@ namespace DCSSMeetingScheduler {
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
             btnLogin.ForeColor = Color.White;
-            btnLogin.Location = new Point(35, 318);
+            btnLogin.Location = new Point(211, 395);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(330, 42);
+            btnLogin.Size = new Size(154, 42);
             btnLogin.TabIndex = 8;
             btnLogin.Text = "Sign In";
             btnLogin.UseVisualStyleBackColor = false;
@@ -160,29 +161,22 @@ namespace DCSSMeetingScheduler {
             btnCancel.FlatStyle = FlatStyle.Flat;
             btnCancel.Font = new Font("Segoe UI", 9.5F);
             btnCancel.ForeColor = Color.FromArgb(71, 85, 105);
-            btnCancel.Location = new Point(35, 370);
+            btnCancel.Location = new Point(35, 395);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(330, 36);
+            btnCancel.Size = new Size(165, 42);
             btnCancel.TabIndex = 9;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
             // 
-            // btnChangePassword
+            // pictureBox1
             // 
-            btnChangePassword.BackColor = Color.White;
-            btnChangePassword.Cursor = Cursors.Hand;
-            btnChangePassword.FlatAppearance.BorderColor = Color.Green;
-            btnChangePassword.FlatStyle = FlatStyle.Flat;
-            btnChangePassword.Font = new Font("Segoe UI", 9.5F);
-            btnChangePassword.ForeColor = Color.FromArgb(0, 64, 0);
-            btnChangePassword.Location = new Point(35, 415);
-            btnChangePassword.Name = "btnChangePassword";
-            btnChangePassword.Size = new Size(330, 36);
-            btnChangePassword.TabIndex = 10;
-            btnChangePassword.Text = "Change Password";
-            btnChangePassword.UseVisualStyleBackColor = false;
-            btnChangePassword.Click += btnChangePassword_Click;
+            pictureBox1.Image = Properties.Resources.dcss;
+            pictureBox1.Location = new Point(134, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(128, 128);
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
             // 
             // LoginForm
             // 
@@ -191,7 +185,8 @@ namespace DCSSMeetingScheduler {
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             CancelButton = btnCancel;
-            ClientSize = new Size(400, 480);
+            ClientSize = new Size(404, 461);
+            Controls.Add(pictureBox1);
             Controls.Add(lblTitle);
             Controls.Add(lblSubtitle);
             Controls.Add(lblEmail);
@@ -202,7 +197,6 @@ namespace DCSSMeetingScheduler {
             Controls.Add(lblErrorMessage);
             Controls.Add(btnLogin);
             Controls.Add(btnCancel);
-            Controls.Add(btnChangePassword);
             Font = new Font("Segoe UI", 9F);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
@@ -210,12 +204,13 @@ namespace DCSSMeetingScheduler {
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DCSS Meeting Scheduler - Login";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button btnChangePassword;
+        private PictureBox pictureBox1;
     }
 }

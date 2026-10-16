@@ -26,8 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             tabBookMeeting = new TabControl();
             tabHome = new TabPage();
             btnSubmitRequest = new Button();
@@ -57,10 +56,10 @@
             lbWelcome = new Label();
             Book = new TabPage();
             tabRequests = new TabPage();
+            lbRequestsSubTitle = new Label();
+            lbRequestsTitle = new Label();
             tabAvailability = new TabPage();
             tabSettings = new TabPage();
-            lbRequestsTitle = new Label();
-            lbRequestsSubTitle = new Label();
             tabBookMeeting.SuspendLayout();
             tabHome.SuspendLayout();
             panelDeclined.SuspendLayout();
@@ -219,10 +218,10 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label7.Location = new Point(15, 58);
+            label7.Font = new Font("Microsoft Sans Serif", 18F);
+            label7.Location = new Point(15, 40);
             label7.Name = "label7";
-            label7.Size = new Size(14, 15);
+            label7.Size = new Size(26, 29);
             label7.TabIndex = 3;
             label7.Text = "0";
             // 
@@ -249,10 +248,10 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(15, 58);
+            label6.Font = new Font("Microsoft Sans Serif", 18F);
+            label6.Location = new Point(15, 40);
             label6.Name = "label6";
-            label6.Size = new Size(14, 15);
+            label6.Size = new Size(26, 29);
             label6.TabIndex = 2;
             label6.Text = "0";
             // 
@@ -279,10 +278,10 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label8.Location = new Point(15, 58);
+            label8.Font = new Font("Microsoft Sans Serif", 18F);
+            label8.Location = new Point(15, 38);
             label8.Name = "label8";
-            label8.Size = new Size(14, 15);
+            label8.Size = new Size(26, 29);
             label8.TabIndex = 4;
             label8.Text = "0";
             // 
@@ -309,10 +308,10 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(15, 58);
+            label5.Font = new Font("Microsoft Sans Serif", 18F);
+            label5.Location = new Point(15, 38);
             label5.Name = "label5";
-            label5.Size = new Size(14, 15);
+            label5.Size = new Size(26, 29);
             label5.TabIndex = 1;
             label5.Text = "0";
             // 
@@ -369,6 +368,26 @@
             tabRequests.Text = "My Request";
             tabRequests.UseVisualStyleBackColor = true;
             // 
+            // lbRequestsSubTitle
+            // 
+            lbRequestsSubTitle.AutoSize = true;
+            lbRequestsSubTitle.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbRequestsSubTitle.Location = new Point(38, 37);
+            lbRequestsSubTitle.Name = "lbRequestsSubTitle";
+            lbRequestsSubTitle.Size = new Size(211, 17);
+            lbRequestsSubTitle.TabIndex = 1;
+            lbRequestsSubTitle.Text = "Track Your Consultation Requests";
+            // 
+            // lbRequestsTitle
+            // 
+            lbRequestsTitle.AutoSize = true;
+            lbRequestsTitle.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbRequestsTitle.Location = new Point(38, 0);
+            lbRequestsTitle.Name = "lbRequestsTitle";
+            lbRequestsTitle.Size = new Size(295, 37);
+            lbRequestsTitle.TabIndex = 0;
+            lbRequestsTitle.Text = "My Meeting Requests";
+            // 
             // tabAvailability
             // 
             tabAvailability.Location = new Point(4, 24);
@@ -387,26 +406,6 @@
             tabSettings.Text = "Settings";
             tabSettings.UseVisualStyleBackColor = true;
             // 
-            // lbRequestsTitle
-            // 
-            lbRequestsTitle.AutoSize = true;
-            lbRequestsTitle.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbRequestsTitle.Location = new Point(38, 0);
-            lbRequestsTitle.Name = "lbRequestsTitle";
-            lbRequestsTitle.Size = new Size(295, 37);
-            lbRequestsTitle.TabIndex = 0;
-            lbRequestsTitle.Text = "My Meeting Requests";
-            // 
-            // lbRequestsSubTitle
-            // 
-            lbRequestsSubTitle.AutoSize = true;
-            lbRequestsSubTitle.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbRequestsSubTitle.Location = new Point(38, 37);
-            lbRequestsSubTitle.Name = "lbRequestsSubTitle";
-            lbRequestsSubTitle.Size = new Size(211, 17);
-            lbRequestsSubTitle.TabIndex = 1;
-            lbRequestsSubTitle.Text = "Track Your Consultation Requests";
-            // 
             // StudentForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -414,7 +413,8 @@
             ClientSize = new Size(1264, 681);
             Controls.Add(tabBookMeeting);
             Name = "StudentForm";
-            Text = "StudentForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Student Form";
             tabBookMeeting.ResumeLayout(false);
             tabHome.ResumeLayout(false);
             tabHome.PerformLayout();
