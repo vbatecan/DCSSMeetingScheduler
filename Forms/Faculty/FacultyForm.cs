@@ -23,7 +23,7 @@ namespace DCSSMeetingScheduler.Faculty
             InitializeComponent();
             loggedInUser = user;
         }
-        
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -52,14 +52,21 @@ namespace DCSSMeetingScheduler.Faculty
 
         private void tabfaculty_TabIndexChanged(object sender, EventArgs e)
         {
-            if (tabfaculty.SelectedTab == tabhome) {
+            if (tabfaculty.SelectedTab == tabhome)
+            {
                 //LoadDashboardCounts();
                 //LoadRecentRequests();
-            } else if (tabfaculty.SelectedTab == tabrequest) {
+            }
+            else if (tabfaculty.SelectedTab == tabrequest)
+            {
                 //Loadrequests();
-            } else if (tabfaculty.SelectedTab == tabavail) {
+            }
+            else if (tabfaculty.SelectedTab == tabavail)
+            {
                 //Loadavailability();
-            } else if (tabfaculty.SelectedTab == tabsetting) {
+            }
+            else if (tabfaculty.SelectedTab == tabsetting)
+            {
 
             }
         }
@@ -70,6 +77,11 @@ namespace DCSSMeetingScheduler.Faculty
         }
 
         private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
         {
 
         }
