@@ -99,5 +99,19 @@ namespace DCSSMeetingScheduler
             ChangePassword.ChangePasswordForm changePasswordForm = new ChangePassword.ChangePasswordForm();
             changePasswordForm.ShowDialog();
         }
+
+        private void lnkSignUp_LinkClicked(object? sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SignUpForm signUpForm = new SignUpForm();
+            Hide();
+            DialogResult result = signUpForm.ShowDialog();
+            if (result == DialogResult.OK && !string.IsNullOrEmpty(signUpForm.RegisteredEmail))
+            {
+                txtEmail.Text = signUpForm.RegisteredEmail;
+                txtPassword.Clear();
+                txtPassword.Focus();
+            }
+            Show();
+        }
     }
 }
