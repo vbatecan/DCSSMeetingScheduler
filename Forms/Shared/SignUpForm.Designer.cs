@@ -18,7 +18,7 @@ namespace DCSSMeetingScheduler
         private System.Windows.Forms.Label lblIdNumber;
         private System.Windows.Forms.TextBox txtIdNumber;
         private System.Windows.Forms.Label lblProgramOrDept;
-        private System.Windows.Forms.TextBox txtProgramOrDept;
+        private System.Windows.Forms.ComboBox cmbProgramOrDept;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblConfirmPassword;
@@ -55,7 +55,7 @@ namespace DCSSMeetingScheduler
             lblIdNumber = new Label();
             txtIdNumber = new TextBox();
             lblProgramOrDept = new Label();
-            txtProgramOrDept = new TextBox();
+            cmbProgramOrDept = new ComboBox();
             lblPassword = new Label();
             txtPassword = new TextBox();
             lblConfirmPassword = new Label();
@@ -188,13 +188,14 @@ namespace DCSSMeetingScheduler
             lblProgramOrDept.TabIndex = 13;
             lblProgramOrDept.Text = "Program / Department";
 
-            txtProgramOrDept.BorderStyle = BorderStyle.FixedSingle;
-            txtProgramOrDept.Font = new Font("Segoe UI", 9.5F);
-            txtProgramOrDept.Location = new Point(35, 329);
-            txtProgramOrDept.Name = "txtProgramOrDept";
-            txtProgramOrDept.PlaceholderText = "e.g. BSCS, BSIT, DCSS";
-            txtProgramOrDept.Size = new Size(380, 24);
-            txtProgramOrDept.TabIndex = 14;
+            cmbProgramOrDept.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbProgramOrDept.Font = new Font("Segoe UI", 9.5F);
+            cmbProgramOrDept.FormattingEnabled = true;
+            cmbProgramOrDept.Items.AddRange(new object[] { "BSIT", "BSCS", "DCSS" });
+            cmbProgramOrDept.Location = new Point(35, 329);
+            cmbProgramOrDept.Name = "cmbProgramOrDept";
+            cmbProgramOrDept.Size = new Size(380, 24);
+            cmbProgramOrDept.TabIndex = 14;
 
             lblPassword.AutoSize = true;
             lblPassword.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
@@ -209,7 +210,7 @@ namespace DCSSMeetingScheduler
             txtPassword.Font = new Font("Segoe UI", 9.5F);
             txtPassword.Location = new Point(35, 381);
             txtPassword.Name = "txtPassword";
-            txtPassword.PlaceholderText = "Min. 6 characters";
+            txtPassword.PlaceholderText = "Min. 8 characters";
             txtPassword.Size = new Size(180, 24);
             txtPassword.TabIndex = 16;
             txtPassword.UseSystemPasswordChar = true;
@@ -300,7 +301,7 @@ namespace DCSSMeetingScheduler
             Controls.Add(lblIdNumber);
             Controls.Add(txtIdNumber);
             Controls.Add(lblProgramOrDept);
-            Controls.Add(txtProgramOrDept);
+            Controls.Add(cmbProgramOrDept);
             Controls.Add(lblPassword);
             Controls.Add(txtPassword);
             Controls.Add(lblConfirmPassword);

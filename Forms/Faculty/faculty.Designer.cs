@@ -50,12 +50,7 @@
             comboBox1 = new ComboBox();
             label2 = new Label();
             tabPage4 = new TabPage();
-            button1 = new Button();
             tabControl1.SuspendLayout();
-            AvailabilityPage.SuspendLayout();
-            groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -73,11 +68,11 @@
             // 
             // tabPage1
             // 
-            tabPage1.Location = new Point(4, 29);
-            tabPage1.Margin = new Padding(2);
+            tabPage1.Location = new Point(4, 34);
+            tabPage1.Margin = new Padding(4);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(2);
-            tabPage1.Size = new Size(1003, 479);
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(1256, 566);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Home";
             tabPage1.UseVisualStyleBackColor = true;
@@ -87,8 +82,8 @@
             tabPage2.Location = new Point(4, 29);
             tabPage2.Margin = new Padding(2);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(2);
-            tabPage2.Size = new Size(1003, 479);
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(1256, 566);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Request";
             tabPage2.UseVisualStyleBackColor = true;
@@ -281,64 +276,39 @@
             // 
             // comboBox1
             // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" });
-            comboBox1.Location = new Point(20, 50);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(255, 28);
-            comboBox1.TabIndex = 1;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged_1;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 7.20000029F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(20, 30);
-            label2.Name = "label2";
-            label2.Size = new Size(81, 17);
-            label2.TabIndex = 2;
-            label2.Text = "Day of Week";
-            label2.Click += label2_Click;
+            tabPage3.Location = new Point(4, 34);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(3);
+            tabPage3.Size = new Size(1256, 537);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "Availabillity";
+            tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
             tabPage4.Location = new Point(4, 29);
             tabPage4.Margin = new Padding(2);
             tabPage4.Name = "tabPage4";
-            tabPage4.Padding = new Padding(2);
-            tabPage4.Size = new Size(1003, 479);
+            tabPage4.Padding = new Padding(3);
+            tabPage4.Size = new Size(1256, 537);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Setting";
             tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(163, 294);
-            button1.Name = "button1";
-            button1.Size = new Size(95, 30);
-            button1.TabIndex = 7;
-            button1.Text = "Clear";
-            button1.UseVisualStyleBackColor = true;
             // 
             // faculty
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1011, 617);
+            ClientSize = new Size(1264, 690);
+            Controls.Add(label8);
+            Controls.Add(label7);
             Controls.Add(tabControl1);
             Margin = new Padding(2);
             Name = "faculty";
-            Text = "faculty";
+            Text = "Faculty Form";
             tabControl1.ResumeLayout(false);
-            AvailabilityPage.ResumeLayout(false);
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -348,24 +318,5 @@
         private TabPage tabPage2;
         private TabPage AvailabilityPage;
         private TabPage tabPage4;
-        private GroupBox groupBox1;
-        private ComboBox comboBox1;
-        private Label label2;
-        private Label label3;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker3;
-        private Label label4;
-        private Button button2;
-        private Button AddBTN;
-        private TextBox textBox1;
-        private Label label5;
-        private GroupBox groupBox2;
-        private DataGridView dataGridView1;
-        private TextBox textBox2;
-        private Button SearchBTN;
-        private TextBox Tips;
-        private Button EditBTN;
-        private Button DeleteBTN;
-        private Button button1;
     }
 }
