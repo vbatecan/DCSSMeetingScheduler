@@ -74,8 +74,7 @@ namespace DCSSMeetingScheduler.Admin {
                                    "a.created_at AS 'Created At' " +
                                    "FROM appointments a " +
                                    "INNER JOIN users s ON a.student_id = s.user_id " +
-                                   "INNER JOIN users f ON a.faculty_id = f.user_id " +
-                                   "WHERE 1=1";
+                                   "INNER JOIN users f ON a.faculty_id = f.user_id ";
 
                     if (!string.IsNullOrWhiteSpace(statusFilter) && statusFilter != "All") {
                         query += " AND a.status = @status";
