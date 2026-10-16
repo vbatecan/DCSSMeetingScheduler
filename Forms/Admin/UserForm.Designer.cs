@@ -1,6 +1,6 @@
 namespace DCSSMeetingScheduler.Admin
 {
-    partial class UpdateUserForm
+    partial class UserForm
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -24,7 +24,7 @@ namespace DCSSMeetingScheduler.Admin
         private System.Windows.Forms.CheckBox chkIsActive;
         private System.Windows.Forms.CheckBox chkMustChangePassword;
         private System.Windows.Forms.Label lblErrorMessage;
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnCancel;
 
         protected override void Dispose(bool disposing)
@@ -60,17 +60,17 @@ namespace DCSSMeetingScheduler.Admin
             chkIsActive = new CheckBox();
             chkMustChangePassword = new CheckBox();
             lblErrorMessage = new Label();
-            btnUpdate = new Button();
+            btnSubmit = new Button();
             btnCancel = new Button();
             SuspendLayout();
 
             lblTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            lblTitle.ForeColor = Color.CornflowerBlue;
+            lblTitle.ForeColor = Color.FromArgb(85, 121, 69);
             lblTitle.Location = new Point(35, 18);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(410, 28);
             lblTitle.TabIndex = 0;
-            lblTitle.Text = "Update User";
+            lblTitle.Text = "User Account";
 
             lblSubtitle.Font = new Font("Segoe UI", 9F);
             lblSubtitle.ForeColor = Color.FromArgb(100, 116, 139);
@@ -78,7 +78,7 @@ namespace DCSSMeetingScheduler.Admin
             lblSubtitle.Name = "lblSubtitle";
             lblSubtitle.Size = new Size(410, 20);
             lblSubtitle.TabIndex = 1;
-            lblSubtitle.Text = "Modify user account details below";
+            lblSubtitle.Text = "Enter account details";
 
             lblFirstName.AutoSize = true;
             lblFirstName.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
@@ -129,14 +129,14 @@ namespace DCSSMeetingScheduler.Admin
             lblPassword.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             lblPassword.Location = new Point(35, 182);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(84, 15);
+            lblPassword.Size = new Size(57, 15);
             lblPassword.TabIndex = 8;
-            lblPassword.Text = "New Password";
+            lblPassword.Text = "Password";
 
             txtPassword.Font = new Font("Segoe UI", 9.5F);
             txtPassword.Location = new Point(35, 200);
             txtPassword.Name = "txtPassword";
-            txtPassword.PlaceholderText = "Leave empty to keep current password";
+            txtPassword.PlaceholderText = "Minimum 6 characters";
             txtPassword.Size = new Size(300, 24);
             txtPassword.TabIndex = 9;
             txtPassword.UseSystemPasswordChar = true;
@@ -199,6 +199,8 @@ namespace DCSSMeetingScheduler.Admin
             txtProgramOrDept.TabIndex = 16;
 
             chkIsActive.AutoSize = true;
+            chkIsActive.Checked = true;
+            chkIsActive.CheckState = CheckState.Checked;
             chkIsActive.Font = new Font("Segoe UI", 9F);
             chkIsActive.Location = new Point(35, 342);
             chkIsActive.Name = "chkIsActive";
@@ -208,6 +210,8 @@ namespace DCSSMeetingScheduler.Admin
             chkIsActive.UseVisualStyleBackColor = true;
 
             chkMustChangePassword.AutoSize = true;
+            chkMustChangePassword.Checked = true;
+            chkMustChangePassword.CheckState = CheckState.Checked;
             chkMustChangePassword.Font = new Font("Segoe UI", 9F);
             chkMustChangePassword.Location = new Point(210, 342);
             chkMustChangePassword.Name = "chkMustChangePassword";
@@ -224,19 +228,19 @@ namespace DCSSMeetingScheduler.Admin
             lblErrorMessage.TabIndex = 19;
             lblErrorMessage.TextAlign = ContentAlignment.MiddleLeft;
 
-            btnUpdate.BackColor = Color.CornflowerBlue;
-            btnUpdate.Cursor = Cursors.Hand;
-            btnUpdate.FlatAppearance.BorderSize = 0;
-            btnUpdate.FlatStyle = FlatStyle.Flat;
-            btnUpdate.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
-            btnUpdate.ForeColor = Color.White;
-            btnUpdate.Location = new Point(35, 404);
-            btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(410, 38);
-            btnUpdate.TabIndex = 20;
-            btnUpdate.Text = "Update User";
-            btnUpdate.UseVisualStyleBackColor = false;
-            btnUpdate.Click += btnUpdate_Click;
+            btnSubmit.BackColor = Color.FromArgb(85, 121, 69);
+            btnSubmit.Cursor = Cursors.Hand;
+            btnSubmit.FlatAppearance.BorderSize = 0;
+            btnSubmit.FlatStyle = FlatStyle.Flat;
+            btnSubmit.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            btnSubmit.ForeColor = Color.White;
+            btnSubmit.Location = new Point(35, 404);
+            btnSubmit.Name = "btnSubmit";
+            btnSubmit.Size = new Size(410, 38);
+            btnSubmit.TabIndex = 20;
+            btnSubmit.Text = "Save User";
+            btnSubmit.UseVisualStyleBackColor = false;
+            btnSubmit.Click += btnSubmit_Click;
 
             btnCancel.BackColor = Color.FromArgb(245, 245, 245);
             btnCancel.Cursor = Cursors.Hand;
@@ -252,7 +256,7 @@ namespace DCSSMeetingScheduler.Admin
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
 
-            AcceptButton = btnUpdate;
+            AcceptButton = btnSubmit;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
@@ -278,16 +282,16 @@ namespace DCSSMeetingScheduler.Admin
             Controls.Add(chkIsActive);
             Controls.Add(chkMustChangePassword);
             Controls.Add(lblErrorMessage);
-            Controls.Add(btnUpdate);
+            Controls.Add(btnSubmit);
             Controls.Add(btnCancel);
             Font = new Font("Segoe UI", 9F);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "UpdateUserForm";
+            Name = "UserForm";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "DCSS Meeting Scheduler - Update User";
-            Load += UpdateUserForm_Load;
+            Text = "User Form";
+            Load += UserForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
