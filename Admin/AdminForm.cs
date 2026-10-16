@@ -11,5 +11,10 @@ namespace DCSSMeetingScheduler.Admin {
         public AdminForm() {
             InitializeComponent();
         }
+
+        public AdminForm(User user)
+        {
+            InitializeComponent();
+        }
     }
 }

@@ -10,9 +10,18 @@ namespace DCSSMeetingScheduler.Student
 {
     public partial class StudentForm : Form
     {
+
+        private User? loggedInUser = null;
+
         public StudentForm()
         {
             InitializeComponent();
+        }
+
+        public StudentForm(User user)
+        {
+            InitializeComponent();
+            loggedInUser = user;
         }
 
         private void tabPage1_Click(object sender, EventArgs e)

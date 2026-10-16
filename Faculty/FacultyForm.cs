@@ -10,10 +10,20 @@ namespace DCSSMeetingScheduler.Faculty
 {
     public partial class FacultyForm : Form
     {
+
+        private User? loggedInUser = null;
+
         public FacultyForm()
         {
             InitializeComponent();
         }
+
+        public FacultyForm(User user)
+        {
+            InitializeComponent();
+            loggedInUser = user;
+        }
+        
 
         private void label1_Click(object sender, EventArgs e)
         {

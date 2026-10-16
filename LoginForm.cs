@@ -1,4 +1,6 @@
 using System.Data;
+using System.Text.RegularExpressions;
+using DCSSMeetingScheduler.Admin;
 using DCSSMeetingScheduler.Faculty;
 using DCSSMeetingScheduler.Shared;
 using DCSSMeetingScheduler.Student;
@@ -16,15 +18,14 @@ namespace DCSSMeetingScheduler
         private void btnLogin_Click(object? sender, EventArgs e)
         {
             lblErrorMessage.Text = "";
-
-            if (txtEmail.Text.Trim() == "")
+            if (!LoginUtils.ValidateEmail(txtEmail.Text))
             {
-                lblErrorMessage.Text = "Please enter your UE email.";
+                lblErrorMessage.Text = "Please enter a valid UE email.";
                 txtEmail.Focus();
                 return;
             }
 
-            if (txtPassword.Text == "")
+            if (LoginUtils.ValidatePassword(txtPassword.Text) == false)
             {
                 lblErrorMessage.Text = "Please enter your password.";
                 txtPassword.Focus();
@@ -38,31 +39,29 @@ namespace DCSSMeetingScheduler
                 cmd.Parameters.AddWithValue("@password", txtPassword.Text);
                 using (MySqlDataReader reader = cmd.ExecuteReader(CommandBehavior.SingleRow))
                 {
-                    while (reader.Read())
+                    if (reader.Read())
                     {
+                        User user = User.FromReader(reader);
 
-                        string email = reader.GetString("ue_email");
-                        string password = reader.GetString("user_password");
-
-                        if (email.Equals(txtEmail.Text, StringComparison.OrdinalIgnoreCase) && password == txtPassword.Text)
+                        if (user.UeEmail.Equals(txtEmail.Text, StringComparison.OrdinalIgnoreCase) && user.UserPassword == txtPassword.Text)
                         {
                             // Dito yung login successful.
-                            UserRole userRole = (UserRole)Enum.Parse(typeof(UserRole), reader.GetString("role"));
-                            switch (userRole)
+                            Hide();
+                            switch (user.Role)
                             {
                                 case UserRole.Admin:
-                                    MessageBox.Show("Admin page coming soon.");
+                                    AdminForm adminForm = new AdminForm(user);
+                                    adminForm.Show();
                                     break;
                                 case UserRole.Faculty:
-                                    FacultyForm facultyForm = new FacultyForm();
+                                    FacultyForm facultyForm = new FacultyForm(user);
                                     facultyForm.Show();
                                     break;
                                 case UserRole.Student:
-                                    StudentForm studentForm = new StudentForm();
+                                    StudentForm studentForm = new StudentForm(user);
                                     studentForm.Show();
                                     break;
                             }
-
                         }
                         else
                         {
