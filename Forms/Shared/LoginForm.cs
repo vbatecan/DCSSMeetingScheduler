@@ -54,7 +54,7 @@ namespace DCSSMeetingScheduler
                                     adminForm.Show();
                                     break;
                                 case UserRole.Faculty:
-                                    FacultyForm facultyForm = new FacultyForm(user);
+                                    faculty facultyForm = new faculty(user);
                                     facultyForm.Show();
                                     break;
                                 case UserRole.Student:
@@ -95,6 +95,12 @@ namespace DCSSMeetingScheduler
         }
 
         private void btnChangePassword_Click(object? sender, EventArgs e)
+        {
+            ChangePassword.ChangePasswordForm changePasswordForm = new ChangePassword.ChangePasswordForm();
+            changePasswordForm.ShowDialog();
+        }
+
+        private void lnkForgotPassword_LinkClicked(object? sender, LinkLabelLinkClickedEventArgs e)
         {
             ChangePassword.ChangePasswordForm changePasswordForm = new ChangePassword.ChangePasswordForm();
             changePasswordForm.ShowDialog();

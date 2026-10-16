@@ -14,6 +14,7 @@ namespace DCSSMeetingScheduler
         {
             InitializeComponent();
             cmbRole.SelectedIndex = 0;
+            cmbProgramOrDept.SelectedIndex = 0;
         }
 
         private void chkShowPassword_CheckedChanged(object? sender, EventArgs e)
@@ -39,7 +40,7 @@ namespace DCSSMeetingScheduler
             string email = txtEmail.Text.Trim();
             string role = cmbRole.SelectedItem != null ? cmbRole.SelectedItem.ToString()! : "";
             string idNumber = txtIdNumber.Text.Trim();
-            string programOrDept = txtProgramOrDept.Text.Trim();
+            string programOrDept = cmbProgramOrDept.SelectedItem != null ? cmbProgramOrDept.SelectedItem.ToString()! : "";
             string password = txtPassword.Text;
             string confirmPassword = txtConfirmPassword.Text;
 
@@ -78,6 +79,13 @@ namespace DCSSMeetingScheduler
                 return;
             }
 
+            if (string.IsNullOrEmpty(programOrDept))
+            {
+                lblErrorMessage.Text = "Please select a program or department.";
+                cmbProgramOrDept.Focus();
+                return;
+            }
+
             if (string.IsNullOrEmpty(password))
             {
                 lblErrorMessage.Text = "Please enter a password.";
@@ -85,9 +93,9 @@ namespace DCSSMeetingScheduler
                 return;
             }
 
-            if (!LoginUtils.ValidatePassword(password))
+            if (password.Length < 8)
             {
-                lblErrorMessage.Text = "Password must be at least 6 characters long.";
+                lblErrorMessage.Text = "Password must be at least 8 characters long.";
                 txtPassword.Focus();
                 return;
             }
