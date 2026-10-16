@@ -15,6 +15,7 @@ namespace DCSSMeetingScheduler {
         private System.Windows.Forms.Label lblErrorMessage;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.LinkLabel lnkSignUp;
 
         /// <summary>
         ///  Clean up any resources being used.
@@ -44,6 +45,7 @@ namespace DCSSMeetingScheduler {
             lblErrorMessage = new Label();
             btnLogin = new Button();
             btnCancel = new Button();
+            lnkSignUp = new LinkLabel();
             pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -169,6 +171,21 @@ namespace DCSSMeetingScheduler {
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
             // 
+            // lnkSignUp
+            // 
+            lnkSignUp.ActiveLinkColor = Color.FromArgb(85, 121, 69);
+            lnkSignUp.Cursor = Cursors.Hand;
+            lnkSignUp.Font = new Font("Segoe UI", 9.5F);
+            lnkSignUp.LinkColor = Color.FromArgb(0, 64, 0);
+            lnkSignUp.Location = new Point(35, 450);
+            lnkSignUp.Name = "lnkSignUp";
+            lnkSignUp.Size = new Size(330, 25);
+            lnkSignUp.TabIndex = 11;
+            lnkSignUp.TabStop = true;
+            lnkSignUp.Text = "Don't have an account? Sign Up";
+            lnkSignUp.TextAlign = ContentAlignment.MiddleCenter;
+            lnkSignUp.LinkClicked += lnkSignUp_LinkClicked;
+            // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.dcss;
@@ -185,7 +202,7 @@ namespace DCSSMeetingScheduler {
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             CancelButton = btnCancel;
-            ClientSize = new Size(404, 461);
+            ClientSize = new Size(404, 495);
             Controls.Add(pictureBox1);
             Controls.Add(lblTitle);
             Controls.Add(lblSubtitle);
@@ -197,6 +214,7 @@ namespace DCSSMeetingScheduler {
             Controls.Add(lblErrorMessage);
             Controls.Add(btnLogin);
             Controls.Add(btnCancel);
+            Controls.Add(lnkSignUp);
             Font = new Font("Segoe UI", 9F);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
