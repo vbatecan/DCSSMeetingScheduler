@@ -1,4 +1,4 @@
-﻿namespace DCSSMeetingScheduler.Admin {
+namespace DCSSMeetingScheduler.Admin {
     partial class AdminForm {
         /// <summary>
         /// Required designer variable.
@@ -134,6 +134,7 @@
             btnSearch.TabIndex = 3;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // txtSearchName
             // 
@@ -141,6 +142,8 @@
             txtSearchName.Name = "txtSearchName";
             txtSearchName.Size = new Size(502, 26);
             txtSearchName.TabIndex = 2;
+            txtSearchName.TextChanged += txtSearchName_TextChanged;
+            txtSearchName.KeyDown += txtSearchName_KeyDown;
             // 
             // label2
             // 
@@ -153,7 +156,7 @@
             // 
             // dgvUsers
             // 
-            dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvUsers.BackgroundColor = SystemColors.Control;
             dgvUsers.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dgvUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -161,6 +164,7 @@
             dgvUsers.MultiSelect = false;
             dgvUsers.Name = "dgvUsers";
             dgvUsers.ReadOnly = true;
+            dgvUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvUsers.Size = new Size(1210, 534);
             dgvUsers.TabIndex = 0;
             // 
