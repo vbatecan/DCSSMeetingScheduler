@@ -102,16 +102,16 @@ namespace DCSSMeetingScheduler.Admin {
             }
 
             int userId = Convert.ToInt32(dgvUsers.CurrentRow.Cells["user_id"].Value);
-            UpdateUserForm updateUserForm = new UpdateUserForm(userId);
-            DialogResult result = updateUserForm.ShowDialog();
+            UserForm userForm = new UserForm(userId);
+            DialogResult result = userForm.ShowDialog();
             if (result == DialogResult.OK) {
                 LoadUsers();
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
-            SaveUserForm saveUserForm = new SaveUserForm();
-            DialogResult result = saveUserForm.ShowDialog();
+            UserForm userForm = new UserForm();
+            DialogResult result = userForm.ShowDialog();
             if (result == DialogResult.OK) {
                 LoadUsers();
             }
