@@ -100,6 +100,12 @@ namespace DCSSMeetingScheduler
             changePasswordForm.ShowDialog();
         }
 
+        private void lnkForgotPassword_LinkClicked(object? sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ChangePassword.ChangePasswordForm changePasswordForm = new ChangePassword.ChangePasswordForm();
+            changePasswordForm.ShowDialog();
+        }
+
         private void lnkSignUp_LinkClicked(object? sender, LinkLabelLinkClickedEventArgs e)
         {
             SignUpForm signUpForm = new SignUpForm();
