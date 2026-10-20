@@ -17,6 +17,9 @@ namespace DCSSMeetingScheduler.Faculty
             InitializeComponent();
         }
 
+<<<<<<< HEAD
+        private void label13_Click(object sender, EventArgs e)
+=======
         public faculty(User user)
         {
             InitializeComponent();
@@ -59,6 +62,7 @@ namespace DCSSMeetingScheduler.Faculty
         }
 
         private void AvailabilityPage_Click(object sender, EventArgs e)
+>>>>>>> 46f27ea334064e4e1fb8ec2aa9f13c242e032cb1
         {
 
         }

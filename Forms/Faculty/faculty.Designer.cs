@@ -30,7 +30,33 @@ namespace DCSSMeetingScheduler.Faculty
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            panel4 = new Panel();
+            label10 = new Label();
+            label4 = new Label();
+            panel1 = new Panel();
+            label9 = new Label();
+            label3 = new Label();
+            panel3 = new Panel();
+            label12 = new Label();
+            label6 = new Label();
+            panel2 = new Panel();
+            label11 = new Label();
+            label5 = new Label();
+            label2 = new Label();
+            label1 = new Label();
             tabPage2 = new TabPage();
+<<<<<<< HEAD
+            tabPage3 = new TabPage();
+            tabPage4 = new TabPage();
+            label7 = new Label();
+            label8 = new Label();
+            tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            panel4.SuspendLayout();
+            panel1.SuspendLayout();
+            panel3.SuspendLayout();
+            panel2.SuspendLayout();
+=======
             AvailabilityPage = new TabPage();
             groupBox2 = new GroupBox();
             Tips = new TextBox();
@@ -56,6 +82,7 @@ namespace DCSSMeetingScheduler.Faculty
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
+>>>>>>> 46f27ea334064e4e1fb8ec2aa9f13c242e032cb1
             SuspendLayout();
             // 
             // tabControl1
@@ -82,8 +109,36 @@ namespace DCSSMeetingScheduler.Faculty
             tabPage1.Text = "Home";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // panel4
             // 
+<<<<<<< HEAD
+            panel4.Controls.Add(label10);
+            panel4.Controls.Add(label4);
+            panel4.Location = new Point(641, 108);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(584, 108);
+            panel4.TabIndex = 9;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.Location = new Point(45, 42);
+            label10.Name = "label10";
+            label10.Size = new Size(37, 45);
+            label10.TabIndex = 1;
+            label10.Text = "0";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(20, 17);
+            label4.Name = "label4";
+            label4.Size = new Size(81, 25);
+            label4.TabIndex = 0;
+            label4.Text = "Pending";
+=======
             tabPage2.Location = new Point(4, 29);
             tabPage2.Margin = new Padding(2);
             tabPage2.Name = "tabPage2";
@@ -159,9 +214,28 @@ namespace DCSSMeetingScheduler.Faculty
             SearchBTN.TabIndex = 1;
             SearchBTN.Text = "Search";
             SearchBTN.UseVisualStyleBackColor = true;
+>>>>>>> 46f27ea334064e4e1fb8ec2aa9f13c242e032cb1
             // 
             // textBox2
             // 
+<<<<<<< HEAD
+            panel1.Controls.Add(label9);
+            panel1.Controls.Add(label3);
+            panel1.Location = new Point(30, 108);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(584, 108);
+            panel1.TabIndex = 8;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.Location = new Point(50, 42);
+            label9.Name = "label9";
+            label9.Size = new Size(37, 45);
+            label9.TabIndex = 1;
+            label9.Text = "0";
+=======
             textBox2.Location = new Point(401, 17);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(227, 27);
@@ -186,9 +260,67 @@ namespace DCSSMeetingScheduler.Faculty
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(622, 284);
             dataGridView1.TabIndex = 0;
+>>>>>>> 46f27ea334064e4e1fb8ec2aa9f13c242e032cb1
             // 
             // groupBox1
             // 
+<<<<<<< HEAD
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(18, 17);
+            label3.Name = "label3";
+            label3.Size = new Size(125, 25);
+            label3.TabIndex = 0;
+            label3.Text = "Total Request";
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(label12);
+            panel3.Controls.Add(label6);
+            panel3.Location = new Point(641, 232);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(584, 108);
+            panel3.TabIndex = 7;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label12.Location = new Point(45, 42);
+            label12.Name = "label12";
+            label12.Size = new Size(37, 45);
+            label12.TabIndex = 2;
+            label12.Text = "0";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(20, 17);
+            label6.Name = "label6";
+            label6.Size = new Size(85, 25);
+            label6.TabIndex = 0;
+            label6.Text = "Declined";
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(label11);
+            panel2.Controls.Add(label5);
+            panel2.Location = new Point(30, 232);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(584, 108);
+            panel2.TabIndex = 6;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label11.Location = new Point(50, 42);
+            label11.Name = "label11";
+            label11.Size = new Size(37, 45);
+            label11.TabIndex = 1;
+            label11.Text = "0";
+=======
             groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(AddBTN);
             groupBox1.Controls.Add(textBox1);
@@ -225,6 +357,7 @@ namespace DCSSMeetingScheduler.Faculty
             textBox1.Size = new Size(255, 27);
             textBox1.TabIndex = 2;
             textBox1.Text = "  e.g Room 101, Online etc.";
+>>>>>>> 46f27ea334064e4e1fb8ec2aa9f13c242e032cb1
             // 
             // label5
             // 
@@ -236,6 +369,59 @@ namespace DCSSMeetingScheduler.Faculty
             label5.TabIndex = 6;
             label5.Text = "Location (Optional)";
             // 
+<<<<<<< HEAD
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(19, 49);
+            label2.Name = "label2";
+            label2.Size = new Size(228, 25);
+            label2.TabIndex = 3;
+            label2.Text = "Overview of faculty request";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.DarkGreen;
+            label1.Location = new Point(19, 21);
+            label1.Name = "label1";
+            label1.Size = new Size(243, 32);
+            label1.TabIndex = 2;
+            label1.Text = "HOME DASHBOARD";
+            // 
+            // tabPage2
+            // 
+            tabPage2.Location = new Point(4, 34);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(1256, 537);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Request";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            tabPage3.Location = new Point(4, 34);
+            tabPage3.Margin = new Padding(4);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(4);
+            tabPage3.Size = new Size(1256, 537);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "Availabillity";
+            tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            tabPage4.Location = new Point(4, 34);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Padding = new Padding(3);
+            tabPage4.Size = new Size(1256, 537);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "Setting";
+            tabPage4.UseVisualStyleBackColor = true;
+=======
             // dateTimePicker3
             // 
             dateTimePicker3.CustomFormat = "hh:mm";
@@ -246,6 +432,7 @@ namespace DCSSMeetingScheduler.Faculty
             dateTimePicker3.ShowUpDown = true;
             dateTimePicker3.Size = new Size(251, 27);
             dateTimePicker3.TabIndex = 5;
+>>>>>>> 46f27ea334064e4e1fb8ec2aa9f13c242e032cb1
             // 
             // label4
             // 
@@ -269,6 +456,8 @@ namespace DCSSMeetingScheduler.Faculty
             dateTimePicker1.TabIndex = 1;
             dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
+<<<<<<< HEAD
+=======
             // label3
             // 
             label3.AutoSize = true;
@@ -322,6 +511,7 @@ namespace DCSSMeetingScheduler.Faculty
             button1.Text = "Clear";
             button1.UseVisualStyleBackColor = true;
             // 
+>>>>>>> 46f27ea334064e4e1fb8ec2aa9f13c242e032cb1
             // faculty
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -332,12 +522,25 @@ namespace DCSSMeetingScheduler.Faculty
             Name = "faculty";
             Text = "faculty";
             tabControl1.ResumeLayout(false);
+<<<<<<< HEAD
+            tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+=======
             AvailabilityPage.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+>>>>>>> 46f27ea334064e4e1fb8ec2aa9f13c242e032cb1
             ResumeLayout(false);
         }
 
@@ -359,6 +562,14 @@ namespace DCSSMeetingScheduler.Faculty
         private Button AddBTN;
         private TextBox textBox1;
         private Label label5;
+<<<<<<< HEAD
+        private Label label7;
+        private Label label8;
+        private Label label10;
+        private Label label9;
+        private Label label12;
+        private Label label11;
+=======
         private GroupBox groupBox2;
         private DataGridView dataGridView1;
         private TextBox textBox2;
@@ -367,5 +578,6 @@ namespace DCSSMeetingScheduler.Faculty
         private Button EditBTN;
         private Button DeleteBTN;
         private Button button1;
+>>>>>>> 46f27ea334064e4e1fb8ec2aa9f13c242e032cb1
     }
 }
