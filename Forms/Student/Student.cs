@@ -54,5 +54,10 @@ namespace DCSSMeetingScheduler.Forms.Student
         {
 
         }
+
+        private void pblHeader_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
