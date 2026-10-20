@@ -45,6 +45,13 @@ namespace DCSSMeetingScheduler
             string password = txtPassword.Text;
             string confirmPassword = txtConfirmPassword.Text;
 
+            string errorMessage = SignUpUtil.ValidateSignUp(firstName, lastName, email, role, programOrDept, password, confirmPassword);
+            if (!string.IsNullOrEmpty(errorMessage))
+            {
+                lblErrorMessage.Text = errorMessage;
+                return;
+            }
+
             try
             {
                 using (MySqlConnection conn = Connection.GetConnection())
