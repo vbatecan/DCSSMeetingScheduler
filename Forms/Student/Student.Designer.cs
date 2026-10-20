@@ -65,7 +65,24 @@
             lblHomeTitle = new Label();
             tabStudent = new TabControl();
             tabPage1 = new TabPage();
+            dgvFacultyHours = new DataGridView();
+            colDay = new DataGridViewTextBoxColumn();
+            colStartTime = new DataGridViewTextBoxColumn();
+            colEndTime = new DataGridViewTextBoxColumn();
+            colLocation = new DataGridViewTextBoxColumn();
+            label5 = new Label();
+            cmbFaculty = new ComboBox();
+            lblFaculty = new Label();
+            pnlRequestTitle = new Panel();
             label4 = new Label();
+            lblRequestTitle = new Label();
+            lblMeetingDate = new Label();
+            dtpMeetingDate = new DateTimePicker();
+            lblStartTime = new Label();
+            dtpStartTime = new DateTimePicker();
+            lblEndTime = new Label();
+            dtpEndTime = new DateTimePicker();
+            lbPurposeofMeeting = new Label();
             pblHeader.SuspendLayout();
             tabPage3.SuspendLayout();
             pnlRequestsHeader.SuspendLayout();
@@ -79,6 +96,8 @@
             pnlHomeTitle.SuspendLayout();
             tabStudent.SuspendLayout();
             tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvFacultyHours).BeginInit();
+            pnlRequestTitle.SuspendLayout();
             SuspendLayout();
             // 
             // pblHeader
@@ -109,7 +128,7 @@
             lblPortalTitle.AutoSize = true;
             lblPortalTitle.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPortalTitle.ForeColor = Color.White;
-            lblPortalTitle.Location = new Point(12, 0);
+            lblPortalTitle.Location = new Point(7, 0);
             lblPortalTitle.Name = "lblPortalTitle";
             lblPortalTitle.Size = new Size(203, 37);
             lblPortalTitle.TabIndex = 1;
@@ -286,18 +305,20 @@
             // lblCompletedCount
             // 
             lblCompletedCount.AutoSize = true;
-            lblCompletedCount.Location = new Point(17, 57);
+            lblCompletedCount.Font = new Font("Segoe UI", 14F);
+            lblCompletedCount.Location = new Point(17, 49);
             lblCompletedCount.Name = "lblCompletedCount";
-            lblCompletedCount.Size = new Size(13, 15);
+            lblCompletedCount.Size = new Size(22, 25);
             lblCompletedCount.TabIndex = 7;
             lblCompletedCount.Text = "0";
             // 
             // lblCompletedTitle
             // 
             lblCompletedTitle.AutoSize = true;
-            lblCompletedTitle.Location = new Point(17, 31);
+            lblCompletedTitle.Font = new Font("Segoe UI", 12F);
+            lblCompletedTitle.Location = new Point(17, 25);
             lblCompletedTitle.Name = "lblCompletedTitle";
-            lblCompletedTitle.Size = new Size(66, 15);
+            lblCompletedTitle.Size = new Size(86, 21);
             lblCompletedTitle.TabIndex = 6;
             lblCompletedTitle.Text = "Completed";
             // 
@@ -314,18 +335,20 @@
             // lblPendingCount
             // 
             lblPendingCount.AutoSize = true;
-            lblPendingCount.Location = new Point(17, 54);
+            lblPendingCount.Font = new Font("Segoe UI", 14F);
+            lblPendingCount.Location = new Point(17, 50);
             lblPendingCount.Name = "lblPendingCount";
-            lblPendingCount.Size = new Size(13, 15);
+            lblPendingCount.Size = new Size(22, 25);
             lblPendingCount.TabIndex = 8;
             lblPendingCount.Text = "0";
             // 
             // lblPendingTitle
             // 
             lblPendingTitle.AutoSize = true;
-            lblPendingTitle.Location = new Point(17, 28);
+            lblPendingTitle.Font = new Font("Segoe UI", 12F);
+            lblPendingTitle.Location = new Point(17, 16);
             lblPendingTitle.Name = "lblPendingTitle";
-            lblPendingTitle.Size = new Size(51, 15);
+            lblPendingTitle.Size = new Size(66, 21);
             lblPendingTitle.TabIndex = 5;
             lblPendingTitle.Text = "Pending";
             // 
@@ -342,9 +365,10 @@
             // lblApprovedCount
             // 
             lblApprovedCount.AutoSize = true;
-            lblApprovedCount.Location = new Point(22, 57);
+            lblApprovedCount.Font = new Font("Segoe UI", 14F);
+            lblApprovedCount.Location = new Point(22, 49);
             lblApprovedCount.Name = "lblApprovedCount";
-            lblApprovedCount.Size = new Size(13, 15);
+            lblApprovedCount.Size = new Size(22, 25);
             lblApprovedCount.TabIndex = 6;
             lblApprovedCount.Text = "0";
             lblApprovedCount.Click += label4_Click;
@@ -352,9 +376,10 @@
             // lblApprovedTitle
             // 
             lblApprovedTitle.AutoSize = true;
-            lblApprovedTitle.Location = new Point(22, 31);
+            lblApprovedTitle.Font = new Font("Segoe UI", 12F);
+            lblApprovedTitle.Location = new Point(22, 25);
             lblApprovedTitle.Name = "lblApprovedTitle";
-            lblApprovedTitle.Size = new Size(59, 15);
+            lblApprovedTitle.Size = new Size(78, 21);
             lblApprovedTitle.TabIndex = 4;
             lblApprovedTitle.Text = "Approved";
             // 
@@ -372,9 +397,10 @@
             // lblTotalCount
             // 
             lblTotalCount.AutoSize = true;
-            lblTotalCount.Location = new Point(22, 54);
+            lblTotalCount.Font = new Font("Segoe UI", 14F);
+            lblTotalCount.Location = new Point(22, 42);
             lblTotalCount.Name = "lblTotalCount";
-            lblTotalCount.Size = new Size(13, 15);
+            lblTotalCount.Size = new Size(22, 25);
             lblTotalCount.TabIndex = 5;
             lblTotalCount.Text = "0";
             lblTotalCount.Click += label3_Click_1;
@@ -382,9 +408,10 @@
             // lblTotalTitle
             // 
             lblTotalTitle.AutoSize = true;
-            lblTotalTitle.Location = new Point(22, 28);
+            lblTotalTitle.Font = new Font("Segoe UI", 12F);
+            lblTotalTitle.Location = new Point(22, 16);
             lblTotalTitle.Name = "lblTotalTitle";
-            lblTotalTitle.Size = new Size(83, 15);
+            lblTotalTitle.Size = new Size(109, 21);
             lblTotalTitle.TabIndex = 3;
             lblTotalTitle.Text = "Total Requests";
             lblTotalTitle.Click += label3_Click;
@@ -412,6 +439,7 @@
             // 
             lblHomeTitle.AutoSize = true;
             lblHomeTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblHomeTitle.ForeColor = Color.DarkGreen;
             lblHomeTitle.Location = new Point(5, 10);
             lblHomeTitle.Name = "lblHomeTitle";
             lblHomeTitle.Size = new Size(233, 32);
@@ -432,7 +460,18 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(label4);
+            tabPage1.Controls.Add(lbPurposeofMeeting);
+            tabPage1.Controls.Add(dtpEndTime);
+            tabPage1.Controls.Add(lblEndTime);
+            tabPage1.Controls.Add(dtpStartTime);
+            tabPage1.Controls.Add(lblStartTime);
+            tabPage1.Controls.Add(dtpMeetingDate);
+            tabPage1.Controls.Add(lblMeetingDate);
+            tabPage1.Controls.Add(dgvFacultyHours);
+            tabPage1.Controls.Add(label5);
+            tabPage1.Controls.Add(cmbFaculty);
+            tabPage1.Controls.Add(lblFaculty);
+            tabPage1.Controls.Add(pnlRequestTitle);
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
@@ -441,14 +480,169 @@
             tabPage1.Text = "Request Meeting";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // dgvFacultyHours
+            // 
+            dgvFacultyHours.AllowUserToAddRows = false;
+            dgvFacultyHours.AllowUserToDeleteRows = false;
+            dgvFacultyHours.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvFacultyHours.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dgvFacultyHours.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvFacultyHours.Columns.AddRange(new DataGridViewColumn[] { colDay, colStartTime, colEndTime, colLocation });
+            dgvFacultyHours.Location = new Point(11, 146);
+            dgvFacultyHours.Name = "dgvFacultyHours";
+            dgvFacultyHours.ReadOnly = true;
+            dgvFacultyHours.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvFacultyHours.Size = new Size(1243, 150);
+            dgvFacultyHours.TabIndex = 5;
+            // 
+            // colDay
+            // 
+            colDay.HeaderText = "Day";
+            colDay.Name = "colDay";
+            colDay.ReadOnly = true;
+            // 
+            // colStartTime
+            // 
+            colStartTime.HeaderText = "Start Time";
+            colStartTime.Name = "colStartTime";
+            colStartTime.ReadOnly = true;
+            // 
+            // colEndTime
+            // 
+            colEndTime.HeaderText = "End Time";
+            colEndTime.Name = "colEndTime";
+            colEndTime.ReadOnly = true;
+            // 
+            // colLocation
+            // 
+            colLocation.HeaderText = "Location";
+            colLocation.Name = "colLocation";
+            colLocation.ReadOnly = true;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            label5.Location = new Point(6, 124);
+            label5.Name = "label5";
+            label5.Size = new Size(203, 19);
+            label5.TabIndex = 4;
+            label5.Text = "Available Consultation Hours";
+            // 
+            // cmbFaculty
+            // 
+            cmbFaculty.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbFaculty.FormattingEnabled = true;
+            cmbFaculty.Location = new Point(8, 98);
+            cmbFaculty.Name = "cmbFaculty";
+            cmbFaculty.Size = new Size(1246, 23);
+            cmbFaculty.TabIndex = 3;
+            // 
+            // lblFaculty
+            // 
+            lblFaculty.AutoSize = true;
+            lblFaculty.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblFaculty.Location = new Point(8, 76);
+            lblFaculty.Name = "lblFaculty";
+            lblFaculty.Size = new Size(161, 19);
+            lblFaculty.TabIndex = 2;
+            lblFaculty.Text = "Select Faculty Member";
+            // 
+            // pnlRequestTitle
+            // 
+            pnlRequestTitle.BackColor = Color.White;
+            pnlRequestTitle.Controls.Add(label4);
+            pnlRequestTitle.Controls.Add(lblRequestTitle);
+            pnlRequestTitle.Dock = DockStyle.Top;
+            pnlRequestTitle.Location = new Point(3, 3);
+            pnlRequestTitle.Name = "pnlRequestTitle";
+            pnlRequestTitle.Size = new Size(1256, 70);
+            pnlRequestTitle.TabIndex = 1;
+            // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(381, 130);
+            label4.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            label4.Location = new Point(5, 42);
             label4.Name = "label4";
-            label4.Size = new Size(38, 15);
-            label4.TabIndex = 0;
-            label4.Text = "label4";
+            label4.Size = new Size(487, 19);
+            label4.TabIndex = 1;
+            label4.Text = "Select a faculty member and choose an available consultation schedule.";
+            // 
+            // lblRequestTitle
+            // 
+            lblRequestTitle.AutoSize = true;
+            lblRequestTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblRequestTitle.Location = new Point(3, 10);
+            lblRequestTitle.Name = "lblRequestTitle";
+            lblRequestTitle.Size = new Size(227, 32);
+            lblRequestTitle.TabIndex = 0;
+            lblRequestTitle.Text = "Request a Meeting";
+            // 
+            // lblMeetingDate
+            // 
+            lblMeetingDate.AutoSize = true;
+            lblMeetingDate.Location = new Point(8, 299);
+            lblMeetingDate.Name = "lblMeetingDate";
+            lblMeetingDate.Size = new Size(78, 15);
+            lblMeetingDate.TabIndex = 6;
+            lblMeetingDate.Text = "Meeting Date";
+            // 
+            // dtpMeetingDate
+            // 
+            dtpMeetingDate.Format = DateTimePickerFormat.Short;
+            dtpMeetingDate.Location = new Point(11, 317);
+            dtpMeetingDate.MinDate = new DateTime(2026, 10, 20, 0, 0, 0, 0);
+            dtpMeetingDate.Name = "dtpMeetingDate";
+            dtpMeetingDate.Size = new Size(200, 23);
+            dtpMeetingDate.TabIndex = 7;
+            // 
+            // lblStartTime
+            // 
+            lblStartTime.AutoSize = true;
+            lblStartTime.Location = new Point(342, 299);
+            lblStartTime.Name = "lblStartTime";
+            lblStartTime.Size = new Size(61, 15);
+            lblStartTime.TabIndex = 0;
+            lblStartTime.Text = "Start Time";
+            // 
+            // dtpStartTime
+            // 
+            dtpStartTime.CustomFormat = "hh:mm tt";
+            dtpStartTime.Format = DateTimePickerFormat.Custom;
+            dtpStartTime.Location = new Point(342, 317);
+            dtpStartTime.Name = "dtpStartTime";
+            dtpStartTime.ShowUpDown = true;
+            dtpStartTime.Size = new Size(200, 23);
+            dtpStartTime.TabIndex = 8;
+            // 
+            // lblEndTime
+            // 
+            lblEndTime.AutoSize = true;
+            lblEndTime.Location = new Point(11, 353);
+            lblEndTime.Name = "lblEndTime";
+            lblEndTime.Size = new Size(57, 15);
+            lblEndTime.TabIndex = 9;
+            lblEndTime.Text = "End Time";
+            // 
+            // dtpEndTime
+            // 
+            dtpEndTime.CustomFormat = "hh:mm tt";
+            dtpEndTime.Format = DateTimePickerFormat.Custom;
+            dtpEndTime.Location = new Point(11, 371);
+            dtpEndTime.Name = "dtpEndTime";
+            dtpEndTime.ShowUpDown = true;
+            dtpEndTime.Size = new Size(200, 23);
+            dtpEndTime.TabIndex = 10;
+            // 
+            // lbPurposeofMeeting
+            // 
+            lbPurposeofMeeting.AutoSize = true;
+            lbPurposeofMeeting.Location = new Point(417, 390);
+            lbPurposeofMeeting.Name = "lbPurposeofMeeting";
+            lbPurposeofMeeting.Size = new Size(111, 15);
+            lbPurposeofMeeting.TabIndex = 11;
+            lbPurposeofMeeting.Text = "Purpose of Meeting";
             // 
             // Student
             // 
@@ -483,6 +677,9 @@
             tabStudent.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvFacultyHours).EndInit();
+            pnlRequestTitle.ResumeLayout(false);
+            pnlRequestTitle.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -525,6 +722,23 @@
         private Panel pnlHomeTitle;
         private Label lblHomeTitle;
         private TabPage tabPage1;
+        private Label lblRequestTitle;
+        private Panel pnlRequestTitle;
+        private ComboBox cmbFaculty;
+        private Label lblFaculty;
         private Label label4;
+        private DataGridView dgvFacultyHours;
+        private DataGridViewTextBoxColumn colDay;
+        private DataGridViewTextBoxColumn colStartTime;
+        private DataGridViewTextBoxColumn colEndTime;
+        private DataGridViewTextBoxColumn colLocation;
+        private Label label5;
+        private DateTimePicker dtpMeetingDate;
+        private Label lblMeetingDate;
+        private Label lblEndTime;
+        private DateTimePicker dtpStartTime;
+        private Label lblStartTime;
+        private DateTimePicker dtpEndTime;
+        private Label lbPurposeofMeeting;
     }
 }
