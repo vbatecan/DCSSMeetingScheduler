@@ -26,7 +26,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             tabBookMeeting = new TabControl();
             tabHome = new TabPage();
             btnSubmitRequest = new Button();
@@ -60,6 +61,7 @@
             lbRequestsTitle = new Label();
             tabAvailability = new TabPage();
             tabSettings = new TabPage();
+            panel1 = new Panel();
             tabBookMeeting.SuspendLayout();
             tabHome.SuspendLayout();
             panelDeclined.SuspendLayout();
@@ -67,6 +69,7 @@
             panelPending.SuspendLayout();
             panelRequest.SuspendLayout();
             tabRequests.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // tabBookMeeting
@@ -85,6 +88,7 @@
             // 
             // tabHome
             // 
+            tabHome.Controls.Add(panel1);
             tabHome.Controls.Add(btnSubmitRequest);
             tabHome.Controls.Add(txtMessage);
             tabHome.Controls.Add(lbMessage);
@@ -100,8 +104,6 @@
             tabHome.Controls.Add(panelApproved);
             tabHome.Controls.Add(panelPending);
             tabHome.Controls.Add(panelRequest);
-            tabHome.Controls.Add(lbSubtitle);
-            tabHome.Controls.Add(lbWelcome);
             tabHome.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             tabHome.Location = new Point(4, 24);
             tabHome.Name = "tabHome";
@@ -114,6 +116,7 @@
             // 
             // btnSubmitRequest
             // 
+            btnSubmitRequest.ForeColor = Color.FromArgb(0, 64, 0);
             btnSubmitRequest.Location = new Point(61, 599);
             btnSubmitRequest.Name = "btnSubmitRequest";
             btnSubmitRequest.Size = new Size(559, 23);
@@ -329,18 +332,18 @@
             // 
             lbSubtitle.AutoSize = true;
             lbSubtitle.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbSubtitle.Location = new Point(47, 62);
+            lbSubtitle.Location = new Point(44, 37);
             lbSubtitle.Name = "lbSubtitle";
-            lbSubtitle.Size = new Size(218, 17);
+            lbSubtitle.Size = new Size(224, 17);
             lbSubtitle.TabIndex = 1;
-            lbSubtitle.Text = "Manage your faculty consultations";
+            lbSubtitle.Text = "Consultation Meeting Management";
             lbSubtitle.Click += label2_Click;
             // 
             // lbWelcome
             // 
             lbWelcome.AutoSize = true;
             lbWelcome.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbWelcome.Location = new Point(40, 25);
+            lbWelcome.Location = new Point(43, 0);
             lbWelcome.Name = "lbWelcome";
             lbWelcome.Size = new Size(259, 37);
             lbWelcome.TabIndex = 0;
@@ -406,6 +409,16 @@
             tabSettings.Text = "Settings";
             tabSettings.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(lbWelcome);
+            panel1.Controls.Add(lbSubtitle);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(3, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1250, 100);
+            panel1.TabIndex = 17;
+            // 
             // StudentForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -428,6 +441,8 @@
             panelRequest.PerformLayout();
             tabRequests.ResumeLayout(false);
             tabRequests.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -466,5 +481,6 @@
         private Label lbMessage;
         private Label lbRequestsTitle;
         private Label lbRequestsSubTitle;
+        private Panel panel1;
     }
 }
