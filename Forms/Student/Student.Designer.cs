@@ -83,6 +83,8 @@
             lblEndTime = new Label();
             dtpEndTime = new DateTimePicker();
             lbPurposeofMeeting = new Label();
+            txtPurpose = new TextBox();
+            btnSubmitRequest = new Button();
             pblHeader.SuspendLayout();
             tabPage3.SuspendLayout();
             pnlRequestsHeader.SuspendLayout();
@@ -110,6 +112,7 @@
             pblHeader.Name = "pblHeader";
             pblHeader.Size = new Size(1270, 100);
             pblHeader.TabIndex = 0;
+            pblHeader.Paint += pblHeader_Paint;
             // 
             // label1
             // 
@@ -460,6 +463,8 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(btnSubmitRequest);
+            tabPage1.Controls.Add(txtPurpose);
             tabPage1.Controls.Add(lbPurposeofMeeting);
             tabPage1.Controls.Add(dtpEndTime);
             tabPage1.Controls.Add(lblEndTime);
@@ -472,6 +477,7 @@
             tabPage1.Controls.Add(cmbFaculty);
             tabPage1.Controls.Add(lblFaculty);
             tabPage1.Controls.Add(pnlRequestTitle);
+            tabPage1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
@@ -535,7 +541,7 @@
             cmbFaculty.FormattingEnabled = true;
             cmbFaculty.Location = new Point(8, 98);
             cmbFaculty.Name = "cmbFaculty";
-            cmbFaculty.Size = new Size(1246, 23);
+            cmbFaculty.Size = new Size(1246, 25);
             cmbFaculty.TabIndex = 3;
             // 
             // lblFaculty
@@ -573,6 +579,7 @@
             // 
             lblRequestTitle.AutoSize = true;
             lblRequestTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblRequestTitle.ForeColor = Color.DarkGreen;
             lblRequestTitle.Location = new Point(3, 10);
             lblRequestTitle.Name = "lblRequestTitle";
             lblRequestTitle.Size = new Size(227, 32);
@@ -582,9 +589,10 @@
             // lblMeetingDate
             // 
             lblMeetingDate.AutoSize = true;
+            lblMeetingDate.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblMeetingDate.Location = new Point(8, 299);
             lblMeetingDate.Name = "lblMeetingDate";
-            lblMeetingDate.Size = new Size(78, 15);
+            lblMeetingDate.Size = new Size(99, 19);
             lblMeetingDate.TabIndex = 6;
             lblMeetingDate.Text = "Meeting Date";
             // 
@@ -594,15 +602,16 @@
             dtpMeetingDate.Location = new Point(11, 317);
             dtpMeetingDate.MinDate = new DateTime(2026, 10, 20, 0, 0, 0, 0);
             dtpMeetingDate.Name = "dtpMeetingDate";
-            dtpMeetingDate.Size = new Size(200, 23);
+            dtpMeetingDate.Size = new Size(200, 25);
             dtpMeetingDate.TabIndex = 7;
             // 
             // lblStartTime
             // 
             lblStartTime.AutoSize = true;
-            lblStartTime.Location = new Point(342, 299);
+            lblStartTime.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblStartTime.Location = new Point(546, 299);
             lblStartTime.Name = "lblStartTime";
-            lblStartTime.Size = new Size(61, 15);
+            lblStartTime.Size = new Size(72, 17);
             lblStartTime.TabIndex = 0;
             lblStartTime.Text = "Start Time";
             // 
@@ -610,10 +619,10 @@
             // 
             dtpStartTime.CustomFormat = "hh:mm tt";
             dtpStartTime.Format = DateTimePickerFormat.Custom;
-            dtpStartTime.Location = new Point(342, 317);
+            dtpStartTime.Location = new Point(546, 317);
             dtpStartTime.Name = "dtpStartTime";
             dtpStartTime.ShowUpDown = true;
-            dtpStartTime.Size = new Size(200, 23);
+            dtpStartTime.Size = new Size(200, 25);
             dtpStartTime.TabIndex = 8;
             // 
             // lblEndTime
@@ -621,7 +630,7 @@
             lblEndTime.AutoSize = true;
             lblEndTime.Location = new Point(11, 353);
             lblEndTime.Name = "lblEndTime";
-            lblEndTime.Size = new Size(57, 15);
+            lblEndTime.Size = new Size(66, 17);
             lblEndTime.TabIndex = 9;
             lblEndTime.Text = "End Time";
             // 
@@ -632,17 +641,36 @@
             dtpEndTime.Location = new Point(11, 371);
             dtpEndTime.Name = "dtpEndTime";
             dtpEndTime.ShowUpDown = true;
-            dtpEndTime.Size = new Size(200, 23);
+            dtpEndTime.Size = new Size(200, 25);
             dtpEndTime.TabIndex = 10;
             // 
             // lbPurposeofMeeting
             // 
             lbPurposeofMeeting.AutoSize = true;
-            lbPurposeofMeeting.Location = new Point(417, 390);
+            lbPurposeofMeeting.Location = new Point(11, 406);
             lbPurposeofMeeting.Name = "lbPurposeofMeeting";
-            lbPurposeofMeeting.Size = new Size(111, 15);
+            lbPurposeofMeeting.Size = new Size(130, 17);
             lbPurposeofMeeting.TabIndex = 11;
             lbPurposeofMeeting.Text = "Purpose of Meeting";
+            // 
+            // txtPurpose
+            // 
+            txtPurpose.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtPurpose.Location = new Point(11, 426);
+            txtPurpose.MaxLength = 500;
+            txtPurpose.Multiline = true;
+            txtPurpose.Name = "txtPurpose";
+            txtPurpose.Size = new Size(1243, 75);
+            txtPurpose.TabIndex = 12;
+            // 
+            // btnSubmitRequest
+            // 
+            btnSubmitRequest.Location = new Point(11, 521);
+            btnSubmitRequest.Name = "btnSubmitRequest";
+            btnSubmitRequest.Size = new Size(1243, 40);
+            btnSubmitRequest.TabIndex = 13;
+            btnSubmitRequest.Text = "Submit Request";
+            btnSubmitRequest.UseVisualStyleBackColor = true;
             // 
             // Student
             // 
@@ -740,5 +768,7 @@
         private Label lblStartTime;
         private DateTimePicker dtpEndTime;
         private Label lbPurposeofMeeting;
+        private TextBox txtPurpose;
+        private Button btnSubmitRequest;
     }
 }
