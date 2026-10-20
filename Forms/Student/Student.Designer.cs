@@ -84,7 +84,7 @@
             dtpEndTime = new DateTimePicker();
             lbPurposeofMeeting = new Label();
             txtPurpose = new TextBox();
-            button1 = new Button();
+            btnSubmitRequest = new Button();
             pblHeader.SuspendLayout();
             tabPage3.SuspendLayout();
             pnlRequestsHeader.SuspendLayout();
@@ -463,7 +463,7 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(button1);
+            tabPage1.Controls.Add(btnSubmitRequest);
             tabPage1.Controls.Add(txtPurpose);
             tabPage1.Controls.Add(lbPurposeofMeeting);
             tabPage1.Controls.Add(dtpEndTime);
@@ -579,6 +579,7 @@
             // 
             lblRequestTitle.AutoSize = true;
             lblRequestTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblRequestTitle.ForeColor = Color.DarkGreen;
             lblRequestTitle.Location = new Point(3, 10);
             lblRequestTitle.Name = "lblRequestTitle";
             lblRequestTitle.Size = new Size(227, 32);
@@ -662,14 +663,14 @@
             txtPurpose.Size = new Size(1243, 75);
             txtPurpose.TabIndex = 12;
             // 
-            // button1
+            // btnSubmitRequest
             // 
-            button1.Location = new Point(546, 533);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 13;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            btnSubmitRequest.Location = new Point(11, 521);
+            btnSubmitRequest.Name = "btnSubmitRequest";
+            btnSubmitRequest.Size = new Size(1243, 40);
+            btnSubmitRequest.TabIndex = 13;
+            btnSubmitRequest.Text = "Submit Request";
+            btnSubmitRequest.UseVisualStyleBackColor = true;
             // 
             // Student
             // 
@@ -768,6 +769,6 @@
         private DateTimePicker dtpEndTime;
         private Label lbPurposeofMeeting;
         private TextBox txtPurpose;
-        private Button button1;
+        private Button btnSubmitRequest;
     }
 }
