@@ -79,6 +79,11 @@ namespace DCSSMeetingScheduler.Faculty
 
         }
 
+        private void lblTotalUpMeet_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void dgvRecentRequest_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
