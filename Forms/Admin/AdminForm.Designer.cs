@@ -102,10 +102,10 @@ namespace DCSSMeetingScheduler.Admin {
             tabHome.Controls.Add(btnSearchAppointment);
             tabHome.Controls.Add(btnResetAppointmentFilter);
             tabHome.Controls.Add(dgvAppointments);
-            tabHome.Location = new Point(4, 26);
+            tabHome.Location = new Point(4, 22);
             tabHome.Name = "tabHome";
             tabHome.Padding = new Padding(3);
-            tabHome.Size = new Size(1234, 580);
+            tabHome.Size = new Size(1234, 584);
             tabHome.TabIndex = 0;
             tabHome.Text = "Home";
             tabHome.UseVisualStyleBackColor = true;
@@ -114,9 +114,10 @@ namespace DCSSMeetingScheduler.Admin {
             // 
             lblHomeTitle.AutoSize = true;
             lblHomeTitle.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold);
+            lblHomeTitle.ForeColor = Color.DarkGreen;
             lblHomeTitle.Location = new Point(14, 12);
             lblHomeTitle.Name = "lblHomeTitle";
-            lblHomeTitle.Size = new Size(286, 37);
+            lblHomeTitle.Size = new Size(217, 30);
             lblHomeTitle.TabIndex = 0;
             lblHomeTitle.Text = "Dashboard Overview";
             // 
@@ -127,7 +128,7 @@ namespace DCSSMeetingScheduler.Admin {
             lblHomeSubtitle.ForeColor = Color.DimGray;
             lblHomeSubtitle.Location = new Point(15, 42);
             lblHomeSubtitle.Name = "lblHomeSubtitle";
-            lblHomeSubtitle.Size = new Size(544, 23);
+            lblHomeSubtitle.Size = new Size(417, 17);
             lblHomeSubtitle.TabIndex = 1;
             lblHomeSubtitle.Text = "View system statistics and scheduled meetings across the department.";
             // 
@@ -163,7 +164,7 @@ namespace DCSSMeetingScheduler.Admin {
             lblFacultyTitle.ForeColor = Color.FromArgb(85, 121, 69);
             lblFacultyTitle.Location = new Point(14, 10);
             lblFacultyTitle.Name = "lblFacultyTitle";
-            lblFacultyTitle.Size = new Size(148, 20);
+            lblFacultyTitle.Size = new Size(115, 15);
             lblFacultyTitle.TabIndex = 0;
             lblFacultyTitle.Text = "FACULTY MEMBERS";
             // 
@@ -173,7 +174,7 @@ namespace DCSSMeetingScheduler.Admin {
             lblFacultyCount.Font = new Font("Segoe UI", 22F, FontStyle.Bold);
             lblFacultyCount.Location = new Point(12, 30);
             lblFacultyCount.Name = "lblFacultyCount";
-            lblFacultyCount.Size = new Size(43, 50);
+            lblFacultyCount.Size = new Size(35, 41);
             lblFacultyCount.TabIndex = 1;
             lblFacultyCount.Text = "0";
             // 
@@ -195,7 +196,7 @@ namespace DCSSMeetingScheduler.Admin {
             lblStudentsTitle.ForeColor = Color.FromArgb(85, 121, 69);
             lblStudentsTitle.Location = new Point(14, 10);
             lblStudentsTitle.Name = "lblStudentsTitle";
-            lblStudentsTitle.Size = new Size(85, 20);
+            lblStudentsTitle.Size = new Size(68, 15);
             lblStudentsTitle.TabIndex = 0;
             lblStudentsTitle.Text = "STUDENTS";
             // 
@@ -205,7 +206,7 @@ namespace DCSSMeetingScheduler.Admin {
             lblStudentsCount.Font = new Font("Segoe UI", 22F, FontStyle.Bold);
             lblStudentsCount.Location = new Point(12, 30);
             lblStudentsCount.Name = "lblStudentsCount";
-            lblStudentsCount.Size = new Size(43, 50);
+            lblStudentsCount.Size = new Size(35, 41);
             lblStudentsCount.TabIndex = 1;
             lblStudentsCount.Text = "0";
             // 
@@ -227,7 +228,7 @@ namespace DCSSMeetingScheduler.Admin {
             lblMeetingsTitle.ForeColor = Color.FromArgb(85, 121, 69);
             lblMeetingsTitle.Location = new Point(14, 10);
             lblMeetingsTitle.Name = "lblMeetingsTitle";
-            lblMeetingsTitle.Size = new Size(133, 20);
+            lblMeetingsTitle.Size = new Size(105, 15);
             lblMeetingsTitle.TabIndex = 0;
             lblMeetingsTitle.Text = "TOTAL MEETINGS";
             // 
@@ -237,7 +238,7 @@ namespace DCSSMeetingScheduler.Admin {
             lblMeetingsCount.Font = new Font("Segoe UI", 22F, FontStyle.Bold);
             lblMeetingsCount.Location = new Point(12, 30);
             lblMeetingsCount.Name = "lblMeetingsCount";
-            lblMeetingsCount.Size = new Size(43, 50);
+            lblMeetingsCount.Size = new Size(35, 41);
             lblMeetingsCount.TabIndex = 1;
             lblMeetingsCount.Text = "0";
             // 
@@ -259,7 +260,7 @@ namespace DCSSMeetingScheduler.Admin {
             lblPendingTitle.ForeColor = Color.DarkOrange;
             lblPendingTitle.Location = new Point(14, 10);
             lblPendingTitle.Name = "lblPendingTitle";
-            lblPendingTitle.Size = new Size(154, 20);
+            lblPendingTitle.Size = new Size(122, 15);
             lblPendingTitle.TabIndex = 0;
             lblPendingTitle.Text = "PENDING REQUESTS";
             // 
@@ -269,7 +270,7 @@ namespace DCSSMeetingScheduler.Admin {
             lblPendingCount.Font = new Font("Segoe UI", 22F, FontStyle.Bold);
             lblPendingCount.Location = new Point(12, 30);
             lblPendingCount.Name = "lblPendingCount";
-            lblPendingCount.Size = new Size(43, 50);
+            lblPendingCount.Size = new Size(35, 41);
             lblPendingCount.TabIndex = 1;
             lblPendingCount.Text = "0";
             // 
@@ -279,7 +280,7 @@ namespace DCSSMeetingScheduler.Admin {
             lblAppointmentsTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblAppointmentsTitle.Location = new Point(14, 166);
             lblAppointmentsTitle.Name = "lblAppointmentsTitle";
-            lblAppointmentsTitle.Size = new Size(203, 28);
+            lblAppointmentsTitle.Size = new Size(165, 21);
             lblAppointmentsTitle.TabIndex = 7;
             lblAppointmentsTitle.Text = "Scheduled Meetings";
             // 
@@ -289,7 +290,7 @@ namespace DCSSMeetingScheduler.Admin {
             lblFilterStatus.Font = new Font("Segoe UI", 9.75F);
             lblFilterStatus.Location = new Point(340, 168);
             lblFilterStatus.Name = "lblFilterStatus";
-            lblFilterStatus.Size = new Size(60, 23);
+            lblFilterStatus.Size = new Size(46, 17);
             lblFilterStatus.TabIndex = 8;
             lblFilterStatus.Text = "Status:";
             // 
@@ -301,7 +302,7 @@ namespace DCSSMeetingScheduler.Admin {
             cmbFilterStatus.Items.AddRange(new object[] { "All", "Pending", "Approved", "Declined", "Completed", "Cancelled" });
             cmbFilterStatus.Location = new Point(390, 164);
             cmbFilterStatus.Name = "cmbFilterStatus";
-            cmbFilterStatus.Size = new Size(130, 29);
+            cmbFilterStatus.Size = new Size(130, 25);
             cmbFilterStatus.TabIndex = 9;
             cmbFilterStatus.SelectedIndexChanged += cmbFilterStatus_SelectedIndexChanged;
             // 
@@ -311,7 +312,7 @@ namespace DCSSMeetingScheduler.Admin {
             lblSearchAppointment.Font = new Font("Segoe UI", 9.75F);
             lblSearchAppointment.Location = new Point(540, 168);
             lblSearchAppointment.Name = "lblSearchAppointment";
-            lblSearchAppointment.Size = new Size(65, 23);
+            lblSearchAppointment.Size = new Size(50, 17);
             lblSearchAppointment.TabIndex = 10;
             lblSearchAppointment.Text = "Search:";
             // 
@@ -320,7 +321,7 @@ namespace DCSSMeetingScheduler.Admin {
             txtSearchAppointment.Font = new Font("Segoe UI", 9.75F);
             txtSearchAppointment.Location = new Point(595, 164);
             txtSearchAppointment.Name = "txtSearchAppointment";
-            txtSearchAppointment.Size = new Size(385, 29);
+            txtSearchAppointment.Size = new Size(385, 25);
             txtSearchAppointment.TabIndex = 11;
             txtSearchAppointment.TextChanged += txtSearchAppointment_TextChanged;
             txtSearchAppointment.KeyDown += txtSearchAppointment_KeyDown;
@@ -382,10 +383,10 @@ namespace DCSSMeetingScheduler.Admin {
             tabUsers.Controls.Add(label2);
             tabUsers.Controls.Add(dgvUsers);
             tabUsers.Font = new Font("Microsoft Sans Serif", 12.25F);
-            tabUsers.Location = new Point(4, 26);
+            tabUsers.Location = new Point(4, 22);
             tabUsers.Name = "tabUsers";
             tabUsers.Padding = new Padding(8);
-            tabUsers.Size = new Size(1234, 580);
+            tabUsers.Size = new Size(1234, 584);
             tabUsers.TabIndex = 1;
             tabUsers.Text = "Users";
             tabUsers.UseVisualStyleBackColor = true;
@@ -447,7 +448,7 @@ namespace DCSSMeetingScheduler.Admin {
             // 
             txtSearchName.Location = new Point(152, 5);
             txtSearchName.Name = "txtSearchName";
-            txtSearchName.Size = new Size(502, 31);
+            txtSearchName.Size = new Size(502, 26);
             txtSearchName.TabIndex = 2;
             txtSearchName.TextChanged += txtSearchName_TextChanged;
             txtSearchName.KeyDown += txtSearchName_KeyDown;
@@ -457,7 +458,7 @@ namespace DCSSMeetingScheduler.Admin {
             label2.AutoSize = true;
             label2.Location = new Point(11, 8);
             label2.Name = "label2";
-            label2.Size = new Size(174, 25);
+            label2.Size = new Size(135, 20);
             label2.TabIndex = 1;
             label2.Text = "Search by name:";
             // 
@@ -478,7 +479,7 @@ namespace DCSSMeetingScheduler.Admin {
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(85, 121, 69);
+            panel1.BackColor = Color.DarkGreen;
             panel1.Controls.Add(lblGreeting);
             panel1.Controls.Add(btnLogout);
             panel1.Controls.Add(label1);
@@ -493,9 +494,9 @@ namespace DCSSMeetingScheduler.Admin {
             // 
             lblGreeting.AutoSize = true;
             lblGreeting.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblGreeting.Location = new Point(14, 29);
+            lblGreeting.Location = new Point(14, 32);
             lblGreeting.Name = "lblGreeting";
-            lblGreeting.Size = new Size(252, 23);
+            lblGreeting.Size = new Size(190, 17);
             lblGreeting.TabIndex = 2;
             lblGreeting.Text = "Welcome Vince Angelo Batecan";
             // 
@@ -514,17 +515,17 @@ namespace DCSSMeetingScheduler.Admin {
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(10, 8);
             label1.Name = "label1";
-            label1.Size = new Size(421, 28);
+            label1.Size = new Size(398, 25);
             label1.TabIndex = 0;
             label1.Text = "DCSS Meeting Scheduler Admin Dashboard";
             label1.Click += label1_Click;
             // 
             // AdminForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 17F);
+            AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 690);
             Controls.Add(panel1);
