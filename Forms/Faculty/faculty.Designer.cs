@@ -105,6 +105,7 @@ namespace DCSSMeetingScheduler.Faculty
             btnEditProfile = new Button();
             pnlAppInfo = new Panel();
             lblAppInforHeading = new Label();
+            panel3 = new Panel();
             tabFaculty.SuspendLayout();
             tabHome.SuspendLayout();
             pnlPending.SuspendLayout();
@@ -551,6 +552,7 @@ namespace DCSSMeetingScheduler.Faculty
             // 
             tabSettings.AutoScroll = true;
             tabSettings.BackColor = Color.WhiteSmoke;
+            tabSettings.Controls.Add(panel3);
             tabSettings.Controls.Add(pnlAppInfo);
             tabSettings.Controls.Add(pnlFacultyProfile);
             tabSettings.Controls.Add(pnlHeaderSetting);
@@ -982,6 +984,13 @@ namespace DCSSMeetingScheduler.Faculty
             lblAppInforHeading.TabIndex = 0;
             lblAppInforHeading.Text = "Application Information";
             // 
+            // panel3
+            // 
+            panel3.Location = new Point(366, 90);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(200, 100);
+            panel3.TabIndex = 3;
+            // 
             // faculty
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1111,5 +1120,6 @@ namespace DCSSMeetingScheduler.Faculty
         private Panel pnlAppInfo;
         private Button btnEditProfile;
         private Label lblAppInforHeading;
+        private Panel panel3;
     }
 }
