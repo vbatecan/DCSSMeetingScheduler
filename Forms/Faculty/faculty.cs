@@ -83,5 +83,15 @@ namespace DCSSMeetingScheduler.Faculty
         {
 
         }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlFacultyProfile_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
