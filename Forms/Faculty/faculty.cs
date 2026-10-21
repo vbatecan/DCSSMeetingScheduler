@@ -68,5 +68,35 @@ namespace DCSSMeetingScheduler.Faculty
         {
 
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTotalUpMeet_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvRecentRequest_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlFacultyProfile_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -86,25 +86,25 @@
             label4 = new Label();
             lblRequestTitle = new Label();
             tabPage2 = new TabPage();
-            pnlSettingsHeader = new Panel();
-            lblSettingsTitle = new Label();
-            lblSettingsSubtitle = new Label();
-            lblProfileSection = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
-            label10 = new Label();
-            label11 = new Label();
-            txtStudentName = new TextBox();
-            txtStudentId = new TextBox();
-            txtStudentEmail = new TextBox();
-            txtStudentProgram = new TextBox();
-            cmbYearLevel = new ComboBox();
-            txtSection = new TextBox();
-            pnlProfile = new Panel();
-            btnSaveSettings = new Button();
             btnCancelSettings = new Button();
+            btnSaveSettings = new Button();
+            pnlProfile = new Panel();
+            txtSection = new TextBox();
+            cmbYearLevel = new ComboBox();
+            txtStudentProgram = new TextBox();
+            txtStudentEmail = new TextBox();
+            txtStudentId = new TextBox();
+            txtStudentName = new TextBox();
+            label11 = new Label();
+            label10 = new Label();
+            label9 = new Label();
+            label8 = new Label();
+            label7 = new Label();
+            label6 = new Label();
+            lblProfileSection = new Label();
+            pnlSettingsHeader = new Panel();
+            lblSettingsSubtitle = new Label();
+            lblSettingsTitle = new Label();
             pblHeader.SuspendLayout();
             tabPage3.SuspendLayout();
             pnlRequestsHeader.SuspendLayout();
@@ -121,8 +121,8 @@
             ((System.ComponentModel.ISupportInitialize)dgvFacultyHours).BeginInit();
             pnlRequestTitle.SuspendLayout();
             tabPage2.SuspendLayout();
-            pnlSettingsHeader.SuspendLayout();
             pnlProfile.SuspendLayout();
+            pnlSettingsHeader.SuspendLayout();
             SuspendLayout();
             // 
             // pblHeader
@@ -710,160 +710,29 @@
             tabPage2.Text = "Settings";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // pnlSettingsHeader
+            // btnCancelSettings
             // 
-            pnlSettingsHeader.BackColor = Color.White;
-            pnlSettingsHeader.Controls.Add(lblSettingsSubtitle);
-            pnlSettingsHeader.Controls.Add(lblSettingsTitle);
-            pnlSettingsHeader.Dock = DockStyle.Top;
-            pnlSettingsHeader.Location = new Point(0, 0);
-            pnlSettingsHeader.Name = "pnlSettingsHeader";
-            pnlSettingsHeader.Size = new Size(1262, 85);
-            pnlSettingsHeader.TabIndex = 0;
+            btnCancelSettings.BackColor = Color.White;
+            btnCancelSettings.FlatStyle = FlatStyle.Flat;
+            btnCancelSettings.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancelSettings.Location = new Point(1121, 497);
+            btnCancelSettings.Name = "btnCancelSettings";
+            btnCancelSettings.Size = new Size(100, 40);
+            btnCancelSettings.TabIndex = 3;
+            btnCancelSettings.Text = "Cancel";
+            btnCancelSettings.UseVisualStyleBackColor = false;
             // 
-            // lblSettingsTitle
+            // btnSaveSettings
             // 
-            lblSettingsTitle.AutoSize = true;
-            lblSettingsTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSettingsTitle.ForeColor = Color.DarkGreen;
-            lblSettingsTitle.Location = new Point(3, 10);
-            lblSettingsTitle.Name = "lblSettingsTitle";
-            lblSettingsTitle.Size = new Size(303, 32);
-            lblSettingsTitle.TabIndex = 1;
-            lblSettingsTitle.Text = "Student Account Settings";
-            lblSettingsTitle.Click += label6_Click;
-            // 
-            // lblSettingsSubtitle
-            // 
-            lblSettingsSubtitle.AutoSize = true;
-            lblSettingsSubtitle.ForeColor = Color.DimGray;
-            lblSettingsSubtitle.Location = new Point(8, 42);
-            lblSettingsSubtitle.Name = "lblSettingsSubtitle";
-            lblSettingsSubtitle.Size = new Size(274, 15);
-            lblSettingsSubtitle.TabIndex = 1;
-            lblSettingsSubtitle.Text = "View and manage your student profile information";
-            // 
-            // lblProfileSection
-            // 
-            lblProfileSection.AutoSize = true;
-            lblProfileSection.Font = new Font("Segoe UI", 18.75F, FontStyle.Bold);
-            lblProfileSection.ForeColor = Color.DarkGreen;
-            lblProfileSection.Location = new Point(3, 0);
-            lblProfileSection.Name = "lblProfileSection";
-            lblProfileSection.Size = new Size(241, 35);
-            lblProfileSection.TabIndex = 0;
-            lblProfileSection.Text = "Profile Information";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 15F);
-            label6.Location = new Point(40, 65);
-            label6.Name = "label6";
-            label6.Size = new Size(137, 28);
-            label6.TabIndex = 1;
-            label6.Text = "Student Name";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 15F);
-            label7.Location = new Point(40, 145);
-            label7.Name = "label7";
-            label7.Size = new Size(104, 28);
-            label7.TabIndex = 2;
-            label7.Text = "Student ID";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 15F);
-            label8.Location = new Point(40, 225);
-            label8.Name = "label8";
-            label8.Size = new Size(134, 28);
-            label8.TabIndex = 3;
-            label8.Text = "Email Address";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 15F);
-            label9.Location = new Point(650, 65);
-            label9.Name = "label9";
-            label9.Size = new Size(166, 28);
-            label9.TabIndex = 4;
-            label9.Text = "Program / Course";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 15F);
-            label10.Location = new Point(650, 145);
-            label10.Name = "label10";
-            label10.Size = new Size(97, 28);
-            label10.TabIndex = 5;
-            label10.Text = "Year Level";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 15F);
-            label11.Location = new Point(650, 225);
-            label11.Name = "label11";
-            label11.Size = new Size(77, 28);
-            label11.TabIndex = 6;
-            label11.Text = "Section";
-            // 
-            // txtStudentName
-            // 
-            txtStudentName.Font = new Font("Segoe UI", 10F);
-            txtStudentName.Location = new Point(40, 96);
-            txtStudentName.Name = "txtStudentName";
-            txtStudentName.Size = new Size(300, 25);
-            txtStudentName.TabIndex = 7;
-            // 
-            // txtStudentId
-            // 
-            txtStudentId.Font = new Font("Segoe UI", 10F);
-            txtStudentId.Location = new Point(40, 176);
-            txtStudentId.Name = "txtStudentId";
-            txtStudentId.Size = new Size(300, 25);
-            txtStudentId.TabIndex = 8;
-            // 
-            // txtStudentEmail
-            // 
-            txtStudentEmail.Font = new Font("Segoe UI", 10F);
-            txtStudentEmail.Location = new Point(40, 256);
-            txtStudentEmail.Name = "txtStudentEmail";
-            txtStudentEmail.Size = new Size(300, 25);
-            txtStudentEmail.TabIndex = 9;
-            // 
-            // txtStudentProgram
-            // 
-            txtStudentProgram.Font = new Font("Segoe UI", 10F);
-            txtStudentProgram.Location = new Point(650, 96);
-            txtStudentProgram.Name = "txtStudentProgram";
-            txtStudentProgram.Size = new Size(300, 25);
-            txtStudentProgram.TabIndex = 10;
-            // 
-            // cmbYearLevel
-            // 
-            cmbYearLevel.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbYearLevel.Font = new Font("Segoe UI", 10F);
-            cmbYearLevel.FormattingEnabled = true;
-            cmbYearLevel.Items.AddRange(new object[] { "1st Year", "2nd Year", "3rd Year", "4th Year" });
-            cmbYearLevel.Location = new Point(650, 176);
-            cmbYearLevel.Name = "cmbYearLevel";
-            cmbYearLevel.Size = new Size(300, 25);
-            cmbYearLevel.TabIndex = 11;
-            // 
-            // txtSection
-            // 
-            txtSection.Font = new Font("Segoe UI", 10F);
-            txtSection.Location = new Point(650, 256);
-            txtSection.Name = "txtSection";
-            txtSection.Size = new Size(300, 25);
-            txtSection.TabIndex = 12;
+            btnSaveSettings.BackColor = Color.White;
+            btnSaveSettings.FlatStyle = FlatStyle.Flat;
+            btnSaveSettings.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSaveSettings.Location = new Point(975, 497);
+            btnSaveSettings.Name = "btnSaveSettings";
+            btnSaveSettings.Size = new Size(140, 40);
+            btnSaveSettings.TabIndex = 2;
+            btnSaveSettings.Text = "Save Changes";
+            btnSaveSettings.UseVisualStyleBackColor = false;
             // 
             // pnlProfile
             // 
@@ -888,29 +757,160 @@
             pnlProfile.TabIndex = 1;
             pnlProfile.Paint += pnlProfile_Paint;
             // 
-            // btnSaveSettings
+            // txtSection
             // 
-            btnSaveSettings.BackColor = Color.White;
-            btnSaveSettings.FlatStyle = FlatStyle.Flat;
-            btnSaveSettings.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSaveSettings.Location = new Point(975, 497);
-            btnSaveSettings.Name = "btnSaveSettings";
-            btnSaveSettings.Size = new Size(140, 40);
-            btnSaveSettings.TabIndex = 2;
-            btnSaveSettings.Text = "Save Changes";
-            btnSaveSettings.UseVisualStyleBackColor = false;
+            txtSection.Font = new Font("Segoe UI", 10F);
+            txtSection.Location = new Point(650, 256);
+            txtSection.Name = "txtSection";
+            txtSection.Size = new Size(300, 25);
+            txtSection.TabIndex = 12;
             // 
-            // btnCancelSettings
+            // cmbYearLevel
             // 
-            btnCancelSettings.BackColor = Color.White;
-            btnCancelSettings.FlatStyle = FlatStyle.Flat;
-            btnCancelSettings.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCancelSettings.Location = new Point(1121, 497);
-            btnCancelSettings.Name = "btnCancelSettings";
-            btnCancelSettings.Size = new Size(100, 40);
-            btnCancelSettings.TabIndex = 3;
-            btnCancelSettings.Text = "Cancel";
-            btnCancelSettings.UseVisualStyleBackColor = false;
+            cmbYearLevel.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbYearLevel.Font = new Font("Segoe UI", 10F);
+            cmbYearLevel.FormattingEnabled = true;
+            cmbYearLevel.Items.AddRange(new object[] { "1st Year", "2nd Year", "3rd Year", "4th Year" });
+            cmbYearLevel.Location = new Point(650, 176);
+            cmbYearLevel.Name = "cmbYearLevel";
+            cmbYearLevel.Size = new Size(300, 25);
+            cmbYearLevel.TabIndex = 11;
+            // 
+            // txtStudentProgram
+            // 
+            txtStudentProgram.Font = new Font("Segoe UI", 10F);
+            txtStudentProgram.Location = new Point(650, 96);
+            txtStudentProgram.Name = "txtStudentProgram";
+            txtStudentProgram.Size = new Size(300, 25);
+            txtStudentProgram.TabIndex = 10;
+            // 
+            // txtStudentEmail
+            // 
+            txtStudentEmail.Font = new Font("Segoe UI", 10F);
+            txtStudentEmail.Location = new Point(40, 256);
+            txtStudentEmail.Name = "txtStudentEmail";
+            txtStudentEmail.Size = new Size(300, 25);
+            txtStudentEmail.TabIndex = 9;
+            // 
+            // txtStudentId
+            // 
+            txtStudentId.Font = new Font("Segoe UI", 10F);
+            txtStudentId.Location = new Point(40, 176);
+            txtStudentId.Name = "txtStudentId";
+            txtStudentId.Size = new Size(300, 25);
+            txtStudentId.TabIndex = 8;
+            // 
+            // txtStudentName
+            // 
+            txtStudentName.Font = new Font("Segoe UI", 10F);
+            txtStudentName.Location = new Point(40, 96);
+            txtStudentName.Name = "txtStudentName";
+            txtStudentName.Size = new Size(300, 25);
+            txtStudentName.TabIndex = 7;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 15F);
+            label11.Location = new Point(650, 225);
+            label11.Name = "label11";
+            label11.Size = new Size(77, 28);
+            label11.TabIndex = 6;
+            label11.Text = "Section";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 15F);
+            label10.Location = new Point(650, 145);
+            label10.Name = "label10";
+            label10.Size = new Size(97, 28);
+            label10.TabIndex = 5;
+            label10.Text = "Year Level";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 15F);
+            label9.Location = new Point(650, 65);
+            label9.Name = "label9";
+            label9.Size = new Size(166, 28);
+            label9.TabIndex = 4;
+            label9.Text = "Program / Course";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 15F);
+            label8.Location = new Point(40, 225);
+            label8.Name = "label8";
+            label8.Size = new Size(134, 28);
+            label8.TabIndex = 3;
+            label8.Text = "Email Address";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 15F);
+            label7.Location = new Point(40, 145);
+            label7.Name = "label7";
+            label7.Size = new Size(104, 28);
+            label7.TabIndex = 2;
+            label7.Text = "Student ID";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 15F);
+            label6.Location = new Point(40, 65);
+            label6.Name = "label6";
+            label6.Size = new Size(137, 28);
+            label6.TabIndex = 1;
+            label6.Text = "Student Name";
+            // 
+            // lblProfileSection
+            // 
+            lblProfileSection.AutoSize = true;
+            lblProfileSection.Font = new Font("Segoe UI", 18.75F, FontStyle.Bold);
+            lblProfileSection.ForeColor = Color.DarkGreen;
+            lblProfileSection.Location = new Point(3, 0);
+            lblProfileSection.Name = "lblProfileSection";
+            lblProfileSection.Size = new Size(241, 35);
+            lblProfileSection.TabIndex = 0;
+            lblProfileSection.Text = "Profile Information";
+            // 
+            // pnlSettingsHeader
+            // 
+            pnlSettingsHeader.BackColor = Color.White;
+            pnlSettingsHeader.Controls.Add(lblSettingsSubtitle);
+            pnlSettingsHeader.Controls.Add(lblSettingsTitle);
+            pnlSettingsHeader.Dock = DockStyle.Top;
+            pnlSettingsHeader.Location = new Point(0, 0);
+            pnlSettingsHeader.Name = "pnlSettingsHeader";
+            pnlSettingsHeader.Size = new Size(1262, 85);
+            pnlSettingsHeader.TabIndex = 0;
+            // 
+            // lblSettingsSubtitle
+            // 
+            lblSettingsSubtitle.AutoSize = true;
+            lblSettingsSubtitle.ForeColor = Color.DimGray;
+            lblSettingsSubtitle.Location = new Point(8, 42);
+            lblSettingsSubtitle.Name = "lblSettingsSubtitle";
+            lblSettingsSubtitle.Size = new Size(274, 15);
+            lblSettingsSubtitle.TabIndex = 1;
+            lblSettingsSubtitle.Text = "View and manage your student profile information";
+            // 
+            // lblSettingsTitle
+            // 
+            lblSettingsTitle.AutoSize = true;
+            lblSettingsTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSettingsTitle.ForeColor = Color.DarkGreen;
+            lblSettingsTitle.Location = new Point(3, 10);
+            lblSettingsTitle.Name = "lblSettingsTitle";
+            lblSettingsTitle.Size = new Size(303, 32);
+            lblSettingsTitle.TabIndex = 1;
+            lblSettingsTitle.Text = "Student Account Settings";
+            lblSettingsTitle.Click += label6_Click;
             // 
             // Student
             // 
@@ -949,10 +949,10 @@
             pnlRequestTitle.ResumeLayout(false);
             pnlRequestTitle.PerformLayout();
             tabPage2.ResumeLayout(false);
-            pnlSettingsHeader.ResumeLayout(false);
-            pnlSettingsHeader.PerformLayout();
             pnlProfile.ResumeLayout(false);
             pnlProfile.PerformLayout();
+            pnlSettingsHeader.ResumeLayout(false);
+            pnlSettingsHeader.PerformLayout();
             ResumeLayout(false);
         }
 
