@@ -88,11 +88,11 @@ namespace DCSSMeetingScheduler.Faculty
             tabControl1.Controls.Add(AvailabilityPage);
             tabControl1.Controls.Add(tabPage4);
             tabControl1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tabControl1.Location = new Point(-2, 50);
+            tabControl1.Location = new Point(-3, 74);
             tabControl1.Margin = new Padding(2);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(887, 364);
+            tabControl1.Size = new Size(1270, 607);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -107,7 +107,7 @@ namespace DCSSMeetingScheduler.Faculty
             tabPage1.Margin = new Padding(2);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(2);
-            tabPage1.Size = new Size(879, 336);
+            tabPage1.Size = new Size(1262, 579);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Home";
             tabPage1.UseVisualStyleBackColor = true;
@@ -259,7 +259,7 @@ namespace DCSSMeetingScheduler.Faculty
             tabPage2.Margin = new Padding(2);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(2);
-            tabPage2.Size = new Size(879, 336);
+            tabPage2.Size = new Size(1262, 579);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Request";
             tabPage2.UseVisualStyleBackColor = true;
@@ -273,7 +273,7 @@ namespace DCSSMeetingScheduler.Faculty
             AvailabilityPage.Margin = new Padding(2);
             AvailabilityPage.Name = "AvailabilityPage";
             AvailabilityPage.Padding = new Padding(2);
-            AvailabilityPage.Size = new Size(879, 336);
+            AvailabilityPage.Size = new Size(1262, 579);
             AvailabilityPage.TabIndex = 2;
             AvailabilityPage.Text = "Availabillity";
             AvailabilityPage.Click += AvailabilityPage_Click;
@@ -287,7 +287,7 @@ namespace DCSSMeetingScheduler.Faculty
             groupBox2.Controls.Add(textBox2);
             groupBox2.Controls.Add(dataGridView1);
             groupBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox2.Location = new Point(291, 46);
+            groupBox2.Location = new Point(290, 67);
             groupBox2.Margin = new Padding(3, 2, 3, 2);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(3, 2, 3, 2);
@@ -379,7 +379,7 @@ namespace DCSSMeetingScheduler.Faculty
             groupBox1.Controls.Add(comboBox1);
             groupBox1.Controls.Add(lblDayOfWeek);
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(19, 46);
+            groupBox1.Location = new Point(11, 67);
             groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 2, 3, 2);
@@ -504,7 +504,7 @@ namespace DCSSMeetingScheduler.Faculty
             tabPage4.Margin = new Padding(2);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new Padding(2);
-            tabPage4.Size = new Size(879, 336);
+            tabPage4.Size = new Size(1262, 579);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Setting";
             tabPage4.UseVisualStyleBackColor = true;
@@ -514,7 +514,7 @@ namespace DCSSMeetingScheduler.Faculty
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = SystemColors.InactiveBorder;
-            label7.Location = new Point(10, 0);
+            label7.Location = new Point(10, 7);
             label7.Name = "label7";
             label7.Size = new Size(194, 37);
             label7.TabIndex = 1;
@@ -525,7 +525,7 @@ namespace DCSSMeetingScheduler.Faculty
             // 
             label8.AutoSize = true;
             label8.ForeColor = SystemColors.InactiveBorder;
-            label8.Location = new Point(15, 32);
+            label8.Location = new Point(19, 32);
             label8.Name = "label8";
             label8.Size = new Size(205, 15);
             label8.TabIndex = 2;
