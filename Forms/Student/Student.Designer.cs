@@ -65,6 +65,15 @@
             lblHomeTitle = new Label();
             tabStudent = new TabControl();
             tabPage1 = new TabPage();
+            btnSubmitRequest = new Button();
+            txtPurpose = new TextBox();
+            lbPurposeofMeeting = new Label();
+            dtpEndTime = new DateTimePicker();
+            lblEndTime = new Label();
+            dtpStartTime = new DateTimePicker();
+            lblStartTime = new Label();
+            dtpMeetingDate = new DateTimePicker();
+            lblMeetingDate = new Label();
             dgvFacultyHours = new DataGridView();
             colDay = new DataGridViewTextBoxColumn();
             colStartTime = new DataGridViewTextBoxColumn();
@@ -76,15 +85,26 @@
             pnlRequestTitle = new Panel();
             label4 = new Label();
             lblRequestTitle = new Label();
-            lblMeetingDate = new Label();
-            dtpMeetingDate = new DateTimePicker();
-            lblStartTime = new Label();
-            dtpStartTime = new DateTimePicker();
-            lblEndTime = new Label();
-            dtpEndTime = new DateTimePicker();
-            lbPurposeofMeeting = new Label();
-            txtPurpose = new TextBox();
-            btnSubmitRequest = new Button();
+            tabPage2 = new TabPage();
+            pnlSettingsHeader = new Panel();
+            lblSettingsTitle = new Label();
+            lblSettingsSubtitle = new Label();
+            lblProfileSection = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            label10 = new Label();
+            label11 = new Label();
+            txtStudentName = new TextBox();
+            txtStudentId = new TextBox();
+            txtStudentEmail = new TextBox();
+            txtStudentProgram = new TextBox();
+            cmbYearLevel = new ComboBox();
+            txtSection = new TextBox();
+            pnlProfile = new Panel();
+            btnSaveSettings = new Button();
+            btnCancelSettings = new Button();
             pblHeader.SuspendLayout();
             tabPage3.SuspendLayout();
             pnlRequestsHeader.SuspendLayout();
@@ -100,6 +120,9 @@
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvFacultyHours).BeginInit();
             pnlRequestTitle.SuspendLayout();
+            tabPage2.SuspendLayout();
+            pnlSettingsHeader.SuspendLayout();
+            pnlProfile.SuspendLayout();
             SuspendLayout();
             // 
             // pblHeader
@@ -243,6 +266,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.DarkGreen;
             label3.Location = new Point(5, 6);
             label3.Name = "label3";
             label3.Size = new Size(203, 25);
@@ -453,6 +477,7 @@
             // 
             tabStudent.Controls.Add(tabPage3);
             tabStudent.Controls.Add(tabPage1);
+            tabStudent.Controls.Add(tabPage2);
             tabStudent.Dock = DockStyle.Fill;
             tabStudent.ImeMode = ImeMode.Disable;
             tabStudent.Location = new Point(0, 100);
@@ -485,6 +510,92 @@
             tabPage1.TabIndex = 3;
             tabPage1.Text = "Request Meeting";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnSubmitRequest
+            // 
+            btnSubmitRequest.Location = new Point(11, 521);
+            btnSubmitRequest.Name = "btnSubmitRequest";
+            btnSubmitRequest.Size = new Size(1243, 40);
+            btnSubmitRequest.TabIndex = 13;
+            btnSubmitRequest.Text = "Submit Request";
+            btnSubmitRequest.UseVisualStyleBackColor = true;
+            // 
+            // txtPurpose
+            // 
+            txtPurpose.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtPurpose.Location = new Point(11, 426);
+            txtPurpose.MaxLength = 500;
+            txtPurpose.Multiline = true;
+            txtPurpose.Name = "txtPurpose";
+            txtPurpose.Size = new Size(1243, 75);
+            txtPurpose.TabIndex = 12;
+            // 
+            // lbPurposeofMeeting
+            // 
+            lbPurposeofMeeting.AutoSize = true;
+            lbPurposeofMeeting.Location = new Point(11, 406);
+            lbPurposeofMeeting.Name = "lbPurposeofMeeting";
+            lbPurposeofMeeting.Size = new Size(130, 17);
+            lbPurposeofMeeting.TabIndex = 11;
+            lbPurposeofMeeting.Text = "Purpose of Meeting";
+            // 
+            // dtpEndTime
+            // 
+            dtpEndTime.CustomFormat = "hh:mm tt";
+            dtpEndTime.Format = DateTimePickerFormat.Custom;
+            dtpEndTime.Location = new Point(11, 371);
+            dtpEndTime.Name = "dtpEndTime";
+            dtpEndTime.ShowUpDown = true;
+            dtpEndTime.Size = new Size(200, 25);
+            dtpEndTime.TabIndex = 10;
+            // 
+            // lblEndTime
+            // 
+            lblEndTime.AutoSize = true;
+            lblEndTime.Location = new Point(11, 353);
+            lblEndTime.Name = "lblEndTime";
+            lblEndTime.Size = new Size(66, 17);
+            lblEndTime.TabIndex = 9;
+            lblEndTime.Text = "End Time";
+            // 
+            // dtpStartTime
+            // 
+            dtpStartTime.CustomFormat = "hh:mm tt";
+            dtpStartTime.Format = DateTimePickerFormat.Custom;
+            dtpStartTime.Location = new Point(546, 317);
+            dtpStartTime.Name = "dtpStartTime";
+            dtpStartTime.ShowUpDown = true;
+            dtpStartTime.Size = new Size(200, 25);
+            dtpStartTime.TabIndex = 8;
+            // 
+            // lblStartTime
+            // 
+            lblStartTime.AutoSize = true;
+            lblStartTime.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblStartTime.Location = new Point(546, 299);
+            lblStartTime.Name = "lblStartTime";
+            lblStartTime.Size = new Size(72, 17);
+            lblStartTime.TabIndex = 0;
+            lblStartTime.Text = "Start Time";
+            // 
+            // dtpMeetingDate
+            // 
+            dtpMeetingDate.Format = DateTimePickerFormat.Short;
+            dtpMeetingDate.Location = new Point(11, 317);
+            dtpMeetingDate.MinDate = new DateTime(2026, 10, 20, 0, 0, 0, 0);
+            dtpMeetingDate.Name = "dtpMeetingDate";
+            dtpMeetingDate.Size = new Size(200, 25);
+            dtpMeetingDate.TabIndex = 7;
+            // 
+            // lblMeetingDate
+            // 
+            lblMeetingDate.AutoSize = true;
+            lblMeetingDate.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblMeetingDate.Location = new Point(8, 299);
+            lblMeetingDate.Name = "lblMeetingDate";
+            lblMeetingDate.Size = new Size(99, 19);
+            lblMeetingDate.TabIndex = 6;
+            lblMeetingDate.Text = "Meeting Date";
             // 
             // dgvFacultyHours
             // 
@@ -586,91 +697,220 @@
             lblRequestTitle.TabIndex = 0;
             lblRequestTitle.Text = "Request a Meeting";
             // 
-            // lblMeetingDate
+            // tabPage2
             // 
-            lblMeetingDate.AutoSize = true;
-            lblMeetingDate.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblMeetingDate.Location = new Point(8, 299);
-            lblMeetingDate.Name = "lblMeetingDate";
-            lblMeetingDate.Size = new Size(99, 19);
-            lblMeetingDate.TabIndex = 6;
-            lblMeetingDate.Text = "Meeting Date";
+            tabPage2.Controls.Add(btnCancelSettings);
+            tabPage2.Controls.Add(btnSaveSettings);
+            tabPage2.Controls.Add(pnlProfile);
+            tabPage2.Controls.Add(pnlSettingsHeader);
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Size = new Size(1262, 579);
+            tabPage2.TabIndex = 0;
+            tabPage2.Text = "Settings";
+            tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dtpMeetingDate
+            // pnlSettingsHeader
             // 
-            dtpMeetingDate.Format = DateTimePickerFormat.Short;
-            dtpMeetingDate.Location = new Point(11, 317);
-            dtpMeetingDate.MinDate = new DateTime(2026, 10, 20, 0, 0, 0, 0);
-            dtpMeetingDate.Name = "dtpMeetingDate";
-            dtpMeetingDate.Size = new Size(200, 25);
-            dtpMeetingDate.TabIndex = 7;
+            pnlSettingsHeader.BackColor = Color.White;
+            pnlSettingsHeader.Controls.Add(lblSettingsSubtitle);
+            pnlSettingsHeader.Controls.Add(lblSettingsTitle);
+            pnlSettingsHeader.Dock = DockStyle.Top;
+            pnlSettingsHeader.Location = new Point(0, 0);
+            pnlSettingsHeader.Name = "pnlSettingsHeader";
+            pnlSettingsHeader.Size = new Size(1262, 85);
+            pnlSettingsHeader.TabIndex = 0;
             // 
-            // lblStartTime
+            // lblSettingsTitle
             // 
-            lblStartTime.AutoSize = true;
-            lblStartTime.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStartTime.Location = new Point(546, 299);
-            lblStartTime.Name = "lblStartTime";
-            lblStartTime.Size = new Size(72, 17);
-            lblStartTime.TabIndex = 0;
-            lblStartTime.Text = "Start Time";
+            lblSettingsTitle.AutoSize = true;
+            lblSettingsTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSettingsTitle.ForeColor = Color.DarkGreen;
+            lblSettingsTitle.Location = new Point(3, 10);
+            lblSettingsTitle.Name = "lblSettingsTitle";
+            lblSettingsTitle.Size = new Size(303, 32);
+            lblSettingsTitle.TabIndex = 1;
+            lblSettingsTitle.Text = "Student Account Settings";
+            lblSettingsTitle.Click += label6_Click;
             // 
-            // dtpStartTime
+            // lblSettingsSubtitle
             // 
-            dtpStartTime.CustomFormat = "hh:mm tt";
-            dtpStartTime.Format = DateTimePickerFormat.Custom;
-            dtpStartTime.Location = new Point(546, 317);
-            dtpStartTime.Name = "dtpStartTime";
-            dtpStartTime.ShowUpDown = true;
-            dtpStartTime.Size = new Size(200, 25);
-            dtpStartTime.TabIndex = 8;
+            lblSettingsSubtitle.AutoSize = true;
+            lblSettingsSubtitle.ForeColor = Color.DimGray;
+            lblSettingsSubtitle.Location = new Point(8, 42);
+            lblSettingsSubtitle.Name = "lblSettingsSubtitle";
+            lblSettingsSubtitle.Size = new Size(274, 15);
+            lblSettingsSubtitle.TabIndex = 1;
+            lblSettingsSubtitle.Text = "View and manage your student profile information";
             // 
-            // lblEndTime
+            // lblProfileSection
             // 
-            lblEndTime.AutoSize = true;
-            lblEndTime.Location = new Point(11, 353);
-            lblEndTime.Name = "lblEndTime";
-            lblEndTime.Size = new Size(66, 17);
-            lblEndTime.TabIndex = 9;
-            lblEndTime.Text = "End Time";
+            lblProfileSection.AutoSize = true;
+            lblProfileSection.Font = new Font("Segoe UI", 18.75F, FontStyle.Bold);
+            lblProfileSection.ForeColor = Color.DarkGreen;
+            lblProfileSection.Location = new Point(3, 0);
+            lblProfileSection.Name = "lblProfileSection";
+            lblProfileSection.Size = new Size(241, 35);
+            lblProfileSection.TabIndex = 0;
+            lblProfileSection.Text = "Profile Information";
             // 
-            // dtpEndTime
+            // label6
             // 
-            dtpEndTime.CustomFormat = "hh:mm tt";
-            dtpEndTime.Format = DateTimePickerFormat.Custom;
-            dtpEndTime.Location = new Point(11, 371);
-            dtpEndTime.Name = "dtpEndTime";
-            dtpEndTime.ShowUpDown = true;
-            dtpEndTime.Size = new Size(200, 25);
-            dtpEndTime.TabIndex = 10;
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 15F);
+            label6.Location = new Point(40, 65);
+            label6.Name = "label6";
+            label6.Size = new Size(137, 28);
+            label6.TabIndex = 1;
+            label6.Text = "Student Name";
             // 
-            // lbPurposeofMeeting
+            // label7
             // 
-            lbPurposeofMeeting.AutoSize = true;
-            lbPurposeofMeeting.Location = new Point(11, 406);
-            lbPurposeofMeeting.Name = "lbPurposeofMeeting";
-            lbPurposeofMeeting.Size = new Size(130, 17);
-            lbPurposeofMeeting.TabIndex = 11;
-            lbPurposeofMeeting.Text = "Purpose of Meeting";
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 15F);
+            label7.Location = new Point(40, 145);
+            label7.Name = "label7";
+            label7.Size = new Size(104, 28);
+            label7.TabIndex = 2;
+            label7.Text = "Student ID";
             // 
-            // txtPurpose
+            // label8
             // 
-            txtPurpose.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtPurpose.Location = new Point(11, 426);
-            txtPurpose.MaxLength = 500;
-            txtPurpose.Multiline = true;
-            txtPurpose.Name = "txtPurpose";
-            txtPurpose.Size = new Size(1243, 75);
-            txtPurpose.TabIndex = 12;
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 15F);
+            label8.Location = new Point(40, 225);
+            label8.Name = "label8";
+            label8.Size = new Size(134, 28);
+            label8.TabIndex = 3;
+            label8.Text = "Email Address";
             // 
-            // btnSubmitRequest
+            // label9
             // 
-            btnSubmitRequest.Location = new Point(11, 521);
-            btnSubmitRequest.Name = "btnSubmitRequest";
-            btnSubmitRequest.Size = new Size(1243, 40);
-            btnSubmitRequest.TabIndex = 13;
-            btnSubmitRequest.Text = "Submit Request";
-            btnSubmitRequest.UseVisualStyleBackColor = true;
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 15F);
+            label9.Location = new Point(650, 65);
+            label9.Name = "label9";
+            label9.Size = new Size(166, 28);
+            label9.TabIndex = 4;
+            label9.Text = "Program / Course";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 15F);
+            label10.Location = new Point(650, 145);
+            label10.Name = "label10";
+            label10.Size = new Size(97, 28);
+            label10.TabIndex = 5;
+            label10.Text = "Year Level";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 15F);
+            label11.Location = new Point(650, 225);
+            label11.Name = "label11";
+            label11.Size = new Size(77, 28);
+            label11.TabIndex = 6;
+            label11.Text = "Section";
+            // 
+            // txtStudentName
+            // 
+            txtStudentName.Font = new Font("Segoe UI", 10F);
+            txtStudentName.Location = new Point(40, 96);
+            txtStudentName.Name = "txtStudentName";
+            txtStudentName.Size = new Size(300, 25);
+            txtStudentName.TabIndex = 7;
+            // 
+            // txtStudentId
+            // 
+            txtStudentId.Font = new Font("Segoe UI", 10F);
+            txtStudentId.Location = new Point(40, 176);
+            txtStudentId.Name = "txtStudentId";
+            txtStudentId.Size = new Size(300, 25);
+            txtStudentId.TabIndex = 8;
+            // 
+            // txtStudentEmail
+            // 
+            txtStudentEmail.Font = new Font("Segoe UI", 10F);
+            txtStudentEmail.Location = new Point(40, 256);
+            txtStudentEmail.Name = "txtStudentEmail";
+            txtStudentEmail.Size = new Size(300, 25);
+            txtStudentEmail.TabIndex = 9;
+            // 
+            // txtStudentProgram
+            // 
+            txtStudentProgram.Font = new Font("Segoe UI", 10F);
+            txtStudentProgram.Location = new Point(650, 96);
+            txtStudentProgram.Name = "txtStudentProgram";
+            txtStudentProgram.Size = new Size(300, 25);
+            txtStudentProgram.TabIndex = 10;
+            // 
+            // cmbYearLevel
+            // 
+            cmbYearLevel.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbYearLevel.Font = new Font("Segoe UI", 10F);
+            cmbYearLevel.FormattingEnabled = true;
+            cmbYearLevel.Items.AddRange(new object[] { "1st Year", "2nd Year", "3rd Year", "4th Year" });
+            cmbYearLevel.Location = new Point(650, 176);
+            cmbYearLevel.Name = "cmbYearLevel";
+            cmbYearLevel.Size = new Size(300, 25);
+            cmbYearLevel.TabIndex = 11;
+            // 
+            // txtSection
+            // 
+            txtSection.Font = new Font("Segoe UI", 10F);
+            txtSection.Location = new Point(650, 256);
+            txtSection.Name = "txtSection";
+            txtSection.Size = new Size(300, 25);
+            txtSection.TabIndex = 12;
+            // 
+            // pnlProfile
+            // 
+            pnlProfile.BackColor = Color.White;
+            pnlProfile.BorderStyle = BorderStyle.FixedSingle;
+            pnlProfile.Controls.Add(txtSection);
+            pnlProfile.Controls.Add(cmbYearLevel);
+            pnlProfile.Controls.Add(txtStudentProgram);
+            pnlProfile.Controls.Add(txtStudentEmail);
+            pnlProfile.Controls.Add(txtStudentId);
+            pnlProfile.Controls.Add(txtStudentName);
+            pnlProfile.Controls.Add(label11);
+            pnlProfile.Controls.Add(label10);
+            pnlProfile.Controls.Add(label9);
+            pnlProfile.Controls.Add(label8);
+            pnlProfile.Controls.Add(label7);
+            pnlProfile.Controls.Add(label6);
+            pnlProfile.Controls.Add(lblProfileSection);
+            pnlProfile.Location = new Point(6, 91);
+            pnlProfile.Name = "pnlProfile";
+            pnlProfile.Size = new Size(1248, 400);
+            pnlProfile.TabIndex = 1;
+            pnlProfile.Paint += pnlProfile_Paint;
+            // 
+            // btnSaveSettings
+            // 
+            btnSaveSettings.BackColor = Color.White;
+            btnSaveSettings.FlatStyle = FlatStyle.Flat;
+            btnSaveSettings.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSaveSettings.Location = new Point(975, 497);
+            btnSaveSettings.Name = "btnSaveSettings";
+            btnSaveSettings.Size = new Size(140, 40);
+            btnSaveSettings.TabIndex = 2;
+            btnSaveSettings.Text = "Save Changes";
+            btnSaveSettings.UseVisualStyleBackColor = false;
+            // 
+            // btnCancelSettings
+            // 
+            btnCancelSettings.BackColor = Color.White;
+            btnCancelSettings.FlatStyle = FlatStyle.Flat;
+            btnCancelSettings.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancelSettings.Location = new Point(1121, 497);
+            btnCancelSettings.Name = "btnCancelSettings";
+            btnCancelSettings.Size = new Size(100, 40);
+            btnCancelSettings.TabIndex = 3;
+            btnCancelSettings.Text = "Cancel";
+            btnCancelSettings.UseVisualStyleBackColor = false;
             // 
             // Student
             // 
@@ -708,6 +948,11 @@
             ((System.ComponentModel.ISupportInitialize)dgvFacultyHours).EndInit();
             pnlRequestTitle.ResumeLayout(false);
             pnlRequestTitle.PerformLayout();
+            tabPage2.ResumeLayout(false);
+            pnlSettingsHeader.ResumeLayout(false);
+            pnlSettingsHeader.PerformLayout();
+            pnlProfile.ResumeLayout(false);
+            pnlProfile.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -770,5 +1015,25 @@
         private Label lbPurposeofMeeting;
         private TextBox txtPurpose;
         private Button btnSubmitRequest;
+        private TabPage tabPage2;
+        private Label lblSettingsTitle;
+        private Panel pnlSettingsHeader;
+        private Label lblSettingsSubtitle;
+        private Panel pnlProfile;
+        private TextBox txtSection;
+        private ComboBox cmbYearLevel;
+        private TextBox txtStudentProgram;
+        private TextBox txtStudentEmail;
+        private TextBox txtStudentId;
+        private TextBox txtStudentName;
+        private Label label11;
+        private Label label10;
+        private Label label9;
+        private Label label8;
+        private Label label7;
+        private Label label6;
+        private Label lblProfileSection;
+        private Button btnSaveSettings;
+        private Button btnCancelSettings;
     }
 }
