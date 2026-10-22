@@ -26,8 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             pblHeader = new Panel();
             label1 = new Label();
             lblPortalTitle = new Label();
@@ -42,7 +41,6 @@
             end_time = new DataGridViewTextBoxColumn();
             status = new DataGridViewTextBoxColumn();
             faculty_remarks = new DataGridViewTextBoxColumn();
-            btnNewRequest = new Button();
             label3 = new Label();
             pnlNotification = new Panel();
             btnMarkAsRead = new Button();
@@ -178,7 +176,6 @@
             // 
             pnlRequestsHeader.Controls.Add(btnCancelRequest);
             pnlRequestsHeader.Controls.Add(dgvMyRequests);
-            pnlRequestsHeader.Controls.Add(btnNewRequest);
             pnlRequestsHeader.Controls.Add(label3);
             pnlRequestsHeader.Dock = DockStyle.Top;
             pnlRequestsHeader.Location = new Point(3, 377);
@@ -252,15 +249,6 @@
             faculty_remarks.HeaderText = "Faculty Remarks";
             faculty_remarks.Name = "faculty_remarks";
             faculty_remarks.ReadOnly = true;
-            // 
-            // btnNewRequest
-            // 
-            btnNewRequest.Location = new Point(1123, 6);
-            btnNewRequest.Name = "btnNewRequest";
-            btnNewRequest.Size = new Size(128, 23);
-            btnNewRequest.TabIndex = 1;
-            btnNewRequest.Text = "+ Request Meeting";
-            btnNewRequest.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -972,7 +960,6 @@
         private DataGridViewTextBoxColumn end_time;
         private DataGridViewTextBoxColumn status;
         private DataGridViewTextBoxColumn faculty_remarks;
-        private Button btnNewRequest;
         private Label label3;
         private Panel pnlNotification;
         private Button btnMarkAsRead;
