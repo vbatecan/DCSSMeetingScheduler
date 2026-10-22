@@ -21,7 +21,7 @@ namespace DCSSMeetingScheduler.Forms.Student
 
         private void LoadKPI() {
             // lblTotalCount, lblApprovedCount, lblPendingCount, lblCompletedCount
-            string kpiQuery = "SELECT COUNT(*) AS TotalCount, SUM(CASE WHEN status = 'Approved' THEN 1 ELSE 0 END) AS ApprovedCount, SUM(CASE WHEN status = 'Pending' THEN 1 ELSE 0 END) AS PendingCount, SUM(CASE WHEN status = 'Completed' THEN 1 ELSE 0 END) AS CompletedCount FROM appointments WHERE student_id = @StudentId";
+            string kpiQuery = "SELECT COUNT(*) AS TotalCount, COUNT(CASE WHEN status = 'Approved' THEN 1 END) AS ApprovedCount, COUNT(CASE WHEN status = 'Pending' THEN 1 END) AS PendingCount, COUNT(CASE WHEN status = 'Completed' THEN 1 END) AS CompletedCount FROM appointments WHERE student_id = @StudentId";
             using (MySqlConnection conn = Connection.GetConnection()) {
                 using (MySqlCommand cmd = new MySqlCommand(kpiQuery, conn)) {
                     cmd.Parameters.AddWithValue("@StudentId", loggedUser?.IdNumber);
