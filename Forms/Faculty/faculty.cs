@@ -98,5 +98,10 @@ namespace DCSSMeetingScheduler.Faculty
         {
 
         }
+
+        private void dgvRecentRequest_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
