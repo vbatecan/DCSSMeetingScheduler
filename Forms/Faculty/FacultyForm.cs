@@ -11,16 +11,16 @@ using MySqlConnector;
 
 namespace DCSSMeetingScheduler.Faculty
 {
-    public partial class Faculty : Form
+    public partial class FacultyForm : Form
     {
         private User? loggedInUser = null;
 
-        public Faculty()
+        public FacultyForm()
         {
             InitializeComponent();
         }
 
-        public Faculty(User user)
+        public FacultyForm(User user)
         {
             InitializeComponent();
             loggedInUser = user;

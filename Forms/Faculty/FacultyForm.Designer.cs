@@ -1,6 +1,6 @@
 namespace DCSSMeetingScheduler.Faculty
 {
-    partial class Faculty
+    partial class FacultyForm
     {
         /// <summary>
         /// Required designer variable.
