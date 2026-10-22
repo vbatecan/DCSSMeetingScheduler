@@ -15,6 +15,11 @@ namespace DCSSMeetingScheduler.Forms.Student
             InitializeComponent();
         }
 
+        private void LoadKPI() {
+            // lblTotalCount, lblApprovedCount, lblPendingCount, lblCompletedCount
+
+        }
+
         private void tabPage3_Click(object sender, EventArgs e)
         {
 
