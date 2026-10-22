@@ -426,7 +426,7 @@ namespace DCSSMeetingScheduler.Admin {
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(120, 31);
             btnSave.TabIndex = 5;
-            btnSave.Text = "Save";
+            btnSave.Text = "Add";
             btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
             // 
