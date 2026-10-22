@@ -17,6 +17,7 @@ namespace DCSSMeetingScheduler.Forms.Student
             LoadKPI();
             LoadMeetingRequests();
             LoadFaculty();
+            LoadAvailabilityHours();
         }
 
         private void LoadKPI() {
@@ -50,6 +51,11 @@ namespace DCSSMeetingScheduler.Forms.Student
                     }
                 }
             }
+        }
+
+        private void LoadAvailabilityHours()
+        {
+            string query = "SELECT * FROM availability_hours WHERE faculty_id IN (SELECT id_number FROM users WHERE role = 'Faculty') and status = 'Available'";
         }
 
         private void LoadFaculty() {
