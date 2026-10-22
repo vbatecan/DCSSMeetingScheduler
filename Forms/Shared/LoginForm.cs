@@ -3,7 +3,6 @@ using System.Text.RegularExpressions;
 using DCSSMeetingScheduler.Admin;
 using DCSSMeetingScheduler.Faculty;
 using DCSSMeetingScheduler.Shared;
-using DCSSMeetingScheduler.Student;
 using MySqlConnector;
 
 namespace DCSSMeetingScheduler
@@ -54,12 +53,10 @@ namespace DCSSMeetingScheduler
                                     adminForm.Show();
                                     break;
                                 case UserRole.Faculty:
-                                    Faculty.Faculty facultyForm = new Faculty.Faculty(user);
-                                    facultyForm.Show();
+                                    FacultyForm
                                     break;
                                 case UserRole.Student:
-                                    StudentForm studentForm = new StudentForm(user);
-                                    studentForm.Show();
+
                                     break;
                             }
                         }
