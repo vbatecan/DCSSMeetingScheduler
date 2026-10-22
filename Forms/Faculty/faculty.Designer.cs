@@ -32,6 +32,13 @@ namespace DCSSMeetingScheduler.Faculty
             tabHome = new TabPage();
             grpRecentMeet = new GroupBox();
             dgvRecentRequest = new DataGridView();
+            request_id = new DataGridViewTextBoxColumn();
+            stud_name = new DataGridViewTextBoxColumn();
+            meeting_date = new DataGridViewTextBoxColumn();
+            start_time = new DataGridViewTextBoxColumn();
+            end_time = new DataGridViewTextBoxColumn();
+            status = new DataGridViewTextBoxColumn();
+            faculty_remarks = new DataGridViewTextBoxColumn();
             pnlNotifs = new Panel();
             btnRefresh = new Button();
             lblNotifs = new Label();
@@ -78,38 +85,41 @@ namespace DCSSMeetingScheduler.Faculty
             comboBox1 = new ComboBox();
             lblDayOfWeek = new Label();
             tabSettings = new TabPage();
-            button5 = new Button();
-            panel4 = new Panel();
-            button4 = new Button();
-            button3 = new Button();
-            checkBox5 = new CheckBox();
-            checkBox4 = new CheckBox();
-            label20 = new Label();
-            label19 = new Label();
-            checkBox3 = new CheckBox();
-            checkBox2 = new CheckBox();
-            checkBox1 = new CheckBox();
-            comboBox3 = new ComboBox();
-            label18 = new Label();
-            label17 = new Label();
-            comboBox2 = new ComboBox();
-            label16 = new Label();
-            label15 = new Label();
-            panel3 = new Panel();
-            button2 = new Button();
-            label14 = new Label();
-            textBox5 = new TextBox();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            label13 = new Label();
-            label12 = new Label();
-            label11 = new Label();
-            label10 = new Label();
+            btnLogout = new Button();
+            pnlPreferences = new Panel();
+            btnRefreshPreferences = new Button();
+            btnSavePreferences = new Button();
+            chkShowRecentRequestDashboard = new CheckBox();
+            chkShowRequestDashboard = new CheckBox();
+            lblDisplaySettings = new Label();
+            lblNotifications = new Label();
+            chkConsultationReminder = new CheckBox();
+            chkDesktopNotif = new CheckBox();
+            chkEmailNotif = new CheckBox();
+            cmbDefaultTab = new ComboBox();
+            lblDefaultTab = new Label();
+            lblTheme = new Label();
+            cmbTheme = new ComboBox();
+            lblPreferencesSub = new Label();
+            lblPreferencesHeading = new Label();
+            pnlAccountSettings = new Panel();
+            btnChangePassword = new Button();
+            lblAccountSub = new Label();
+            txtConfirmPassword = new TextBox();
+            txtNewPassword = new TextBox();
+            txtCurrentPassword = new TextBox();
+            lblConfirmPassword = new Label();
+            lblNewPassword = new Label();
+            lblCurrentPassword = new Label();
+            lblAccountSettingsHeading = new Label();
             pnlAppInfo = new Panel();
-            label9 = new Label();
-            label8 = new Label();
-            label7 = new Label();
-            label2 = new Label();
+            lblLastLoginValue = new Label();
+            lblDatabaseValue = new Label();
+            lblVersionValue = new Label();
+            lblLastLogin = new Label();
+            lblDatabase = new Label();
+            lblVersion = new Label();
+            lblAppInfoSub = new Label();
             lblAppInforHeading = new Label();
             pnlFacultyProfile = new Panel();
             btnEditProfile = new Button();
@@ -129,13 +139,6 @@ namespace DCSSMeetingScheduler.Faculty
             lblTitle = new Label();
             lblSubtitle = new Label();
             pnlHeader = new Panel();
-            request_id = new DataGridViewTextBoxColumn();
-            stud_name = new DataGridViewTextBoxColumn();
-            meeting_date = new DataGridViewTextBoxColumn();
-            start_time = new DataGridViewTextBoxColumn();
-            end_time = new DataGridViewTextBoxColumn();
-            status = new DataGridViewTextBoxColumn();
-            faculty_remarks = new DataGridViewTextBoxColumn();
             tabFaculty.SuspendLayout();
             tabHome.SuspendLayout();
             grpRecentMeet.SuspendLayout();
@@ -154,8 +157,8 @@ namespace DCSSMeetingScheduler.Faculty
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             tabSettings.SuspendLayout();
-            panel4.SuspendLayout();
-            panel3.SuspendLayout();
+            pnlPreferences.SuspendLayout();
+            pnlAccountSettings.SuspendLayout();
             pnlAppInfo.SuspendLayout();
             pnlFacultyProfile.SuspendLayout();
             pnlHeaderSetting.SuspendLayout();
@@ -228,6 +231,50 @@ namespace DCSSMeetingScheduler.Faculty
             dgvRecentRequest.Size = new Size(1200, 188);
             dgvRecentRequest.TabIndex = 9;
             dgvRecentRequest.CellContentClick += dgvRecentRequest_CellContentClick_1;
+            // 
+            // request_id
+            // 
+            request_id.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            request_id.HeaderText = "Request ID";
+            request_id.Name = "request_id";
+            request_id.ReadOnly = true;
+            request_id.Width = 146;
+            // 
+            // stud_name
+            // 
+            stud_name.HeaderText = "Student Name";
+            stud_name.Name = "stud_name";
+            stud_name.ReadOnly = true;
+            // 
+            // meeting_date
+            // 
+            meeting_date.HeaderText = "Meeting Date";
+            meeting_date.Name = "meeting_date";
+            meeting_date.ReadOnly = true;
+            // 
+            // start_time
+            // 
+            start_time.HeaderText = "Start Time";
+            start_time.Name = "start_time";
+            start_time.ReadOnly = true;
+            // 
+            // end_time
+            // 
+            end_time.HeaderText = "End Time";
+            end_time.Name = "end_time";
+            end_time.ReadOnly = true;
+            // 
+            // status
+            // 
+            status.HeaderText = "Status";
+            status.Name = "status";
+            status.ReadOnly = true;
+            // 
+            // faculty_remarks
+            // 
+            faculty_remarks.HeaderText = "Faculty Remarks";
+            faculty_remarks.Name = "faculty_remarks";
+            faculty_remarks.ReadOnly = true;
             // 
             // pnlNotifs
             // 
@@ -750,9 +797,9 @@ namespace DCSSMeetingScheduler.Faculty
             // 
             tabSettings.AutoScroll = true;
             tabSettings.BackColor = Color.WhiteSmoke;
-            tabSettings.Controls.Add(button5);
-            tabSettings.Controls.Add(panel4);
-            tabSettings.Controls.Add(panel3);
+            tabSettings.Controls.Add(btnLogout);
+            tabSettings.Controls.Add(pnlPreferences);
+            tabSettings.Controls.Add(pnlAccountSettings);
             tabSettings.Controls.Add(pnlAppInfo);
             tabSettings.Controls.Add(pnlFacultyProfile);
             tabSettings.Controls.Add(pnlHeaderSetting);
@@ -764,351 +811,389 @@ namespace DCSSMeetingScheduler.Faculty
             tabSettings.TabIndex = 3;
             tabSettings.Text = "Setting";
             // 
-            // button5
+            // btnLogout
             // 
-            button5.BackColor = Color.SeaGreen;
-            button5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.ForeColor = Color.White;
-            button5.Location = new Point(8, 590);
-            button5.Name = "button5";
-            button5.Size = new Size(112, 40);
-            button5.TabIndex = 5;
-            button5.Text = "Log Out";
-            button5.UseVisualStyleBackColor = false;
+            btnLogout.BackColor = Color.SeaGreen;
+            btnLogout.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogout.ForeColor = Color.White;
+            btnLogout.Location = new Point(8, 590);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(112, 40);
+            btnLogout.TabIndex = 5;
+            btnLogout.Text = "Log Out";
+            btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
-            // panel4
+            // pnlPreferences
             // 
-            panel4.BackColor = Color.White;
-            panel4.BorderStyle = BorderStyle.FixedSingle;
-            panel4.Controls.Add(button4);
-            panel4.Controls.Add(button3);
-            panel4.Controls.Add(checkBox5);
-            panel4.Controls.Add(checkBox4);
-            panel4.Controls.Add(label20);
-            panel4.Controls.Add(label19);
-            panel4.Controls.Add(checkBox3);
-            panel4.Controls.Add(checkBox2);
-            panel4.Controls.Add(checkBox1);
-            panel4.Controls.Add(comboBox3);
-            panel4.Controls.Add(label18);
-            panel4.Controls.Add(label17);
-            panel4.Controls.Add(comboBox2);
-            panel4.Controls.Add(label16);
-            panel4.Controls.Add(label15);
-            panel4.Location = new Point(366, 350);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(887, 233);
-            panel4.TabIndex = 4;
+            pnlPreferences.BackColor = Color.White;
+            pnlPreferences.BorderStyle = BorderStyle.FixedSingle;
+            pnlPreferences.Controls.Add(btnRefreshPreferences);
+            pnlPreferences.Controls.Add(btnSavePreferences);
+            pnlPreferences.Controls.Add(chkShowRecentRequestDashboard);
+            pnlPreferences.Controls.Add(chkShowRequestDashboard);
+            pnlPreferences.Controls.Add(lblDisplaySettings);
+            pnlPreferences.Controls.Add(lblNotifications);
+            pnlPreferences.Controls.Add(chkConsultationReminder);
+            pnlPreferences.Controls.Add(chkDesktopNotif);
+            pnlPreferences.Controls.Add(chkEmailNotif);
+            pnlPreferences.Controls.Add(cmbDefaultTab);
+            pnlPreferences.Controls.Add(lblDefaultTab);
+            pnlPreferences.Controls.Add(lblTheme);
+            pnlPreferences.Controls.Add(cmbTheme);
+            pnlPreferences.Controls.Add(lblPreferencesSub);
+            pnlPreferences.Controls.Add(lblPreferencesHeading);
+            pnlPreferences.Location = new Point(366, 350);
+            pnlPreferences.Name = "pnlPreferences";
+            pnlPreferences.Size = new Size(887, 233);
+            pnlPreferences.TabIndex = 4;
             // 
-            // button4
+            // btnRefreshPreferences
             // 
-            button4.BackColor = Color.SeaGreen;
-            button4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.ForeColor = Color.White;
-            button4.Location = new Point(763, 182);
-            button4.Name = "button4";
-            button4.Size = new Size(101, 33);
-            button4.TabIndex = 14;
-            button4.Text = "Refresh";
-            button4.UseVisualStyleBackColor = false;
+            btnRefreshPreferences.BackColor = Color.SeaGreen;
+            btnRefreshPreferences.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRefreshPreferences.ForeColor = Color.White;
+            btnRefreshPreferences.Location = new Point(763, 182);
+            btnRefreshPreferences.Name = "btnRefreshPreferences";
+            btnRefreshPreferences.Size = new Size(101, 33);
+            btnRefreshPreferences.TabIndex = 14;
+            btnRefreshPreferences.Text = "Refresh";
+            btnRefreshPreferences.UseVisualStyleBackColor = false;
+            btnRefreshPreferences.Click += btnRefreshPreferences_Click;
             // 
-            // button3
+            // btnSavePreferences
             // 
-            button3.BackColor = Color.SeaGreen;
-            button3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.White;
-            button3.Location = new Point(761, 139);
-            button3.Name = "button3";
-            button3.Size = new Size(103, 34);
-            button3.TabIndex = 13;
-            button3.Text = "Save Changes";
-            button3.UseVisualStyleBackColor = false;
+            btnSavePreferences.BackColor = Color.SeaGreen;
+            btnSavePreferences.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSavePreferences.ForeColor = Color.White;
+            btnSavePreferences.Location = new Point(761, 139);
+            btnSavePreferences.Name = "btnSavePreferences";
+            btnSavePreferences.Size = new Size(103, 34);
+            btnSavePreferences.TabIndex = 13;
+            btnSavePreferences.Text = "Save Changes";
+            btnSavePreferences.UseVisualStyleBackColor = false;
+            btnSavePreferences.Click += btnSavePreferences_Click;
             // 
-            // checkBox5
+            // chkShowRecentRequestDashboard
             // 
-            checkBox5.AutoSize = true;
-            checkBox5.Location = new Point(479, 180);
-            checkBox5.Name = "checkBox5";
-            checkBox5.Size = new Size(249, 19);
-            checkBox5.TabIndex = 12;
-            checkBox5.Text = "Show recent request on faculty Dashboard";
-            checkBox5.UseVisualStyleBackColor = true;
+            chkShowRecentRequestDashboard.AutoSize = true;
+            chkShowRecentRequestDashboard.Location = new Point(479, 180);
+            chkShowRecentRequestDashboard.Name = "chkShowRecentRequestDashboard";
+            chkShowRecentRequestDashboard.Size = new Size(249, 19);
+            chkShowRecentRequestDashboard.TabIndex = 12;
+            chkShowRecentRequestDashboard.Text = "Show recent request on faculty Dashboard";
+            chkShowRecentRequestDashboard.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // chkShowRequestDashboard
             // 
-            checkBox4.AutoSize = true;
-            checkBox4.Location = new Point(479, 158);
-            checkBox4.Name = "checkBox4";
-            checkBox4.Size = new Size(215, 19);
-            checkBox4.TabIndex = 11;
-            checkBox4.Text = "Show request on Faculty Dashboard\r\n";
-            checkBox4.UseVisualStyleBackColor = true;
+            chkShowRequestDashboard.AutoSize = true;
+            chkShowRequestDashboard.Location = new Point(479, 158);
+            chkShowRequestDashboard.Name = "chkShowRequestDashboard";
+            chkShowRequestDashboard.Size = new Size(215, 19);
+            chkShowRequestDashboard.TabIndex = 11;
+            chkShowRequestDashboard.Text = "Show request on Faculty Dashboard\r\n";
+            chkShowRequestDashboard.UseVisualStyleBackColor = true;
             // 
-            // label20
+            // lblDisplaySettings
             // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label20.Location = new Point(469, 135);
-            label20.Name = "label20";
-            label20.Size = new Size(104, 17);
-            label20.TabIndex = 10;
-            label20.Text = "Display Settings";
+            lblDisplaySettings.AutoSize = true;
+            lblDisplaySettings.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDisplaySettings.Location = new Point(469, 135);
+            lblDisplaySettings.Name = "lblDisplaySettings";
+            lblDisplaySettings.Size = new Size(104, 17);
+            lblDisplaySettings.TabIndex = 10;
+            lblDisplaySettings.Text = "Display Settings";
             // 
-            // label19
+            // lblNotifications
             // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label19.Location = new Point(21, 135);
-            label19.Name = "label19";
-            label19.Size = new Size(84, 17);
-            label19.TabIndex = 9;
-            label19.Text = "Notifications";
+            lblNotifications.AutoSize = true;
+            lblNotifications.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNotifications.Location = new Point(21, 135);
+            lblNotifications.Name = "lblNotifications";
+            lblNotifications.Size = new Size(84, 17);
+            lblNotifications.TabIndex = 9;
+            lblNotifications.Text = "Notifications";
             // 
-            // checkBox3
+            // chkConsultationReminder
             // 
-            checkBox3.AutoSize = true;
-            checkBox3.Location = new Point(26, 204);
-            checkBox3.Name = "checkBox3";
-            checkBox3.Size = new Size(232, 19);
-            checkBox3.TabIndex = 8;
-            checkBox3.Text = "Reminders for upcoming consultations";
-            checkBox3.UseVisualStyleBackColor = true;
+            chkConsultationReminder.AutoSize = true;
+            chkConsultationReminder.Location = new Point(26, 204);
+            chkConsultationReminder.Name = "chkConsultationReminder";
+            chkConsultationReminder.Size = new Size(232, 19);
+            chkConsultationReminder.TabIndex = 8;
+            chkConsultationReminder.Text = "Reminders for upcoming consultations";
+            chkConsultationReminder.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // chkDesktopNotif
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(26, 181);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(133, 19);
-            checkBox2.TabIndex = 7;
-            checkBox2.Text = "Desktop notification";
-            checkBox2.UseVisualStyleBackColor = true;
+            chkDesktopNotif.AutoSize = true;
+            chkDesktopNotif.Location = new Point(26, 181);
+            chkDesktopNotif.Name = "chkDesktopNotif";
+            chkDesktopNotif.Size = new Size(133, 19);
+            chkDesktopNotif.TabIndex = 7;
+            chkDesktopNotif.Text = "Desktop notification";
+            chkDesktopNotif.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // chkEmailNotif
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(26, 158);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(229, 19);
-            checkBox1.TabIndex = 6;
-            checkBox1.Text = "Email notifications for request updates";
-            checkBox1.UseVisualStyleBackColor = true;
+            chkEmailNotif.AutoSize = true;
+            chkEmailNotif.Location = new Point(26, 158);
+            chkEmailNotif.Name = "chkEmailNotif";
+            chkEmailNotif.Size = new Size(229, 19);
+            chkEmailNotif.TabIndex = 6;
+            chkEmailNotif.Text = "Email notifications for request updates";
+            chkEmailNotif.UseVisualStyleBackColor = true;
             // 
-            // comboBox3
+            // cmbDefaultTab
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(469, 88);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(395, 23);
-            comboBox3.TabIndex = 5;
+            cmbDefaultTab.FormattingEnabled = true;
+            cmbDefaultTab.Location = new Point(469, 88);
+            cmbDefaultTab.Name = "cmbDefaultTab";
+            cmbDefaultTab.Size = new Size(395, 23);
+            cmbDefaultTab.TabIndex = 5;
             // 
-            // label18
+            // lblDefaultTab
             // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label18.Location = new Point(469, 66);
-            label18.Name = "label18";
-            label18.Size = new Size(76, 17);
-            label18.TabIndex = 4;
-            label18.Text = "Default Tab";
+            lblDefaultTab.AutoSize = true;
+            lblDefaultTab.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDefaultTab.Location = new Point(469, 66);
+            lblDefaultTab.Name = "lblDefaultTab";
+            lblDefaultTab.Size = new Size(76, 17);
+            lblDefaultTab.TabIndex = 4;
+            lblDefaultTab.Text = "Default Tab";
             // 
-            // label17
+            // lblTheme
             // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label17.Location = new Point(21, 66);
-            label17.Name = "label17";
-            label17.Size = new Size(49, 17);
-            label17.TabIndex = 3;
-            label17.Text = "Theme";
+            lblTheme.AutoSize = true;
+            lblTheme.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTheme.Location = new Point(21, 66);
+            lblTheme.Name = "lblTheme";
+            lblTheme.Size = new Size(49, 17);
+            lblTheme.TabIndex = 3;
+            lblTheme.Text = "Theme";
             // 
-            // comboBox2
+            // cmbTheme
             // 
-            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(21, 88);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(395, 23);
-            comboBox2.TabIndex = 2;
+            cmbTheme.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTheme.FormattingEnabled = true;
+            cmbTheme.Location = new Point(21, 88);
+            cmbTheme.Name = "cmbTheme";
+            cmbTheme.Size = new Size(395, 23);
+            cmbTheme.TabIndex = 2;
+            cmbTheme.SelectedIndexChanged += cmbTheme_SelectedIndexChanged;
             // 
-            // label16
+            // lblPreferencesSub
             // 
-            label16.AutoSize = true;
-            label16.Font = new Font("Segoe UI", 9F);
-            label16.Location = new Point(21, 39);
-            label16.Name = "label16";
-            label16.Size = new Size(211, 15);
-            label16.TabIndex = 1;
-            label16.Text = "Customize your application experience";
+            lblPreferencesSub.AutoSize = true;
+            lblPreferencesSub.Font = new Font("Segoe UI", 9F);
+            lblPreferencesSub.Location = new Point(21, 39);
+            lblPreferencesSub.Name = "lblPreferencesSub";
+            lblPreferencesSub.Size = new Size(211, 15);
+            lblPreferencesSub.TabIndex = 1;
+            lblPreferencesSub.Text = "Customize your application experience";
             // 
-            // label15
+            // lblPreferencesHeading
             // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label15.ForeColor = Color.DarkGreen;
-            label15.Location = new Point(17, 8);
-            label15.Name = "label15";
-            label15.Size = new Size(123, 30);
-            label15.TabIndex = 0;
-            label15.Text = "Preferences";
+            lblPreferencesHeading.AutoSize = true;
+            lblPreferencesHeading.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPreferencesHeading.ForeColor = Color.DarkGreen;
+            lblPreferencesHeading.Location = new Point(17, 8);
+            lblPreferencesHeading.Name = "lblPreferencesHeading";
+            lblPreferencesHeading.Size = new Size(123, 30);
+            lblPreferencesHeading.TabIndex = 0;
+            lblPreferencesHeading.Text = "Preferences";
             // 
-            // panel3
+            // pnlAccountSettings
             // 
-            panel3.BackColor = Color.White;
-            panel3.BorderStyle = BorderStyle.FixedSingle;
-            panel3.Controls.Add(button2);
-            panel3.Controls.Add(label14);
-            panel3.Controls.Add(textBox5);
-            panel3.Controls.Add(textBox4);
-            panel3.Controls.Add(textBox3);
-            panel3.Controls.Add(label13);
-            panel3.Controls.Add(label12);
-            panel3.Controls.Add(label11);
-            panel3.Controls.Add(label10);
-            panel3.Location = new Point(366, 102);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(887, 241);
-            panel3.TabIndex = 3;
+            pnlAccountSettings.BackColor = Color.White;
+            pnlAccountSettings.BorderStyle = BorderStyle.FixedSingle;
+            pnlAccountSettings.Controls.Add(btnChangePassword);
+            pnlAccountSettings.Controls.Add(lblAccountSub);
+            pnlAccountSettings.Controls.Add(txtConfirmPassword);
+            pnlAccountSettings.Controls.Add(txtNewPassword);
+            pnlAccountSettings.Controls.Add(txtCurrentPassword);
+            pnlAccountSettings.Controls.Add(lblConfirmPassword);
+            pnlAccountSettings.Controls.Add(lblNewPassword);
+            pnlAccountSettings.Controls.Add(lblCurrentPassword);
+            pnlAccountSettings.Controls.Add(lblAccountSettingsHeading);
+            pnlAccountSettings.Location = new Point(366, 102);
+            pnlAccountSettings.Name = "pnlAccountSettings";
+            pnlAccountSettings.Size = new Size(887, 241);
+            pnlAccountSettings.TabIndex = 3;
             // 
-            // button2
+            // btnChangePassword
             // 
-            button2.BackColor = Color.SeaGreen;
-            button2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(718, 186);
-            button2.Name = "button2";
-            button2.Size = new Size(146, 34);
-            button2.TabIndex = 8;
-            button2.Text = "Change Password";
-            button2.UseVisualStyleBackColor = false;
+            btnChangePassword.BackColor = Color.SeaGreen;
+            btnChangePassword.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnChangePassword.ForeColor = Color.White;
+            btnChangePassword.Location = new Point(718, 186);
+            btnChangePassword.Name = "btnChangePassword";
+            btnChangePassword.Size = new Size(146, 34);
+            btnChangePassword.TabIndex = 8;
+            btnChangePassword.Text = "Change Password";
+            btnChangePassword.UseVisualStyleBackColor = false;
+            btnChangePassword.Click += btnChangePassword_Click;
             // 
-            // label14
+            // lblAccountSub
             // 
-            label14.AutoSize = true;
-            label14.Location = new Point(18, 45);
-            label14.Name = "label14";
-            label14.Size = new Size(236, 15);
-            label14.TabIndex = 7;
-            label14.Text = "Update your password and security settings";
+            lblAccountSub.AutoSize = true;
+            lblAccountSub.Location = new Point(18, 45);
+            lblAccountSub.Name = "lblAccountSub";
+            lblAccountSub.Size = new Size(236, 15);
+            lblAccountSub.TabIndex = 7;
+            lblAccountSub.Text = "Update your password and security settings";
             // 
-            // textBox5
+            // txtConfirmPassword
             // 
-            textBox5.Location = new Point(247, 146);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(617, 23);
-            textBox5.TabIndex = 6;
-            textBox5.UseSystemPasswordChar = true;
+            txtConfirmPassword.Location = new Point(247, 146);
+            txtConfirmPassword.Name = "txtConfirmPassword";
+            txtConfirmPassword.Size = new Size(617, 23);
+            txtConfirmPassword.TabIndex = 6;
+            txtConfirmPassword.UseSystemPasswordChar = true;
             // 
-            // textBox4
+            // txtNewPassword
             // 
-            textBox4.Location = new Point(247, 113);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(617, 23);
-            textBox4.TabIndex = 5;
-            textBox4.UseSystemPasswordChar = true;
+            txtNewPassword.Location = new Point(247, 113);
+            txtNewPassword.Name = "txtNewPassword";
+            txtNewPassword.Size = new Size(617, 23);
+            txtNewPassword.TabIndex = 5;
+            txtNewPassword.UseSystemPasswordChar = true;
             // 
-            // textBox3
+            // txtCurrentPassword
             // 
-            textBox3.Location = new Point(247, 80);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(617, 23);
-            textBox3.TabIndex = 4;
-            textBox3.UseSystemPasswordChar = true;
+            txtCurrentPassword.Location = new Point(247, 80);
+            txtCurrentPassword.Name = "txtCurrentPassword";
+            txtCurrentPassword.Size = new Size(617, 23);
+            txtCurrentPassword.TabIndex = 4;
+            txtCurrentPassword.UseSystemPasswordChar = true;
             // 
-            // label13
+            // lblConfirmPassword
             // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label13.Location = new Point(45, 153);
-            label13.Name = "label13";
-            label13.Size = new Size(149, 17);
-            label13.TabIndex = 3;
-            label13.Text = "Confirm New Password";
+            lblConfirmPassword.AutoSize = true;
+            lblConfirmPassword.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblConfirmPassword.Location = new Point(45, 153);
+            lblConfirmPassword.Name = "lblConfirmPassword";
+            lblConfirmPassword.Size = new Size(149, 17);
+            lblConfirmPassword.TabIndex = 3;
+            lblConfirmPassword.Text = "Confirm New Password";
             // 
-            // label12
+            // lblNewPassword
             // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(45, 120);
-            label12.Name = "label12";
-            label12.Size = new Size(97, 17);
-            label12.TabIndex = 2;
-            label12.Text = "New Password";
+            lblNewPassword.AutoSize = true;
+            lblNewPassword.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNewPassword.Location = new Point(45, 120);
+            lblNewPassword.Name = "lblNewPassword";
+            lblNewPassword.Size = new Size(97, 17);
+            lblNewPassword.TabIndex = 2;
+            lblNewPassword.Text = "New Password";
             // 
-            // label11
+            // lblCurrentPassword
             // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(45, 87);
-            label11.Name = "label11";
-            label11.Size = new Size(116, 17);
-            label11.TabIndex = 1;
-            label11.Text = "Current Password";
+            lblCurrentPassword.AutoSize = true;
+            lblCurrentPassword.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCurrentPassword.Location = new Point(45, 87);
+            lblCurrentPassword.Name = "lblCurrentPassword";
+            lblCurrentPassword.Size = new Size(116, 17);
+            lblCurrentPassword.TabIndex = 1;
+            lblCurrentPassword.Text = "Current Password";
             // 
-            // label10
+            // lblAccountSettingsHeading
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.DarkGreen;
-            label10.Location = new Point(17, 11);
-            label10.Name = "label10";
-            label10.Size = new Size(175, 30);
-            label10.TabIndex = 0;
-            label10.Text = "Account Settings";
+            lblAccountSettingsHeading.AutoSize = true;
+            lblAccountSettingsHeading.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblAccountSettingsHeading.ForeColor = Color.DarkGreen;
+            lblAccountSettingsHeading.Location = new Point(17, 11);
+            lblAccountSettingsHeading.Name = "lblAccountSettingsHeading";
+            lblAccountSettingsHeading.Size = new Size(175, 30);
+            lblAccountSettingsHeading.TabIndex = 0;
+            lblAccountSettingsHeading.Text = "Account Settings";
             // 
             // pnlAppInfo
             // 
             pnlAppInfo.BackColor = Color.White;
             pnlAppInfo.BorderStyle = BorderStyle.FixedSingle;
-            pnlAppInfo.Controls.Add(label9);
-            pnlAppInfo.Controls.Add(label8);
-            pnlAppInfo.Controls.Add(label7);
-            pnlAppInfo.Controls.Add(label2);
+            pnlAppInfo.Controls.Add(lblLastLoginValue);
+            pnlAppInfo.Controls.Add(lblDatabaseValue);
+            pnlAppInfo.Controls.Add(lblVersionValue);
+            pnlAppInfo.Controls.Add(lblLastLogin);
+            pnlAppInfo.Controls.Add(lblDatabase);
+            pnlAppInfo.Controls.Add(lblVersion);
+            pnlAppInfo.Controls.Add(lblAppInfoSub);
             pnlAppInfo.Controls.Add(lblAppInforHeading);
             pnlAppInfo.Location = new Point(5, 375);
             pnlAppInfo.Name = "pnlAppInfo";
             pnlAppInfo.Size = new Size(355, 208);
             pnlAppInfo.TabIndex = 2;
             // 
-            // label9
+            // lblLastLoginValue
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
-            label9.Location = new Point(30, 155);
-            label9.Name = "label9";
-            label9.Size = new Size(73, 19);
-            label9.TabIndex = 4;
-            label9.Text = "Last Login";
+            lblLastLoginValue.AutoSize = true;
+            lblLastLoginValue.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblLastLoginValue.ForeColor = Color.DimGray;
+            lblLastLoginValue.Location = new Point(130, 155);
+            lblLastLoginValue.Name = "lblLastLoginValue";
+            lblLastLoginValue.Size = new Size(0, 17);
+            lblLastLoginValue.TabIndex = 7;
             // 
-            // label8
+            // lblDatabaseValue
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(30, 121);
-            label8.Name = "label8";
-            label8.Size = new Size(64, 17);
-            label8.TabIndex = 3;
-            label8.Text = "Database";
+            lblDatabaseValue.AutoSize = true;
+            lblDatabaseValue.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDatabaseValue.ForeColor = Color.DimGray;
+            lblDatabaseValue.Location = new Point(130, 121);
+            lblDatabaseValue.Name = "lblDatabaseValue";
+            lblDatabaseValue.Size = new Size(0, 17);
+            lblDatabaseValue.TabIndex = 6;
             // 
-            // label7
+            // lblVersionValue
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
-            label7.Location = new Point(30, 83);
-            label7.Name = "label7";
-            label7.Size = new Size(55, 19);
-            label7.TabIndex = 2;
-            label7.Text = "Version";
+            lblVersionValue.AutoSize = true;
+            lblVersionValue.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblVersionValue.ForeColor = Color.DimGray;
+            lblVersionValue.Location = new Point(130, 83);
+            lblVersionValue.Name = "lblVersionValue";
+            lblVersionValue.Size = new Size(0, 17);
+            lblVersionValue.TabIndex = 5;
             // 
-            // label2
+            // lblLastLogin
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(18, 45);
-            label2.Name = "label2";
-            label2.Size = new Size(127, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Current system details.";
+            lblLastLogin.AutoSize = true;
+            lblLastLogin.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            lblLastLogin.Location = new Point(30, 155);
+            lblLastLogin.Name = "lblLastLogin";
+            lblLastLogin.Size = new Size(73, 19);
+            lblLastLogin.TabIndex = 4;
+            lblLastLogin.Text = "Last Login";
+            // 
+            // lblDatabase
+            // 
+            lblDatabase.AutoSize = true;
+            lblDatabase.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDatabase.Location = new Point(30, 121);
+            lblDatabase.Name = "lblDatabase";
+            lblDatabase.Size = new Size(64, 17);
+            lblDatabase.TabIndex = 3;
+            lblDatabase.Text = "Database";
+            // 
+            // lblVersion
+            // 
+            lblVersion.AutoSize = true;
+            lblVersion.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            lblVersion.Location = new Point(30, 83);
+            lblVersion.Name = "lblVersion";
+            lblVersion.Size = new Size(55, 19);
+            lblVersion.TabIndex = 2;
+            lblVersion.Text = "Version";
+            // 
+            // lblAppInfoSub
+            // 
+            lblAppInfoSub.AutoSize = true;
+            lblAppInfoSub.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblAppInfoSub.Location = new Point(18, 45);
+            lblAppInfoSub.Name = "lblAppInfoSub";
+            lblAppInfoSub.Size = new Size(127, 15);
+            lblAppInfoSub.TabIndex = 1;
+            lblAppInfoSub.Text = "Current system details.";
             // 
             // lblAppInforHeading
             // 
@@ -1153,6 +1238,7 @@ namespace DCSSMeetingScheduler.Faculty
             btnEditProfile.TabIndex = 10;
             btnEditProfile.Text = "Edit Profile";
             btnEditProfile.UseVisualStyleBackColor = false;
+            btnEditProfile.Click += btnEditProfile_Click;
             // 
             // lblProfilSub
             // 
@@ -1235,6 +1321,7 @@ namespace DCSSMeetingScheduler.Faculty
             txtFacultyName.ReadOnly = true;
             txtFacultyName.Size = new Size(210, 23);
             txtFacultyName.TabIndex = 1;
+            txtFacultyName.TextChanged += txtFacultyName_TextChanged;
             // 
             // lblProfileHeading
             // 
@@ -1313,51 +1400,7 @@ namespace DCSSMeetingScheduler.Faculty
             pnlHeader.Size = new Size(1262, 121);
             pnlHeader.TabIndex = 11;
             // 
-            // request_id
-            // 
-            request_id.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            request_id.HeaderText = "Request ID";
-            request_id.Name = "request_id";
-            request_id.ReadOnly = true;
-            request_id.Width = 146;
-            // 
-            // stud_name
-            // 
-            stud_name.HeaderText = "Student Name";
-            stud_name.Name = "stud_name";
-            stud_name.ReadOnly = true;
-            // 
-            // meeting_date
-            // 
-            meeting_date.HeaderText = "Meeting Date";
-            meeting_date.Name = "meeting_date";
-            meeting_date.ReadOnly = true;
-            // 
-            // start_time
-            // 
-            start_time.HeaderText = "Start Time";
-            start_time.Name = "start_time";
-            start_time.ReadOnly = true;
-            // 
-            // end_time
-            // 
-            end_time.HeaderText = "End Time";
-            end_time.Name = "end_time";
-            end_time.ReadOnly = true;
-            // 
-            // status
-            // 
-            status.HeaderText = "Status";
-            status.Name = "status";
-            status.ReadOnly = true;
-            // 
-            // faculty_remarks
-            // 
-            faculty_remarks.HeaderText = "Faculty Remarks";
-            faculty_remarks.Name = "faculty_remarks";
-            faculty_remarks.ReadOnly = true;
-            // 
-            // faculty
+            // Faculty
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -1366,8 +1409,9 @@ namespace DCSSMeetingScheduler.Faculty
             Controls.Add(tabFaculty);
             Controls.Add(pnlHeader);
             Margin = new Padding(2);
-            Name = "faculty";
+            Name = "Faculty";
             Text = "Faculty Form";
+            Load += Faculty_Load;
             tabFaculty.ResumeLayout(false);
             tabHome.ResumeLayout(false);
             grpRecentMeet.ResumeLayout(false);
@@ -1396,10 +1440,10 @@ namespace DCSSMeetingScheduler.Faculty
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             tabSettings.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
+            pnlPreferences.ResumeLayout(false);
+            pnlPreferences.PerformLayout();
+            pnlAccountSettings.ResumeLayout(false);
+            pnlAccountSettings.PerformLayout();
             pnlAppInfo.ResumeLayout(false);
             pnlAppInfo.PerformLayout();
             pnlFacultyProfile.ResumeLayout(false);
@@ -1483,37 +1527,40 @@ namespace DCSSMeetingScheduler.Faculty
         private Panel pnlAppInfo;
         private Button btnEditProfile;
         private Label lblAppInforHeading;
-        private Panel panel3;
-        private Label label9;
-        private Label label8;
-        private Label label7;
-        private Label label2;
-        private Panel panel4;
-        private Label label14;
-        private TextBox textBox5;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private Label label13;
-        private Label label12;
-        private Label label11;
-        private Label label10;
-        private ComboBox comboBox2;
-        private Label label16;
-        private Label label15;
-        private Button button2;
-        private CheckBox checkBox3;
-        private CheckBox checkBox2;
-        private CheckBox checkBox1;
-        private ComboBox comboBox3;
-        private Label label18;
-        private Label label17;
-        private Button button4;
-        private Button button3;
-        private CheckBox checkBox5;
-        private CheckBox checkBox4;
-        private Label label20;
-        private Label label19;
-        private Button button5;
+        private Panel pnlAccountSettings;
+        private Label lblLastLogin;
+        private Label lblDatabase;
+        private Label lblVersion;
+        private Label lblLastLoginValue;
+        private Label lblDatabaseValue;
+        private Label lblVersionValue;
+        private Label lblAppInfoSub;
+        private Panel pnlPreferences;
+        private Label lblAccountSub;
+        private TextBox txtConfirmPassword;
+        private TextBox txtNewPassword;
+        private TextBox txtCurrentPassword;
+        private Label lblConfirmPassword;
+        private Label lblNewPassword;
+        private Label lblCurrentPassword;
+        private Label lblAccountSettingsHeading;
+        private ComboBox cmbTheme;
+        private Label lblPreferencesSub;
+        private Label lblPreferencesHeading;
+        private Button btnChangePassword;
+        private CheckBox chkConsultationReminder;
+        private CheckBox chkDesktopNotif;
+        private CheckBox chkEmailNotif;
+        private ComboBox cmbDefaultTab;
+        private Label lblDefaultTab;
+        private Label lblTheme;
+        private Button btnRefreshPreferences;
+        private Button btnSavePreferences;
+        private CheckBox chkShowRecentRequestDashboard;
+        private CheckBox chkShowRequestDashboard;
+        private Label lblDisplaySettings;
+        private Label lblNotifications;
+        private Button btnLogout;
         private DataGridViewTextBoxColumn request_id;
         private DataGridViewTextBoxColumn stud_name;
         private DataGridViewTextBoxColumn meeting_date;
