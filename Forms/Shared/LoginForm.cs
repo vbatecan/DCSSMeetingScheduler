@@ -2,8 +2,8 @@ using System.Data;
 using System.Text.RegularExpressions;
 using DCSSMeetingScheduler.Admin;
 using DCSSMeetingScheduler.Faculty;
+using DCSSMeetingScheduler.Forms.Student;
 using DCSSMeetingScheduler.Shared;
-using DCSSMeetingScheduler.Student;
 using MySqlConnector;
 
 namespace DCSSMeetingScheduler
