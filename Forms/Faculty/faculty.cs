@@ -9,16 +9,16 @@ using DCSSMeetingScheduler;
 
 namespace DCSSMeetingScheduler.Faculty
 {
-    public partial class faculty : Form
+    public partial class Faculty : Form
     {
         private User? loggedInUser = null;
 
-        public faculty()
+        public Faculty()
         {
             InitializeComponent();
         }
 
-        public faculty(User user)
+        public Faculty(User user)
         {
             InitializeComponent();
             loggedInUser = user;
