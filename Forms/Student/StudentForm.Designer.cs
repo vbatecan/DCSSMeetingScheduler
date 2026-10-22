@@ -186,7 +186,7 @@
             // btnCancelRequest
             // 
             btnCancelRequest.FlatStyle = FlatStyle.Flat;
-            btnCancelRequest.Location = new Point(1165, 173);
+            btnCancelRequest.Location = new Point(1176, 6);
             btnCancelRequest.Name = "btnCancelRequest";
             btnCancelRequest.Size = new Size(75, 23);
             btnCancelRequest.TabIndex = 3;
@@ -200,11 +200,11 @@
             dgvMyRequests.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvMyRequests.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvMyRequests.Columns.AddRange(new DataGridViewColumn[] { request_id, faculty_name, meeting_date, start_time, end_time, status, faculty_remarks });
-            dgvMyRequests.Location = new Point(198, 34);
+            dgvMyRequests.Location = new Point(5, 34);
             dgvMyRequests.Name = "dgvMyRequests";
             dgvMyRequests.ReadOnly = true;
             dgvMyRequests.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvMyRequests.Size = new Size(920, 160);
+            dgvMyRequests.Size = new Size(1246, 160);
             dgvMyRequests.TabIndex = 2;
             dgvMyRequests.CellContentClick += dgvMyRequests_CellContentClick;
             // 
@@ -321,7 +321,7 @@
             // 
             lblCompletedCount.AutoSize = true;
             lblCompletedCount.Font = new Font("Segoe UI", 14F);
-            lblCompletedCount.Location = new Point(17, 49);
+            lblCompletedCount.Location = new Point(17, 46);
             lblCompletedCount.Name = "lblCompletedCount";
             lblCompletedCount.Size = new Size(22, 25);
             lblCompletedCount.TabIndex = 7;
@@ -351,7 +351,7 @@
             // 
             lblPendingCount.AutoSize = true;
             lblPendingCount.Font = new Font("Segoe UI", 14F);
-            lblPendingCount.Location = new Point(17, 50);
+            lblPendingCount.Location = new Point(17, 42);
             lblPendingCount.Name = "lblPendingCount";
             lblPendingCount.Size = new Size(22, 25);
             lblPendingCount.TabIndex = 8;
@@ -381,7 +381,7 @@
             // 
             lblApprovedCount.AutoSize = true;
             lblApprovedCount.Font = new Font("Segoe UI", 14F);
-            lblApprovedCount.Location = new Point(22, 49);
+            lblApprovedCount.Location = new Point(22, 46);
             lblApprovedCount.Name = "lblApprovedCount";
             lblApprovedCount.Size = new Size(22, 25);
             lblApprovedCount.TabIndex = 6;

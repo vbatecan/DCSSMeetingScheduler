@@ -35,6 +35,7 @@ appointment_id INT AUTO_INCREMENT PRIMARY KEY,
 student_id INT NOT NULL,
 faculty_id INT NOT NULL,
 meeting_datetime DATETIME NOT NULL,
+meeting_end_datetime DATETIME NULL,
 purpose VARCHAR(255) NOT NULL,
 status ENUM('Pending','Approved','Declined','Completed','Cancelled')
 NOT NULL DEFAULT 'Pending',
