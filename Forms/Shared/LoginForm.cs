@@ -54,7 +54,7 @@ namespace DCSSMeetingScheduler
                                     adminForm.Show();
                                     break;
                                 case UserRole.Faculty:
-                                    faculty facultyForm = new faculty(user);
+                                    Faculty.Faculty facultyForm = new Faculty.Faculty(user);
                                     facultyForm.Show();
                                     break;
                                 case UserRole.Student:
