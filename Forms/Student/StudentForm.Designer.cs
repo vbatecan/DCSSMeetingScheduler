@@ -63,6 +63,7 @@
             lblHomeTitle = new Label();
             tabStudent = new TabControl();
             tabPage1 = new TabPage();
+            txtPurposeOfTheMeeting = new RichTextBox();
             btnSubmitRequest = new Button();
             lbPurposeofMeeting = new Label();
             dtpEndTime = new DateTimePicker();
@@ -102,8 +103,6 @@
             pnlSettingsHeader = new Panel();
             lblSettingsSubtitle = new Label();
             lblSettingsTitle = new Label();
-            txtPurposeOfTheMeeting = new RichTextBox();
-            dateTimePicker2 = new DateTimePicker();
             pblHeader.SuspendLayout();
             tabPage3.SuspendLayout();
             pnlRequestsHeader.SuspendLayout();
@@ -477,7 +476,6 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(dateTimePicker2);
             tabPage1.Controls.Add(txtPurposeOfTheMeeting);
             tabPage1.Controls.Add(btnSubmitRequest);
             tabPage1.Controls.Add(lbPurposeofMeeting);
@@ -501,6 +499,14 @@
             tabPage1.Text = "Request Meeting";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // txtPurposeOfTheMeeting
+            // 
+            txtPurposeOfTheMeeting.Location = new Point(11, 365);
+            txtPurposeOfTheMeeting.Name = "txtPurposeOfTheMeeting";
+            txtPurposeOfTheMeeting.Size = new Size(1243, 150);
+            txtPurposeOfTheMeeting.TabIndex = 14;
+            txtPurposeOfTheMeeting.Text = "";
+            // 
             // btnSubmitRequest
             // 
             btnSubmitRequest.Location = new Point(11, 521);
@@ -514,7 +520,7 @@
             // lbPurposeofMeeting
             // 
             lbPurposeofMeeting.AutoSize = true;
-            lbPurposeofMeeting.Location = new Point(11, 406);
+            lbPurposeofMeeting.Location = new Point(11, 345);
             lbPurposeofMeeting.Name = "lbPurposeofMeeting";
             lbPurposeofMeeting.Size = new Size(130, 17);
             lbPurposeofMeeting.TabIndex = 11;
@@ -524,7 +530,7 @@
             // 
             dtpEndTime.CustomFormat = "hh:mm tt";
             dtpEndTime.Format = DateTimePickerFormat.Custom;
-            dtpEndTime.Location = new Point(11, 371);
+            dtpEndTime.Location = new Point(442, 317);
             dtpEndTime.Name = "dtpEndTime";
             dtpEndTime.ShowUpDown = true;
             dtpEndTime.Size = new Size(200, 25);
@@ -533,7 +539,7 @@
             // lblEndTime
             // 
             lblEndTime.AutoSize = true;
-            lblEndTime.Location = new Point(11, 353);
+            lblEndTime.Location = new Point(442, 299);
             lblEndTime.Name = "lblEndTime";
             lblEndTime.Size = new Size(66, 17);
             lblEndTime.TabIndex = 9;
@@ -543,7 +549,7 @@
             // 
             dtpStartTime.CustomFormat = "hh:mm tt";
             dtpStartTime.Format = DateTimePickerFormat.Custom;
-            dtpStartTime.Location = new Point(546, 317);
+            dtpStartTime.Location = new Point(226, 317);
             dtpStartTime.Name = "dtpStartTime";
             dtpStartTime.ShowUpDown = true;
             dtpStartTime.Size = new Size(200, 25);
@@ -553,7 +559,7 @@
             // 
             lblStartTime.AutoSize = true;
             lblStartTime.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStartTime.Location = new Point(546, 299);
+            lblStartTime.Location = new Point(226, 299);
             lblStartTime.Name = "lblStartTime";
             lblStartTime.Size = new Size(72, 17);
             lblStartTime.TabIndex = 0;
@@ -893,23 +899,7 @@
             lblSettingsTitle.Text = "Student Account Settings";
             lblSettingsTitle.Click += label6_Click;
             // 
-            // txtPurposeOfTheMeeting
-            // 
-            txtPurposeOfTheMeeting.Location = new Point(11, 426);
-            txtPurposeOfTheMeeting.Name = "txtPurposeOfTheMeeting";
-            txtPurposeOfTheMeeting.Size = new Size(1243, 89);
-            txtPurposeOfTheMeeting.TabIndex = 14;
-            txtPurposeOfTheMeeting.Text = "";
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.CustomFormat = "YYYY-MM-DD, HH:MM";
-            dateTimePicker2.Location = new Point(381, 355);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(200, 25);
-            dateTimePicker2.TabIndex = 16;
-            // 
-            // Student
+            // StudentForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -917,7 +907,7 @@
             ClientSize = new Size(1270, 707);
             Controls.Add(tabStudent);
             Controls.Add(pblHeader);
-            Name = "Student";
+            Name = "StudentForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Student Portal";
             Load += Student_Load;
@@ -1032,6 +1022,5 @@
         private Button btnSaveSettings;
         private Button btnCancelSettings;
         private RichTextBox txtPurposeOfTheMeeting;
-        private DateTimePicker dateTimePicker2;
     }
 }
