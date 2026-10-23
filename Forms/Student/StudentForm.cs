@@ -17,7 +17,7 @@ namespace DCSSMeetingScheduler.Forms.Student
         public StudentForm(User user)
         {
             InitializeComponent();
-            this.loggedUser = user;
+            loggedUser = user;
         }
 
         private void Student_Load(object sender, EventArgs e)
@@ -734,6 +734,26 @@ namespace DCSSMeetingScheduler.Forms.Student
         {
         }
 
+        private void label6_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+        }
+
         private void dgvMyRequests_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
         }
@@ -746,15 +766,19 @@ namespace DCSSMeetingScheduler.Forms.Student
         {
         }
 
+        private void tabPage2_Click_1(object sender, EventArgs e)
+        {
+        }
+
         private void pblHeader_Paint(object sender, PaintEventArgs e)
         {
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void pnlProfile_Paint(object sender, PaintEventArgs e)
         {
         }
 
-        private void pnlProfile_Paint(object sender, PaintEventArgs e)
+        private void pnlStudentProfile_Paint(object sender, PaintEventArgs e)
         {
         }
 
