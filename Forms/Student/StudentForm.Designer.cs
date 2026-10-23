@@ -26,7 +26,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             pblHeader = new Panel();
             label1 = new Label();
             lblPortalTitle = new Label();
@@ -63,6 +64,8 @@
             lblHomeTitle = new Label();
             tabStudent = new TabControl();
             tabPage1 = new TabPage();
+            dateTimePicker2 = new DateTimePicker();
+            txtPurposeOfTheMeeting = new RichTextBox();
             btnSubmitRequest = new Button();
             lbPurposeofMeeting = new Label();
             dtpEndTime = new DateTimePicker();
@@ -83,27 +86,24 @@
             label4 = new Label();
             lblRequestTitle = new Label();
             tabPage2 = new TabPage();
-            btnCancelSettings = new Button();
-            btnSaveSettings = new Button();
-            pnlProfile = new Panel();
-            txtSection = new TextBox();
-            cmbYearLevel = new ComboBox();
-            txtStudentProgram = new TextBox();
-            txtStudentEmail = new TextBox();
-            txtStudentId = new TextBox();
-            txtStudentName = new TextBox();
-            label11 = new Label();
-            label10 = new Label();
-            label9 = new Label();
-            label8 = new Label();
-            label7 = new Label();
-            label6 = new Label();
-            lblProfileSection = new Label();
+            tlpSettingsLayout = new TableLayoutPanel();
+            pnlStudentProfile = new Panel();
+            lblStudentProfileTitle = new Label();
             pnlSettingsHeader = new Panel();
             lblSettingsSubtitle = new Label();
             lblSettingsTitle = new Label();
-            txtPurposeOfTheMeeting = new RichTextBox();
-            dateTimePicker2 = new DateTimePicker();
+            label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            label10 = new Label();
+            label11 = new Label();
+            txtStudentName = new TextBox();
+            txtStudentId = new TextBox();
+            txtStudentEmail = new TextBox();
+            txtStudentProgram = new TextBox();
+            textBox1 = new TextBox();
+            cmbYearLevel = new ComboBox();
             pblHeader.SuspendLayout();
             tabPage3.SuspendLayout();
             pnlRequestsHeader.SuspendLayout();
@@ -120,7 +120,8 @@
             ((System.ComponentModel.ISupportInitialize)dgvFacultyHours).BeginInit();
             pnlRequestTitle.SuspendLayout();
             tabPage2.SuspendLayout();
-            pnlProfile.SuspendLayout();
+            tlpSettingsLayout.SuspendLayout();
+            pnlStudentProfile.SuspendLayout();
             pnlSettingsHeader.SuspendLayout();
             SuspendLayout();
             // 
@@ -501,6 +502,22 @@
             tabPage1.Text = "Request Meeting";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.CustomFormat = "YYYY-MM-DD, HH:MM";
+            dateTimePicker2.Location = new Point(381, 355);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(200, 25);
+            dateTimePicker2.TabIndex = 16;
+            // 
+            // txtPurposeOfTheMeeting
+            // 
+            txtPurposeOfTheMeeting.Location = new Point(11, 426);
+            txtPurposeOfTheMeeting.Name = "txtPurposeOfTheMeeting";
+            txtPurposeOfTheMeeting.Size = new Size(1243, 89);
+            txtPurposeOfTheMeeting.TabIndex = 14;
+            txtPurposeOfTheMeeting.Text = "";
+            // 
             // btnSubmitRequest
             // 
             btnSubmitRequest.Location = new Point(11, 521);
@@ -680,9 +697,7 @@
             // 
             // tabPage2
             // 
-            tabPage2.Controls.Add(btnCancelSettings);
-            tabPage2.Controls.Add(btnSaveSettings);
-            tabPage2.Controls.Add(pnlProfile);
+            tabPage2.Controls.Add(tlpSettingsLayout);
             tabPage2.Controls.Add(pnlSettingsHeader);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
@@ -690,175 +705,59 @@
             tabPage2.TabIndex = 0;
             tabPage2.Text = "Settings";
             tabPage2.UseVisualStyleBackColor = true;
+            tabPage2.Click += tabPage2_Click_1;
             // 
-            // btnCancelSettings
+            // tlpSettingsLayout
             // 
-            btnCancelSettings.BackColor = Color.White;
-            btnCancelSettings.FlatStyle = FlatStyle.Flat;
-            btnCancelSettings.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCancelSettings.Location = new Point(1121, 497);
-            btnCancelSettings.Name = "btnCancelSettings";
-            btnCancelSettings.Size = new Size(100, 40);
-            btnCancelSettings.TabIndex = 3;
-            btnCancelSettings.Text = "Cancel";
-            btnCancelSettings.UseVisualStyleBackColor = false;
+            tlpSettingsLayout.ColumnCount = 2;
+            tlpSettingsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            tlpSettingsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
+            tlpSettingsLayout.Controls.Add(pnlStudentProfile, 0, 0);
+            tlpSettingsLayout.Dock = DockStyle.Fill;
+            tlpSettingsLayout.Location = new Point(0, 85);
+            tlpSettingsLayout.Name = "tlpSettingsLayout";
+            tlpSettingsLayout.Padding = new Padding(8);
+            tlpSettingsLayout.RowCount = 2;
+            tlpSettingsLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 75.94142F));
+            tlpSettingsLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 24.0585766F));
+            tlpSettingsLayout.Size = new Size(1262, 494);
+            tlpSettingsLayout.TabIndex = 13;
             // 
-            // btnSaveSettings
+            // pnlStudentProfile
             // 
-            btnSaveSettings.BackColor = Color.White;
-            btnSaveSettings.FlatStyle = FlatStyle.Flat;
-            btnSaveSettings.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSaveSettings.Location = new Point(975, 497);
-            btnSaveSettings.Name = "btnSaveSettings";
-            btnSaveSettings.Size = new Size(140, 40);
-            btnSaveSettings.TabIndex = 2;
-            btnSaveSettings.Text = "Save Changes";
-            btnSaveSettings.UseVisualStyleBackColor = false;
+            pnlStudentProfile.BackColor = Color.White;
+            pnlStudentProfile.BorderStyle = BorderStyle.FixedSingle;
+            pnlStudentProfile.Controls.Add(cmbYearLevel);
+            pnlStudentProfile.Controls.Add(textBox1);
+            pnlStudentProfile.Controls.Add(txtStudentProgram);
+            pnlStudentProfile.Controls.Add(txtStudentEmail);
+            pnlStudentProfile.Controls.Add(txtStudentId);
+            pnlStudentProfile.Controls.Add(txtStudentName);
+            pnlStudentProfile.Controls.Add(label11);
+            pnlStudentProfile.Controls.Add(label10);
+            pnlStudentProfile.Controls.Add(label9);
+            pnlStudentProfile.Controls.Add(label8);
+            pnlStudentProfile.Controls.Add(label7);
+            pnlStudentProfile.Controls.Add(label6);
+            pnlStudentProfile.Controls.Add(lblStudentProfileTitle);
+            pnlStudentProfile.Dock = DockStyle.Fill;
+            pnlStudentProfile.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            pnlStudentProfile.Location = new Point(11, 11);
+            pnlStudentProfile.Name = "pnlStudentProfile";
+            pnlStudentProfile.Padding = new Padding(10);
+            pnlStudentProfile.Size = new Size(367, 357);
+            pnlStudentProfile.TabIndex = 0;
+            pnlStudentProfile.Paint += pnlStudentProfile_Paint;
             // 
-            // pnlProfile
+            // lblStudentProfileTitle
             // 
-            pnlProfile.BackColor = Color.White;
-            pnlProfile.BorderStyle = BorderStyle.FixedSingle;
-            pnlProfile.Controls.Add(txtSection);
-            pnlProfile.Controls.Add(cmbYearLevel);
-            pnlProfile.Controls.Add(txtStudentProgram);
-            pnlProfile.Controls.Add(txtStudentEmail);
-            pnlProfile.Controls.Add(txtStudentId);
-            pnlProfile.Controls.Add(txtStudentName);
-            pnlProfile.Controls.Add(label11);
-            pnlProfile.Controls.Add(label10);
-            pnlProfile.Controls.Add(label9);
-            pnlProfile.Controls.Add(label8);
-            pnlProfile.Controls.Add(label7);
-            pnlProfile.Controls.Add(label6);
-            pnlProfile.Controls.Add(lblProfileSection);
-            pnlProfile.Location = new Point(6, 91);
-            pnlProfile.Name = "pnlProfile";
-            pnlProfile.Size = new Size(1248, 400);
-            pnlProfile.TabIndex = 1;
-            pnlProfile.Paint += pnlProfile_Paint;
-            // 
-            // txtSection
-            // 
-            txtSection.Font = new Font("Segoe UI", 10F);
-            txtSection.Location = new Point(650, 256);
-            txtSection.Name = "txtSection";
-            txtSection.Size = new Size(300, 25);
-            txtSection.TabIndex = 12;
-            // 
-            // cmbYearLevel
-            // 
-            cmbYearLevel.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbYearLevel.Font = new Font("Segoe UI", 10F);
-            cmbYearLevel.FormattingEnabled = true;
-            cmbYearLevel.Items.AddRange(new object[] { "1st Year", "2nd Year", "3rd Year", "4th Year" });
-            cmbYearLevel.Location = new Point(650, 176);
-            cmbYearLevel.Name = "cmbYearLevel";
-            cmbYearLevel.Size = new Size(300, 25);
-            cmbYearLevel.TabIndex = 11;
-            // 
-            // txtStudentProgram
-            // 
-            txtStudentProgram.Font = new Font("Segoe UI", 10F);
-            txtStudentProgram.Location = new Point(650, 96);
-            txtStudentProgram.Name = "txtStudentProgram";
-            txtStudentProgram.Size = new Size(300, 25);
-            txtStudentProgram.TabIndex = 10;
-            // 
-            // txtStudentEmail
-            // 
-            txtStudentEmail.Font = new Font("Segoe UI", 10F);
-            txtStudentEmail.Location = new Point(40, 256);
-            txtStudentEmail.Name = "txtStudentEmail";
-            txtStudentEmail.Size = new Size(300, 25);
-            txtStudentEmail.TabIndex = 9;
-            // 
-            // txtStudentId
-            // 
-            txtStudentId.Font = new Font("Segoe UI", 10F);
-            txtStudentId.Location = new Point(40, 176);
-            txtStudentId.Name = "txtStudentId";
-            txtStudentId.Size = new Size(300, 25);
-            txtStudentId.TabIndex = 8;
-            // 
-            // txtStudentName
-            // 
-            txtStudentName.Font = new Font("Segoe UI", 10F);
-            txtStudentName.Location = new Point(40, 96);
-            txtStudentName.Name = "txtStudentName";
-            txtStudentName.Size = new Size(300, 25);
-            txtStudentName.TabIndex = 7;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 15F);
-            label11.Location = new Point(650, 225);
-            label11.Name = "label11";
-            label11.Size = new Size(77, 28);
-            label11.TabIndex = 6;
-            label11.Text = "Section";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 15F);
-            label10.Location = new Point(650, 145);
-            label10.Name = "label10";
-            label10.Size = new Size(97, 28);
-            label10.TabIndex = 5;
-            label10.Text = "Year Level";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 15F);
-            label9.Location = new Point(650, 65);
-            label9.Name = "label9";
-            label9.Size = new Size(166, 28);
-            label9.TabIndex = 4;
-            label9.Text = "Program / Course";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 15F);
-            label8.Location = new Point(40, 225);
-            label8.Name = "label8";
-            label8.Size = new Size(134, 28);
-            label8.TabIndex = 3;
-            label8.Text = "Email Address";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 15F);
-            label7.Location = new Point(40, 145);
-            label7.Name = "label7";
-            label7.Size = new Size(104, 28);
-            label7.TabIndex = 2;
-            label7.Text = "Student ID";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 15F);
-            label6.Location = new Point(40, 65);
-            label6.Name = "label6";
-            label6.Size = new Size(137, 28);
-            label6.TabIndex = 1;
-            label6.Text = "Student Name";
-            // 
-            // lblProfileSection
-            // 
-            lblProfileSection.AutoSize = true;
-            lblProfileSection.Font = new Font("Segoe UI", 18.75F, FontStyle.Bold);
-            lblProfileSection.ForeColor = Color.DarkGreen;
-            lblProfileSection.Location = new Point(3, 0);
-            lblProfileSection.Name = "lblProfileSection";
-            lblProfileSection.Size = new Size(241, 35);
-            lblProfileSection.TabIndex = 0;
-            lblProfileSection.Text = "Profile Information";
+            lblStudentProfileTitle.AutoSize = true;
+            lblStudentProfileTitle.Font = new Font("Segoe UI", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblStudentProfileTitle.Location = new Point(-1, -1);
+            lblStudentProfileTitle.Name = "lblStudentProfileTitle";
+            lblStudentProfileTitle.Size = new Size(132, 23);
+            lblStudentProfileTitle.TabIndex = 0;
+            lblStudentProfileTitle.Text = "Student Profile";
             // 
             // pnlSettingsHeader
             // 
@@ -877,9 +776,9 @@
             lblSettingsSubtitle.ForeColor = Color.DimGray;
             lblSettingsSubtitle.Location = new Point(8, 42);
             lblSettingsSubtitle.Name = "lblSettingsSubtitle";
-            lblSettingsSubtitle.Size = new Size(274, 15);
+            lblSettingsSubtitle.Size = new Size(189, 15);
             lblSettingsSubtitle.TabIndex = 1;
-            lblSettingsSubtitle.Text = "View and manage your student profile information";
+            lblSettingsSubtitle.Text = "Manage your account information";
             // 
             // lblSettingsTitle
             // 
@@ -888,28 +787,119 @@
             lblSettingsTitle.ForeColor = Color.DarkGreen;
             lblSettingsTitle.Location = new Point(3, 10);
             lblSettingsTitle.Name = "lblSettingsTitle";
-            lblSettingsTitle.Size = new Size(303, 32);
+            lblSettingsTitle.Size = new Size(106, 32);
             lblSettingsTitle.TabIndex = 1;
-            lblSettingsTitle.Text = "Student Account Settings";
+            lblSettingsTitle.Text = "Settings";
             lblSettingsTitle.Click += label6_Click;
             // 
-            // txtPurposeOfTheMeeting
+            // label6
             // 
-            txtPurposeOfTheMeeting.Location = new Point(11, 426);
-            txtPurposeOfTheMeeting.Name = "txtPurposeOfTheMeeting";
-            txtPurposeOfTheMeeting.Size = new Size(1243, 89);
-            txtPurposeOfTheMeeting.TabIndex = 14;
-            txtPurposeOfTheMeeting.Text = "";
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(-1, 22);
+            label6.Name = "label6";
+            label6.Size = new Size(40, 15);
+            label6.TabIndex = 1;
+            label6.Text = "Name";
             // 
-            // dateTimePicker2
+            // label7
             // 
-            dateTimePicker2.CustomFormat = "YYYY-MM-DD, HH:MM";
-            dateTimePicker2.Location = new Point(381, 355);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(200, 25);
-            dateTimePicker2.TabIndex = 16;
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label7.Location = new Point(-1, 77);
+            label7.Name = "label7";
+            label7.Size = new Size(68, 15);
+            label7.TabIndex = 2;
+            label7.Text = "Student ID";
+            label7.Click += this.label7_Click;
             // 
-            // Student
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label8.Location = new Point(-1, 132);
+            label8.Name = "label8";
+            label8.Size = new Size(36, 15);
+            label8.TabIndex = 3;
+            label8.Text = "Email";
+            label8.Click += this.label8_Click;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label9.Location = new Point(-1, 178);
+            label9.Name = "label9";
+            label9.Size = new Size(55, 15);
+            label9.TabIndex = 4;
+            label9.Text = "Program";
+            label9.Click += this.label9_Click;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label10.Location = new Point(-1, 233);
+            label10.Name = "label10";
+            label10.Size = new Size(64, 15);
+            label10.TabIndex = 5;
+            label10.Text = "Year Level";
+            label10.Click += this.label10_Click;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label11.Location = new Point(-1, 288);
+            label11.Name = "label11";
+            label11.Size = new Size(49, 15);
+            label11.TabIndex = 6;
+            label11.Text = "Section";
+            // 
+            // txtStudentName
+            // 
+            txtStudentName.Location = new Point(-1, 40);
+            txtStudentName.Name = "txtStudentName";
+            txtStudentName.Size = new Size(150, 23);
+            txtStudentName.TabIndex = 7;
+            // 
+            // txtStudentId
+            // 
+            txtStudentId.Location = new Point(-1, 95);
+            txtStudentId.Name = "txtStudentId";
+            txtStudentId.Size = new Size(150, 23);
+            txtStudentId.TabIndex = 8;
+            // 
+            // txtStudentEmail
+            // 
+            txtStudentEmail.Location = new Point(-1, 150);
+            txtStudentEmail.Name = "txtStudentEmail";
+            txtStudentEmail.Size = new Size(150, 23);
+            txtStudentEmail.TabIndex = 9;
+            // 
+            // txtStudentProgram
+            // 
+            txtStudentProgram.Location = new Point(-1, 196);
+            txtStudentProgram.Name = "txtStudentProgram";
+            txtStudentProgram.Size = new Size(150, 23);
+            txtStudentProgram.TabIndex = 10;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(-1, 306);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(150, 23);
+            textBox1.TabIndex = 11;
+            // 
+            // cmbYearLevel
+            // 
+            cmbYearLevel.FormattingEnabled = true;
+            cmbYearLevel.Location = new Point(-1, 251);
+            cmbYearLevel.Name = "cmbYearLevel";
+            cmbYearLevel.Size = new Size(150, 23);
+            cmbYearLevel.TabIndex = 12;
+            // 
+            // StudentForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -917,7 +907,7 @@
             ClientSize = new Size(1270, 707);
             Controls.Add(tabStudent);
             Controls.Add(pblHeader);
-            Name = "Student";
+            Name = "StudentForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Student Portal";
             Load += Student_Load;
@@ -947,8 +937,9 @@
             pnlRequestTitle.ResumeLayout(false);
             pnlRequestTitle.PerformLayout();
             tabPage2.ResumeLayout(false);
-            pnlProfile.ResumeLayout(false);
-            pnlProfile.PerformLayout();
+            tlpSettingsLayout.ResumeLayout(false);
+            pnlStudentProfile.ResumeLayout(false);
+            pnlStudentProfile.PerformLayout();
             pnlSettingsHeader.ResumeLayout(false);
             pnlSettingsHeader.PerformLayout();
             ResumeLayout(false);
@@ -1011,13 +1002,16 @@
         private DateTimePicker dtpEndTime;
         private Label lbPurposeofMeeting;
         private Button btnSubmitRequest;
+        private RichTextBox txtPurposeOfTheMeeting;
+        private DateTimePicker dateTimePicker2;
         private TabPage tabPage2;
-        private Label lblSettingsTitle;
+        private TableLayoutPanel tlpSettingsLayout;
         private Panel pnlSettingsHeader;
         private Label lblSettingsSubtitle;
-        private Panel pnlProfile;
-        private TextBox txtSection;
-        private ComboBox cmbYearLevel;
+        private Label lblSettingsTitle;
+        private Panel pnlStudentProfile;
+        private Label lblStudentProfileTitle;
+        private TextBox textBox1;
         private TextBox txtStudentProgram;
         private TextBox txtStudentEmail;
         private TextBox txtStudentId;
@@ -1028,10 +1022,6 @@
         private Label label8;
         private Label label7;
         private Label label6;
-        private Label lblProfileSection;
-        private Button btnSaveSettings;
-        private Button btnCancelSettings;
-        private RichTextBox txtPurposeOfTheMeeting;
-        private DateTimePicker dateTimePicker2;
+        private ComboBox cmbYearLevel;
     }
 }
