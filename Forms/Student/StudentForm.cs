@@ -785,5 +785,15 @@ namespace DCSSMeetingScheduler.Forms.Student
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
         }
+
+        private void pnlAccountSettings_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlPreferences_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
