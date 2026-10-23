@@ -356,7 +356,7 @@ namespace DCSSMeetingScheduler.Faculty
             lblTodaysMeeting.AutoSize = true;
             lblTodaysMeeting.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTodaysMeeting.ForeColor = Color.Black;
-            lblTodaysMeeting.Location = new Point(20, 22);
+            lblTodaysMeeting.Location = new Point(17, 22);
             lblTodaysMeeting.Margin = new Padding(4, 0, 4, 0);
             lblTodaysMeeting.Name = "lblTodaysMeeting";
             lblTodaysMeeting.Size = new Size(180, 28);
