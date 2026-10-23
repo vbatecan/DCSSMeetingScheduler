@@ -1,4 +1,4 @@
-﻿namespace DCSSMeetingScheduler.Forms.Student
+namespace DCSSMeetingScheduler.Forms.Student
 {
     partial class StudentForm
     {
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent() {
             pblHeader = new Panel();
+            btnLogout = new Button();
             label1 = new Label();
             lblPortalTitle = new Label();
             tabPage3 = new TabPage();
@@ -126,6 +127,7 @@
             // pblHeader
             // 
             pblHeader.BackColor = Color.DarkGreen;
+            pblHeader.Controls.Add(btnLogout);
             pblHeader.Controls.Add(label1);
             pblHeader.Controls.Add(lblPortalTitle);
             pblHeader.Dock = DockStyle.Top;
@@ -134,6 +136,20 @@
             pblHeader.Size = new Size(1270, 100);
             pblHeader.TabIndex = 0;
             pblHeader.Paint += pblHeader_Paint;
+            // 
+            // btnLogout
+            // 
+            btnLogout.BackColor = Color.White;
+            btnLogout.FlatStyle = FlatStyle.Flat;
+            btnLogout.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnLogout.ForeColor = Color.DarkGreen;
+            btnLogout.Location = new Point(1150, 30);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(95, 35);
+            btnLogout.TabIndex = 3;
+            btnLogout.Text = "Logout";
+            btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
             // label1
             // 
@@ -186,12 +202,13 @@
             // btnCancelRequest
             // 
             btnCancelRequest.FlatStyle = FlatStyle.Flat;
-            btnCancelRequest.Location = new Point(1176, 6);
+            btnCancelRequest.Location = new Point(1126, 4);
             btnCancelRequest.Name = "btnCancelRequest";
-            btnCancelRequest.Size = new Size(75, 23);
+            btnCancelRequest.Size = new Size(125, 26);
             btnCancelRequest.TabIndex = 3;
             btnCancelRequest.Text = "Cancel Request";
             btnCancelRequest.UseVisualStyleBackColor = true;
+            btnCancelRequest.Click += btnCancelRequest_Click;
             // 
             // dgvMyRequests
             // 
@@ -279,6 +296,7 @@
             btnMarkAsRead.TabIndex = 3;
             btnMarkAsRead.Text = "Mark as Read";
             btnMarkAsRead.UseVisualStyleBackColor = true;
+            btnMarkAsRead.Click += btnMarkAsRead_Click;
             // 
             // lblNotification
             // 
@@ -598,6 +616,7 @@
             dgvFacultyHours.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvFacultyHours.Size = new Size(1243, 150);
             dgvFacultyHours.TabIndex = 5;
+            dgvFacultyHours.CellClick += dgvFacultyHours_CellClick;
             // 
             // colDay
             // 
@@ -641,6 +660,7 @@
             cmbFaculty.Name = "cmbFaculty";
             cmbFaculty.Size = new Size(1246, 25);
             cmbFaculty.TabIndex = 3;
+            cmbFaculty.SelectedIndexChanged += cmbFaculty_SelectedIndexChanged;
             // 
             // lblFaculty
             // 
@@ -708,6 +728,7 @@
             btnCancelSettings.TabIndex = 3;
             btnCancelSettings.Text = "Cancel";
             btnCancelSettings.UseVisualStyleBackColor = false;
+            btnCancelSettings.Click += btnCancelSettings_Click;
             // 
             // btnSaveSettings
             // 
@@ -720,6 +741,7 @@
             btnSaveSettings.TabIndex = 2;
             btnSaveSettings.Text = "Save Changes";
             btnSaveSettings.UseVisualStyleBackColor = false;
+            btnSaveSettings.Click += btnSaveSettings_Click;
             // 
             // pnlProfile
             // 
@@ -911,6 +933,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Student Portal";
             Load += Student_Load;
+            FormClosed += StudentForm_FormClosed;
             pblHeader.ResumeLayout(false);
             pblHeader.PerformLayout();
             tabPage3.ResumeLayout(false);
@@ -1022,5 +1045,6 @@
         private Button btnSaveSettings;
         private Button btnCancelSettings;
         private RichTextBox txtPurposeOfTheMeeting;
+        private Button btnLogout;
     }
 }
