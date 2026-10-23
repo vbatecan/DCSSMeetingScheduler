@@ -77,11 +77,6 @@ namespace DCSSMeetingScheduler.Faculty
 
         private void InitializePreferences()
         {
-            cmbTheme.Items.Clear();
-            cmbTheme.Items.Add("Default (Green)");
-            cmbTheme.Items.Add("Light");
-            cmbTheme.Items.Add("Dark");
-            cmbTheme.SelectedIndex = 0;
 
             cmbDefaultTab.Items.Clear();
             cmbDefaultTab.Items.Add("Home");
@@ -252,7 +247,6 @@ namespace DCSSMeetingScheduler.Faculty
 
         private void btnRefreshPreferences_Click(object sender, EventArgs e)
         {
-            cmbTheme.SelectedIndex = 0;
             cmbDefaultTab.SelectedIndex = 0;
 
             chkEmailNotif.Checked = true;
@@ -281,17 +275,6 @@ namespace DCSSMeetingScheduler.Faculty
             }
         }
 
-        private void cmbTheme_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbTheme.SelectedItem != null)
-            {
-                string? selectedTheme = cmbTheme.SelectedItem.ToString();
-                if (selectedTheme != null)
-                {
-                    ApplyTheme(selectedTheme);
-                }
-            }
-        }
 
         private void ApplyTheme(string theme)
         {
@@ -329,7 +312,6 @@ namespace DCSSMeetingScheduler.Faculty
                 lblNewPassword.ForeColor = Color.WhiteSmoke;
                 lblConfirmPassword.ForeColor = Color.WhiteSmoke;
 
-                lblTheme.ForeColor = Color.WhiteSmoke;
                 lblDefaultTab.ForeColor = Color.WhiteSmoke;
                 lblNotifications.ForeColor = Color.WhiteSmoke;
                 lblDisplaySettings.ForeColor = Color.WhiteSmoke;
@@ -381,7 +363,6 @@ namespace DCSSMeetingScheduler.Faculty
                 lblNewPassword.ForeColor = Color.Black;
                 lblConfirmPassword.ForeColor = Color.Black;
 
-                lblTheme.ForeColor = Color.Black;
                 lblDefaultTab.ForeColor = Color.Black;
                 lblNotifications.ForeColor = Color.Black;
                 lblDisplaySettings.ForeColor = Color.Black;
@@ -512,6 +493,11 @@ namespace DCSSMeetingScheduler.Faculty
         }
 
         private void tabHome_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
 
         }
