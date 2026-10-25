@@ -103,6 +103,7 @@
             pnlSettingsHeader = new Panel();
             lblSettingsSubtitle = new Label();
             lblSettingsTitle = new Label();
+            btnLogout = new Button();
             pblHeader.SuspendLayout();
             tabPage3.SuspendLayout();
             pnlRequestsHeader.SuspendLayout();
@@ -126,6 +127,7 @@
             // pblHeader
             // 
             pblHeader.BackColor = Color.DarkGreen;
+            pblHeader.Controls.Add(btnLogout);
             pblHeader.Controls.Add(label1);
             pblHeader.Controls.Add(lblPortalTitle);
             pblHeader.Dock = DockStyle.Top;
@@ -899,6 +901,17 @@
             lblSettingsTitle.Text = "Student Account Settings";
             lblSettingsTitle.Click += label6_Click;
             // 
+            // btnLogout
+            // 
+            btnLogout.FlatStyle = FlatStyle.Flat;
+            btnLogout.Location = new Point(1183, 37);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(75, 23);
+            btnLogout.TabIndex = 3;
+            btnLogout.Text = "Logout";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
+            // 
             // StudentForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1022,5 +1035,6 @@
         private Button btnSaveSettings;
         private Button btnCancelSettings;
         private RichTextBox txtPurposeOfTheMeeting;
+        private Button btnLogout;
     }
 }
