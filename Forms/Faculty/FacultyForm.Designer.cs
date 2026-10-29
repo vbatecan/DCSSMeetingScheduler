@@ -30,6 +30,14 @@ namespace DCSSMeetingScheduler.Faculty
         {
             tabFaculty = new TabControl();
             tabHome = new TabPage();
+            dataGridView2 = new DataGridView();
+            request_id = new DataGridViewTextBoxColumn();
+            Stud_Name = new DataGridViewTextBoxColumn();
+            Date = new DataGridViewTextBoxColumn();
+            Start = new DataGridViewTextBoxColumn();
+            End = new DataGridViewTextBoxColumn();
+            MStatus = new DataGridViewTextBoxColumn();
+            FRemarks = new DataGridViewTextBoxColumn();
             grpRecentMeet = new GroupBox();
             pnlNotifs = new Panel();
             btnRefresh = new Button();
@@ -163,16 +171,13 @@ namespace DCSSMeetingScheduler.Faculty
             lblTitle = new Label();
             lblSubtitle = new Label();
             pnlHeader = new Panel();
-            dataGridView2 = new DataGridView();
-            request_id = new DataGridViewTextBoxColumn();
-            Stud_Name = new DataGridViewTextBoxColumn();
-            Date = new DataGridViewTextBoxColumn();
-            Start = new DataGridViewTextBoxColumn();
-            End = new DataGridViewTextBoxColumn();
-            MStatus = new DataGridViewTextBoxColumn();
-            FRemarks = new DataGridViewTextBoxColumn();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox4 = new PictureBox();
             tabFaculty.SuspendLayout();
             tabHome.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             pnlNotifs.SuspendLayout();
             grpOverview.SuspendLayout();
             panel2.SuspendLayout();
@@ -201,7 +206,10 @@ namespace DCSSMeetingScheduler.Faculty
             pnlFacultyProfile.SuspendLayout();
             pnlHeaderSetting.SuspendLayout();
             pnlHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // tabFaculty
@@ -236,6 +244,83 @@ namespace DCSSMeetingScheduler.Faculty
             tabHome.Size = new Size(1801, 949);
             tabHome.TabIndex = 0;
             tabHome.Text = "Home";
+            // 
+            // dataGridView2
+            // 
+            dataGridView2.AllowUserToAddRows = false;
+            dataGridView2.AllowUserToDeleteRows = false;
+            dataGridView2.AllowUserToResizeColumns = false;
+            dataGridView2.AllowUserToResizeRows = false;
+            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView2.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+            dataGridView2.BackgroundColor = Color.WhiteSmoke;
+            dataGridView2.ColumnHeadersHeight = 34;
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { request_id, Stud_Name, Date, Start, End, MStatus, FRemarks });
+            dataGridView2.Location = new Point(23, 620);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.ReadOnly = true;
+            dataGridView2.RowHeadersVisible = false;
+            dataGridView2.RowHeadersWidth = 62;
+            dataGridView2.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridView2.Size = new Size(1757, 248);
+            dataGridView2.TabIndex = 14;
+            // 
+            // request_id
+            // 
+            request_id.HeaderText = "Request ID";
+            request_id.MinimumWidth = 8;
+            request_id.Name = "request_id";
+            request_id.ReadOnly = true;
+            request_id.Resizable = DataGridViewTriState.False;
+            // 
+            // Stud_Name
+            // 
+            Stud_Name.HeaderText = "Student Name";
+            Stud_Name.MinimumWidth = 8;
+            Stud_Name.Name = "Stud_Name";
+            Stud_Name.ReadOnly = true;
+            Stud_Name.Resizable = DataGridViewTriState.False;
+            // 
+            // Date
+            // 
+            Date.HeaderText = "Meeting Date";
+            Date.MinimumWidth = 8;
+            Date.Name = "Date";
+            Date.ReadOnly = true;
+            Date.Resizable = DataGridViewTriState.False;
+            // 
+            // Start
+            // 
+            Start.HeaderText = "Start Time";
+            Start.MinimumWidth = 8;
+            Start.Name = "Start";
+            Start.ReadOnly = true;
+            Start.Resizable = DataGridViewTriState.False;
+            // 
+            // End
+            // 
+            End.HeaderText = "End Time";
+            End.MinimumWidth = 8;
+            End.Name = "End";
+            End.ReadOnly = true;
+            End.Resizable = DataGridViewTriState.False;
+            // 
+            // MStatus
+            // 
+            MStatus.HeaderText = "Status";
+            MStatus.MinimumWidth = 8;
+            MStatus.Name = "MStatus";
+            MStatus.ReadOnly = true;
+            MStatus.Resizable = DataGridViewTriState.False;
+            // 
+            // FRemarks
+            // 
+            FRemarks.HeaderText = "Faculty Remarks";
+            FRemarks.MinimumWidth = 8;
+            FRemarks.Name = "FRemarks";
+            FRemarks.ReadOnly = true;
+            FRemarks.Resizable = DataGridViewTriState.False;
             // 
             // grpRecentMeet
             // 
@@ -413,6 +498,7 @@ namespace DCSSMeetingScheduler.Faculty
             // 
             pnlPending.BackColor = Color.White;
             pnlPending.BorderStyle = BorderStyle.FixedSingle;
+            pnlPending.Controls.Add(pictureBox2);
             pnlPending.Controls.Add(lblPendingTotal);
             pnlPending.Controls.Add(label4);
             pnlPending.Location = new Point(454, 147);
@@ -447,6 +533,7 @@ namespace DCSSMeetingScheduler.Faculty
             // 
             pnlTotal.BackColor = Color.White;
             pnlTotal.BorderStyle = BorderStyle.FixedSingle;
+            pnlTotal.Controls.Add(pictureBox1);
             pnlTotal.Controls.Add(lblTotal);
             pnlTotal.Controls.Add(label3);
             pnlTotal.Location = new Point(7, 147);
@@ -482,6 +569,7 @@ namespace DCSSMeetingScheduler.Faculty
             // 
             pnlDeclined.BackColor = Color.White;
             pnlDeclined.BorderStyle = BorderStyle.FixedSingle;
+            pnlDeclined.Controls.Add(pictureBox4);
             pnlDeclined.Controls.Add(lblDeclinedTotal);
             pnlDeclined.Controls.Add(label6);
             pnlDeclined.Location = new Point(1349, 147);
@@ -516,6 +604,7 @@ namespace DCSSMeetingScheduler.Faculty
             // 
             pnlApproved.BackColor = Color.White;
             pnlApproved.BorderStyle = BorderStyle.FixedSingle;
+            pnlApproved.Controls.Add(pictureBox3);
             pnlApproved.Controls.Add(lblApprovedTotal);
             pnlApproved.Controls.Add(label5);
             pnlApproved.Location = new Point(901, 147);
@@ -1827,82 +1916,37 @@ namespace DCSSMeetingScheduler.Faculty
             pnlHeader.Size = new Size(1803, 178);
             pnlHeader.TabIndex = 11;
             // 
-            // dataGridView2
+            // pictureBox1
             // 
-            dataGridView2.AllowUserToAddRows = false;
-            dataGridView2.AllowUserToDeleteRows = false;
-            dataGridView2.AllowUserToResizeColumns = false;
-            dataGridView2.AllowUserToResizeRows = false;
-            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView2.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridView2.BackgroundColor = Color.WhiteSmoke;
-            dataGridView2.ColumnHeadersHeight = 34;
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { request_id, Stud_Name, Date, Start, End, MStatus, FRemarks });
-            dataGridView2.Location = new Point(23, 620);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.ReadOnly = true;
-            dataGridView2.RowHeadersVisible = false;
-            dataGridView2.RowHeadersWidth = 62;
-            dataGridView2.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridView2.Size = new Size(1757, 326);
-            dataGridView2.TabIndex = 14;
+            pictureBox1.Location = new Point(21, 37);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(64, 64);
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
             // 
-            // request_id
+            // pictureBox2
             // 
-            request_id.HeaderText = "Request ID";
-            request_id.MinimumWidth = 8;
-            request_id.Name = "request_id";
-            request_id.ReadOnly = true;
-            request_id.Resizable = DataGridViewTriState.False;
+            pictureBox2.Location = new Point(25, 40);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(64, 64);
+            pictureBox2.TabIndex = 3;
+            pictureBox2.TabStop = false;
             // 
-            // Stud_Name
+            // pictureBox3
             // 
-            Stud_Name.HeaderText = "Student Name";
-            Stud_Name.MinimumWidth = 8;
-            Stud_Name.Name = "Stud_Name";
-            Stud_Name.ReadOnly = true;
-            Stud_Name.Resizable = DataGridViewTriState.False;
+            pictureBox3.Location = new Point(30, 39);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(64, 64);
+            pictureBox3.TabIndex = 4;
+            pictureBox3.TabStop = false;
             // 
-            // Date
+            // pictureBox4
             // 
-            Date.HeaderText = "Meeting Date";
-            Date.MinimumWidth = 8;
-            Date.Name = "Date";
-            Date.ReadOnly = true;
-            Date.Resizable = DataGridViewTriState.False;
-            // 
-            // Start
-            // 
-            Start.HeaderText = "Start Time";
-            Start.MinimumWidth = 8;
-            Start.Name = "Start";
-            Start.ReadOnly = true;
-            Start.Resizable = DataGridViewTriState.False;
-            // 
-            // End
-            // 
-            End.HeaderText = "End Time";
-            End.MinimumWidth = 8;
-            End.Name = "End";
-            End.ReadOnly = true;
-            End.Resizable = DataGridViewTriState.False;
-            // 
-            // MStatus
-            // 
-            MStatus.HeaderText = "Status";
-            MStatus.MinimumWidth = 8;
-            MStatus.Name = "MStatus";
-            MStatus.ReadOnly = true;
-            MStatus.Resizable = DataGridViewTriState.False;
-            // 
-            // FRemarks
-            // 
-            FRemarks.HeaderText = "Faculty Remarks";
-            FRemarks.MinimumWidth = 8;
-            FRemarks.Name = "FRemarks";
-            FRemarks.ReadOnly = true;
-            FRemarks.Resizable = DataGridViewTriState.False;
+            pictureBox4.Location = new Point(35, 39);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(64, 64);
+            pictureBox4.TabIndex = 5;
+            pictureBox4.TabStop = false;
             // 
             // FacultyForm
             // 
@@ -1917,6 +1961,7 @@ namespace DCSSMeetingScheduler.Faculty
             Load += Faculty_Load;
             tabFaculty.ResumeLayout(false);
             tabHome.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             pnlNotifs.ResumeLayout(false);
             pnlNotifs.PerformLayout();
             grpOverview.ResumeLayout(false);
@@ -1968,7 +2013,10 @@ namespace DCSSMeetingScheduler.Faculty
             pnlHeaderSetting.PerformLayout();
             pnlHeader.ResumeLayout(false);
             pnlHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
         }
 
@@ -2117,5 +2165,9 @@ namespace DCSSMeetingScheduler.Faculty
         private DataGridViewTextBoxColumn End;
         private DataGridViewTextBoxColumn MStatus;
         private DataGridViewTextBoxColumn FRemarks;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox3;
     }
 }
