@@ -87,6 +87,10 @@ namespace DCSSMeetingScheduler
 
         internal void DashboardClosed(Form dashboard)
         {
+            dashboard.Owner = null;
+            if (IsDisposed || Disposing)
+                return;
+
             if (dashboard.DialogResult == DialogResult.Retry)
             {
                 loginErrorProvider.Clear();
