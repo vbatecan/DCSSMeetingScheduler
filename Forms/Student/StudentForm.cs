@@ -362,7 +362,8 @@ namespace DCSSMeetingScheduler.Forms.Student
 
             string query = "SELECT days, start_time, end_time, location FROM faculty_availability WHERE faculty_id = @FacultyId ORDER BY FIELD(days, 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'), start_time";
 
-            try {
+            try
+            {
                 using (MySqlConnection conn = Connection.GetConnection())
                 {
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
@@ -391,7 +392,9 @@ namespace DCSSMeetingScheduler.Forms.Student
                         }
                     }
                 }
-            } catch (MySqlException ex) {
+            }
+            catch (MySqlException ex)
+            {
                 dgvFacultyHours.Rows.Clear();
                 MessageBox.Show("Unable to load consultation hours: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -504,7 +507,8 @@ namespace DCSSMeetingScheduler.Forms.Student
             int facultyId = Convert.ToInt32(selectedFaculty["user_id"]);
             btnSubmitRequest.Enabled = false;
 
-            try {
+            try
+            {
                 using (MySqlConnection conn = Connection.GetConnection())
                 {
                     using (MySqlTransaction transaction = conn.BeginTransaction())
@@ -569,14 +573,17 @@ namespace DCSSMeetingScheduler.Forms.Student
             {
                 MessageBox.Show("Unable to save the meeting request: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            } finally {
+            }
+            finally
+            {
                 btnSubmitRequest.Enabled = true;
             }
 
             txtPurposeOfTheMeeting.Clear();
             MessageBox.Show("Meeting request submitted successfully. It is pending faculty approval.", "Request Submitted", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            try {
+            try
+            {
                 LoadKPI();
                 LoadMeetingRequests();
                 LoadNotifications();
@@ -779,12 +786,6 @@ namespace DCSSMeetingScheduler.Forms.Student
         {
         }
 
-<<<<<<< HEAD
-        private void btnLogout_Click(object sender, EventArgs e) {
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
-            Dispose();
-=======
         private void pnlAccountSettings_Paint(object sender, PaintEventArgs e)
         {
 
@@ -793,7 +794,11 @@ namespace DCSSMeetingScheduler.Forms.Student
         private void pnlPreferences_Paint(object sender, PaintEventArgs e)
         {
 
->>>>>>> development
+        }
+
+        private void dtpStartTime_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

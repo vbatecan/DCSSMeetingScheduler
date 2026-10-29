@@ -136,11 +136,7 @@ namespace DCSSMeetingScheduler.Forms.Student
             pnlSettingsHeader = new Panel();
             lblSettingsSubtitle = new Label();
             lblSettingsTitle = new Label();
-<<<<<<< HEAD
-            btnLogout = new Button();
-=======
             dateTimePicker2 = new DateTimePicker();
->>>>>>> development
             pblHeader.SuspendLayout();
             tabPage3.SuspendLayout();
             pnlRequestsHeader.SuspendLayout();
@@ -223,7 +219,7 @@ namespace DCSSMeetingScheduler.Forms.Student
             tabPage3.Controls.Add(pnlHomeTitle);
             tabPage3.Location = new Point(4, 24);
             tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(3, 3, 3, 3);
+            tabPage3.Padding = new Padding(3);
             tabPage3.Size = new Size(1262, 509);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Home";
@@ -586,7 +582,7 @@ namespace DCSSMeetingScheduler.Forms.Student
             tabPage1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3, 3, 3, 3);
+            tabPage1.Padding = new Padding(3);
             tabPage1.Size = new Size(1262, 509);
             tabPage1.TabIndex = 3;
             tabPage1.Text = "Request Meeting";
@@ -594,7 +590,7 @@ namespace DCSSMeetingScheduler.Forms.Student
             // 
             // txtPurposeOfTheMeeting
             // 
-            txtPurposeOfTheMeeting.Location = new Point(11, 425);
+            txtPurposeOfTheMeeting.Location = new Point(11, 420);
             txtPurposeOfTheMeeting.Name = "txtPurposeOfTheMeeting";
             txtPurposeOfTheMeeting.Size = new Size(1243, 89);
             txtPurposeOfTheMeeting.TabIndex = 14;
@@ -649,6 +645,7 @@ namespace DCSSMeetingScheduler.Forms.Student
             dtpStartTime.ShowUpDown = true;
             dtpStartTime.Size = new Size(200, 25);
             dtpStartTime.TabIndex = 8;
+            dtpStartTime.ValueChanged += dtpStartTime_ValueChanged;
             // 
             // lblStartTime
             // 
@@ -812,7 +809,7 @@ namespace DCSSMeetingScheduler.Forms.Student
             tlpSettingsLayout.Dock = DockStyle.Fill;
             tlpSettingsLayout.Location = new Point(0, 86);
             tlpSettingsLayout.Name = "tlpSettingsLayout";
-            tlpSettingsLayout.Padding = new Padding(8, 8, 8, 8);
+            tlpSettingsLayout.Padding = new Padding(8);
             tlpSettingsLayout.RowCount = 2;
             tlpSettingsLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 64.64435F));
             tlpSettingsLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 35.355648F));
@@ -843,7 +840,7 @@ namespace DCSSMeetingScheduler.Forms.Student
             pnlStudentProfile.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             pnlStudentProfile.Location = new Point(11, 11);
             pnlStudentProfile.Name = "pnlStudentProfile";
-            pnlStudentProfile.Padding = new Padding(10, 10, 10, 10);
+            pnlStudentProfile.Padding = new Padding(10);
             pnlStudentProfile.Size = new Size(367, 257);
             pnlStudentProfile.TabIndex = 0;
             pnlStudentProfile.Paint += pnlStudentProfile_Paint;
@@ -1111,6 +1108,7 @@ namespace DCSSMeetingScheduler.Forms.Student
             // 
             // pnlPreferences
             // 
+            pnlPreferences.AutoScroll = true;
             pnlPreferences.BackColor = Color.White;
             pnlPreferences.BorderStyle = BorderStyle.FixedSingle;
             pnlPreferences.Controls.Add(btnResetPreferences);
