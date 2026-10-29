@@ -178,11 +178,11 @@ namespace DCSSMeetingScheduler.Forms.Student
             // 
             btnLogout.BackColor = Color.Red;
             btnLogout.FlatStyle = FlatStyle.Flat;
-            btnLogout.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnLogout.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
             btnLogout.ForeColor = Color.White;
-            btnLogout.Location = new Point(1144, 33);
+            btnLogout.Location = new Point(1163, 31);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(95, 35);
+            btnLogout.Size = new Size(79, 27);
             btnLogout.TabIndex = 3;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = false;
@@ -1030,11 +1030,11 @@ namespace DCSSMeetingScheduler.Forms.Student
             btnChangePassword.ForeColor = Color.White;
             btnChangePassword.Location = new Point(697, 180);
             btnChangePassword.Name = "btnChangePassword";
-            btnChangePassword.Click += ChangePassword;
             btnChangePassword.Size = new Size(140, 35);
             btnChangePassword.TabIndex = 15;
             btnChangePassword.Text = "Change Password";
             btnChangePassword.UseVisualStyleBackColor = false;
+            btnChangePassword.Click += ChangePassword;
             // 
             // txtConfirmNewPassword
             // 
@@ -1139,11 +1139,11 @@ namespace DCSSMeetingScheduler.Forms.Student
             btnResetPreferences.ForeColor = Color.White;
             btnResetPreferences.Location = new Point(167, 112);
             btnResetPreferences.Name = "btnResetPreferences";
-            btnResetPreferences.Click += btnResetPreferences_Click;
             btnResetPreferences.Size = new Size(90, 35);
             btnResetPreferences.TabIndex = 22;
             btnResetPreferences.Text = "Refresh";
             btnResetPreferences.UseVisualStyleBackColor = false;
+            btnResetPreferences.Click += btnResetPreferences_Click;
             // 
             // label15
             // 
@@ -1192,11 +1192,11 @@ namespace DCSSMeetingScheduler.Forms.Student
             btnSavePreferences.ForeColor = Color.White;
             btnSavePreferences.Location = new Point(33, 111);
             btnSavePreferences.Name = "btnSavePreferences";
-            btnSavePreferences.Click += btnSavePreferences_Click;
             btnSavePreferences.Size = new Size(110, 35);
             btnSavePreferences.TabIndex = 7;
             btnSavePreferences.Text = "Save Changes";
             btnSavePreferences.UseVisualStyleBackColor = false;
+            btnSavePreferences.Click += btnSavePreferences_Click;
             // 
             // chkStatusNotifications
             // 
@@ -1373,8 +1373,8 @@ namespace DCSSMeetingScheduler.Forms.Student
             ClientSize = new Size(1270, 637);
             Controls.Add(tabStudent);
             Controls.Add(pblHeader);
+            Font = new Font("Segoe UI", 9F);
             Name = "StudentForm";
-            FormClosed += Dashboard_FormClosed;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Student Portal";
             FormClosed += StudentForm_FormClosed;

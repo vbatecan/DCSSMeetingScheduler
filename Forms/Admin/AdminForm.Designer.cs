@@ -383,10 +383,10 @@ namespace DCSSMeetingScheduler.Admin {
             tabUsers.Controls.Add(label2);
             tabUsers.Controls.Add(dgvUsers);
             tabUsers.Font = new Font("Microsoft Sans Serif", 12.25F);
-            tabUsers.Location = new Point(4, 22);
+            tabUsers.Location = new Point(4, 24);
             tabUsers.Name = "tabUsers";
             tabUsers.Padding = new Padding(8);
-            tabUsers.Size = new Size(1234, 584);
+            tabUsers.Size = new Size(1234, 582);
             tabUsers.TabIndex = 1;
             tabUsers.Text = "Users";
             tabUsers.UseVisualStyleBackColor = true;
@@ -504,7 +504,8 @@ namespace DCSSMeetingScheduler.Admin {
             // 
             btnLogout.BackColor = Color.FromArgb(192, 0, 0);
             btnLogout.FlatStyle = FlatStyle.Flat;
-            btnLogout.Location = new Point(1173, 19);
+            btnLogout.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogout.Location = new Point(1163, 31);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(79, 27);
             btnLogout.TabIndex = 1;
@@ -532,9 +533,9 @@ namespace DCSSMeetingScheduler.Admin {
             Controls.Add(tabControl1);
             Font = new Font("Microsoft Sans Serif", 8.25F);
             Name = "AdminForm";
-            FormClosed += Dashboard_FormClosed;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Admin Form";
+            FormClosed += Dashboard_FormClosed;
             Load += AdminForm_Load;
             tabControl1.ResumeLayout(false);
             tabHome.ResumeLayout(false);
