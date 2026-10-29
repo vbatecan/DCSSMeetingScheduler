@@ -779,12 +779,6 @@ namespace DCSSMeetingScheduler.Forms.Student
         {
         }
 
-<<<<<<< HEAD
-        private void btnLogout_Click(object sender, EventArgs e) {
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
-            Dispose();
-=======
         private void pnlAccountSettings_Paint(object sender, PaintEventArgs e)
         {
 
@@ -792,8 +786,6 @@ namespace DCSSMeetingScheduler.Forms.Student
 
         private void pnlPreferences_Paint(object sender, PaintEventArgs e)
         {
-
->>>>>>> development
         }
     }
 }

@@ -136,11 +136,7 @@ namespace DCSSMeetingScheduler.Forms.Student
             pnlSettingsHeader = new Panel();
             lblSettingsSubtitle = new Label();
             lblSettingsTitle = new Label();
-<<<<<<< HEAD
-            btnLogout = new Button();
-=======
             dateTimePicker2 = new DateTimePicker();
->>>>>>> development
             pblHeader.SuspendLayout();
             tabPage3.SuspendLayout();
             pnlRequestsHeader.SuspendLayout();
