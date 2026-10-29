@@ -1962,6 +1962,7 @@ namespace DCSSMeetingScheduler.Faculty
             Controls.Add(tabFaculty);
             Controls.Add(pnlHeader);
             Name = "FacultyForm";
+            FormClosed += Dashboard_FormClosed;
             Text = "Faculty Form";
             Load += Faculty_Load;
             tabFaculty.ResumeLayout(false);

@@ -34,11 +34,10 @@ public partial class StudentForm
         chkEmailNotifications.Text = "Email notifications (service unavailable)";
         chkConsultationReminders.Enabled = false;
         chkConsultationReminders.Text = "Consultation reminders (service unavailable)";
-        btnSavePreferences.Click += (_, _) => SaveSettings();
-        btnResetPreferences.Click += (_, _) => RestoreSettings();
-        btnCancelSettings.Click += (_, _) => RestoreSettings();
-        btnChangePassword.Click += ChangePassword;
+
     }
+    private void btnSavePreferences_Click(object? sender, EventArgs e) => SaveSettings();
+    private void btnResetPreferences_Click(object? sender, EventArgs e) => RestoreSettings();
     private void RestoreSettings()
     {
         cmbDefaultTab.SelectedIndex = Math.Clamp(saved.Tab, 0, 2);

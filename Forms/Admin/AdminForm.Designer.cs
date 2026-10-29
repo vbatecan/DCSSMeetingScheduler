@@ -532,6 +532,7 @@ namespace DCSSMeetingScheduler.Admin {
             Controls.Add(tabControl1);
             Font = new Font("Microsoft Sans Serif", 8.25F);
             Name = "AdminForm";
+            FormClosed += Dashboard_FormClosed;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Admin Form";
             Load += AdminForm_Load;

@@ -312,11 +312,16 @@ namespace DCSSMeetingScheduler.Admin {
             }
         }
 
+        private void Dashboard_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            if (Owner is LoginForm loginForm)
+                loginForm.DashboardClosed(this);
+        }
+
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            Dispose();
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
+            DialogResult = DialogResult.Retry;
+            Close();
         }
 
         private void label1_Click(object sender, EventArgs e)

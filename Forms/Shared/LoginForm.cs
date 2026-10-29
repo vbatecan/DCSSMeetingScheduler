@@ -45,23 +45,16 @@ namespace DCSSMeetingScheduler
 
                         if (user.UeEmail.Equals(txtEmail.Text, StringComparison.OrdinalIgnoreCase) && user.UserPassword == txtPassword.Text)
                         {
-                            // Dito yung login successful.
-                            Hide();
-                            switch (user.Role)
+                            Form dashboard = user.Role switch
                             {
-                                case UserRole.Admin:
-                                    AdminForm adminForm = new AdminForm(user);
-                                    adminForm.Show();
-                                    break;
-                                case UserRole.Faculty:
-                                    FacultyForm facultyForm = new FacultyForm(user);
-                                    facultyForm.Show();
-                                    break;
-                                case UserRole.Student:
-                                    StudentForm studentForm = new StudentForm(user);
-                                    studentForm.Show();
-                                    break;
-                            }
+                                UserRole.Admin => new AdminForm(user),
+                                UserRole.Faculty => new FacultyForm(user),
+                                UserRole.Student => new StudentForm(user),
+                                _ => throw new InvalidOperationException("Unsupported user role.")
+                            };
+                            dashboard.Owner = this;
+                            Hide();
+                            dashboard.Show();
                         }
                         else
                         {
@@ -73,7 +66,24 @@ namespace DCSSMeetingScheduler
                 }
             }
 
-            DialogResult = DialogResult.OK;
+
+        }
+
+        internal void DashboardClosed(Form dashboard)
+        {
+            if (dashboard.DialogResult == DialogResult.Retry)
+            {
+                txtPassword.Clear();
+                chkShowPassword.Checked = false;
+                lblErrorMessage.Text = "";
+                Show();
+                Activate();
+                txtPassword.Focus();
+            }
+            else
+            {
+                Close();
+            }
         }
 
         private void btnCancel_Click(object? sender, EventArgs e)

@@ -1030,6 +1030,7 @@ namespace DCSSMeetingScheduler.Forms.Student
             btnChangePassword.ForeColor = Color.White;
             btnChangePassword.Location = new Point(697, 180);
             btnChangePassword.Name = "btnChangePassword";
+            btnChangePassword.Click += ChangePassword;
             btnChangePassword.Size = new Size(140, 35);
             btnChangePassword.TabIndex = 15;
             btnChangePassword.Text = "Change Password";
@@ -1138,6 +1139,7 @@ namespace DCSSMeetingScheduler.Forms.Student
             btnResetPreferences.ForeColor = Color.White;
             btnResetPreferences.Location = new Point(167, 112);
             btnResetPreferences.Name = "btnResetPreferences";
+            btnResetPreferences.Click += btnResetPreferences_Click;
             btnResetPreferences.Size = new Size(90, 35);
             btnResetPreferences.TabIndex = 22;
             btnResetPreferences.Text = "Refresh";
@@ -1190,6 +1192,7 @@ namespace DCSSMeetingScheduler.Forms.Student
             btnSavePreferences.ForeColor = Color.White;
             btnSavePreferences.Location = new Point(33, 111);
             btnSavePreferences.Name = "btnSavePreferences";
+            btnSavePreferences.Click += btnSavePreferences_Click;
             btnSavePreferences.Size = new Size(110, 35);
             btnSavePreferences.TabIndex = 7;
             btnSavePreferences.Text = "Save Changes";
@@ -1371,6 +1374,7 @@ namespace DCSSMeetingScheduler.Forms.Student
             Controls.Add(tabStudent);
             Controls.Add(pblHeader);
             Name = "StudentForm";
+            FormClosed += Dashboard_FormClosed;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Student Portal";
             FormClosed += StudentForm_FormClosed;

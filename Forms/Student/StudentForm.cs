@@ -692,7 +692,14 @@ namespace DCSSMeetingScheduler.Forms.Student
         private void btnCancelSettings_Click(object? sender, EventArgs e)
         {
             LoadStudentProfile();
+            RestoreSettings();
             MessageBox.Show("Changes reverted.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Dashboard_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            if (Owner is LoginForm loginForm)
+                loginForm.DashboardClosed(this);
         }
 
         private void btnLogout_Click(object? sender, EventArgs e)
@@ -701,9 +708,8 @@ namespace DCSSMeetingScheduler.Forms.Student
             if (result == DialogResult.Yes)
             {
                 isLoggingOut = true;
+                DialogResult = DialogResult.Retry;
                 Close();
-                LoginForm loginForm = new LoginForm();
-                loginForm.Show();
             }
         }
 
@@ -711,7 +717,7 @@ namespace DCSSMeetingScheduler.Forms.Student
         {
             if (isLoggingOut == false)
             {
-                Application.Exit();
+                // The login form owns the application lifetime.
             }
         }
 

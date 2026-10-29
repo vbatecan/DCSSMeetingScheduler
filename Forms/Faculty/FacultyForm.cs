@@ -294,14 +294,19 @@ namespace DCSSMeetingScheduler.Faculty
             }
         }
 
+        private void Dashboard_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            if (Owner is LoginForm loginForm)
+                loginForm.DashboardClosed(this);
+        }
+
         private void btnLogout_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                Dispose();
-                LoginForm loginForm = new LoginForm();
-                loginForm.Show();
+                DialogResult = DialogResult.Retry;
+                Close();
             }
         }
 
