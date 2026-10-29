@@ -1,9 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using DCSSMeetingScheduler;
 using DCSSMeetingScheduler.Shared;
@@ -36,10 +33,121 @@ namespace DCSSMeetingScheduler.Faculty
             InitializeRequestFilters();
             LoadAvailability();
             LoadRequests();
+            LoadHomePage();
+
+            tabFaculty.SelectedIndexChanged += tabFaculty_SelectedIndexChanged;
 
             if (defaultTabIndex >= 0 && defaultTabIndex < tabFaculty.TabCount)
             {
                 tabFaculty.SelectedIndex = defaultTabIndex;
+            }
+        }
+
+        private void tabFaculty_SelectedIndexChanged(object? sender, EventArgs e)
+        {
+            if (tabFaculty.SelectedIndex == 0)
+            {
+                LoadHomePage();
+            }
+            else if (tabFaculty.SelectedIndex == 1)
+            {
+                LoadRequests();
+            }
+            else if (tabFaculty.SelectedIndex == 2)
+            {
+                LoadAvailability();
+            }
+        }
+
+        private void LoadHomePage()
+        {
+            UpdateDashboardCounts();
+            LoadRecentMeetings();
+            UpdateHomeNotifications();
+        }
+
+        private void LoadRecentMeetings()
+        {
+            if (loggedInUser == null)
+            {
+                return;
+            }
+
+            try
+            {
+                using (MySqlConnection conn = Connection.GetConnection())
+                {
+                    string query = "SELECT a.appointment_id, " +
+                                   "CONCAT(u.first_name, ' ', u.last_name) AS student_name, " +
+                                   "DATE_FORMAT(a.meeting_datetime, '%b %d, %Y') AS meeting_date, " +
+                                   "DATE_FORMAT(a.meeting_datetime, '%h:%i %p') AS start_time, " +
+                                   "IFNULL(DATE_FORMAT(a.meeting_end_datetime, '%h:%i %p'), 'N/A') AS end_time, " +
+                                   "a.status, " +
+                                   "IFNULL(a.faculty_remarks, '') AS faculty_remarks " +
+                                   "FROM appointments a " +
+                                   "INNER JOIN users u ON a.student_id = u.user_id " +
+                                   "WHERE a.faculty_id = @facultyId " +
+                                   "ORDER BY a.meeting_datetime DESC " +
+                                   "LIMIT 10";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@facultyId", loggedInUser.UserId);
+
+                        using (MySqlDataAdapter da = new MySqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+
+                            dataGridView2.AutoGenerateColumns = false;
+                            request_id.DataPropertyName = "appointment_id";
+                            Stud_Name.DataPropertyName = "student_name";
+                            Date.DataPropertyName = "meeting_date";
+                            Start.DataPropertyName = "start_time";
+                            End.DataPropertyName = "end_time";
+                            MStatus.DataPropertyName = "status";
+                            FRemarks.DataPropertyName = "faculty_remarks";
+                            dataGridView2.DataSource = dt;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading recent meetings: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void UpdateHomeNotifications()
+        {
+            if (loggedInUser == null)
+            {
+                return;
+            }
+
+            try
+            {
+                using (MySqlConnection conn = Connection.GetConnection())
+                {
+                    string query = "SELECT COUNT(*) FROM appointments WHERE faculty_id = @facultyId AND status = 'Pending'";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@facultyId", loggedInUser.UserId);
+                        int pendingCount = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        if (pendingCount > 0)
+                        {
+                            lblNotifs.Text = "You have " + pendingCount + " pending meeting request(s) awaiting your review.";
+                        }
+                        else
+                        {
+                            lblNotifs.Text = "You have no pending meeting requests.";
+                        }
+                    }
+                }
+            }
+            catch
+            {
             }
         }
 
@@ -344,9 +452,6 @@ namespace DCSSMeetingScheduler.Faculty
                                    "IFNULL(u.program_or_dept, 'N/A') AS program_or_dept, " +
                                    "a.purpose, " +
                                    "DATE_FORMAT(a.meeting_datetime, '%b %d, %Y %h:%i %p') AS request_datetime, " +
-                                   "DATE_FORMAT(a.meeting_datetime, '%b %d, %Y') AS meeting_date, " +
-                                   "DATE_FORMAT(a.meeting_datetime, '%h:%i %p') AS start_time, " +
-                                   "IFNULL(DATE_FORMAT(a.meeting_end_datetime, '%h:%i %p'), 'N/A') AS end_time, " +
                                    "a.status, " +
                                    "IFNULL(a.faculty_remarks, '') AS faculty_remarks " +
                                    "FROM appointments a " +
@@ -393,21 +498,11 @@ namespace DCSSMeetingScheduler.Faculty
                             Stat.DataPropertyName = "status";
                             FacultyRem.DataPropertyName = "faculty_remarks";
                             Requests.DataSource = dt;
-
-                            dataGridView2.AutoGenerateColumns = false;
-                            request_id.DataPropertyName = "appointment_id";
-                            Stud_Name.DataPropertyName = "student_name";
-                            Date.DataPropertyName = "meeting_date";
-                            Start.DataPropertyName = "start_time";
-                            End.DataPropertyName = "end_time";
-                            MStatus.DataPropertyName = "status";
-                            FRemarks.DataPropertyName = "faculty_remarks";
-                            dataGridView2.DataSource = dt;
                         }
                     }
                 }
 
-                UpdateRequestCounts();
+                UpdateDashboardCounts();
             }
             catch (Exception ex)
             {
@@ -415,7 +510,7 @@ namespace DCSSMeetingScheduler.Faculty
             }
         }
 
-        private void UpdateRequestCounts()
+        private void UpdateDashboardCounts()
         {
             if (loggedInUser == null)
             {
@@ -516,6 +611,7 @@ namespace DCSSMeetingScheduler.Faculty
 
                 MessageBox.Show("Request status updated to " + status + "!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadRequests();
+                LoadHomePage();
             }
             catch (Exception ex)
             {
@@ -583,6 +679,7 @@ namespace DCSSMeetingScheduler.Faculty
 
         private void btnRefresh_Click(object? sender, EventArgs e)
         {
+            LoadHomePage();
             LoadRequests();
         }
 
@@ -867,25 +964,9 @@ namespace DCSSMeetingScheduler.Faculty
             LoadRequests();
         }
 
-        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e) { }
-        private void label2_Click(object sender, EventArgs e) { }
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e) { }
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e) { }
-        private void groupBox2_Enter(object sender, EventArgs e) { }
-        private void label13_Click(object sender, EventArgs e) { }
-        private void label7_Click(object sender, EventArgs e) { }
-        private void label1_Click(object sender, EventArgs e) { }
-        private void lblTotalUpMeet_Click(object sender, EventArgs e) { }
-        private void dgvRecentRequest_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
-        private void label2_Click_1(object sender, EventArgs e) { }
-        private void pnlFacultyProfile_Paint(object sender, PaintEventArgs e) { }
-        private void dgvRecentRequest_CellContentClick_1(object sender, DataGridViewCellEventArgs e) { }
-        private void txtFacultyName_TextChanged(object sender, EventArgs e) { }
-        private void label7_Click_1(object sender, EventArgs e) { }
-        private void label2_Click_2(object sender, EventArgs e) { }
-        private void panel7_Paint(object sender, PaintEventArgs e) { }
-        private void label9_Click(object sender, EventArgs e) { }
-        private void label17_Click(object sender, EventArgs e) { }
-        private void tabHome_Click(object sender, EventArgs e) { }
+        private void tabHome_Click(object sender, EventArgs e)
+        {
+            LoadHomePage();
+        }
     }
 }

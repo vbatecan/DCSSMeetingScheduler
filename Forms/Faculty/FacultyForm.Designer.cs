@@ -410,7 +410,6 @@ namespace DCSSMeetingScheduler.Faculty
             label1.Size = new Size(208, 28);
             label1.TabIndex = 12;
             label1.Text = "Upcoming Meetings: ";
-            label1.Click += label1_Click;
             // 
             // lblTotalUpMeet
             // 
@@ -423,7 +422,6 @@ namespace DCSSMeetingScheduler.Faculty
             lblTotalUpMeet.Size = new Size(35, 41);
             lblTotalUpMeet.TabIndex = 12;
             lblTotalUpMeet.Text = "0";
-            lblTotalUpMeet.Click += lblTotalUpMeet_Click;
             // 
             // panel1
             // 
@@ -804,7 +802,6 @@ namespace DCSSMeetingScheduler.Faculty
             label17.Size = new Size(424, 31);
             label17.TabIndex = 10;
             label17.Text = "Search (Students / Subject / Purpose) :";
-            label17.Click += label17_Click;
             // 
             // label16
             // 
@@ -894,7 +891,6 @@ namespace DCSSMeetingScheduler.Faculty
             panel7.Name = "panel7";
             panel7.Size = new Size(335, 165);
             panel7.TabIndex = 5;
-            panel7.Paint += panel7_Paint;
             // 
             // label13
             // 
@@ -917,7 +913,6 @@ namespace DCSSMeetingScheduler.Faculty
             label9.Size = new Size(203, 32);
             label9.TabIndex = 9;
             label9.Text = "Pending Requests";
-            label9.Click += label9_Click;
             // 
             // panel6
             // 
@@ -972,7 +967,6 @@ namespace DCSSMeetingScheduler.Faculty
             label2.Size = new Size(206, 28);
             label2.TabIndex = 1;
             label2.Text = "Manage your requests";
-            label2.Click += label2_Click_2;
             // 
             // label7
             // 
@@ -984,7 +978,6 @@ namespace DCSSMeetingScheduler.Faculty
             label7.Size = new Size(348, 48);
             label7.TabIndex = 0;
             label7.Text = "Request Dashboard";
-            label7.Click += label7_Click_1;
             // 
             // tabAvailability
             // 
@@ -1051,7 +1044,6 @@ namespace DCSSMeetingScheduler.Faculty
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Weekly Consultation Hours";
-            groupBox2.Enter += groupBox2_Enter;
             // 
             // Tips
             // 
@@ -1133,7 +1125,6 @@ namespace DCSSMeetingScheduler.Faculty
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(1161, 411);
             dataGridView1.TabIndex = 0;
-            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // groupBox1
             // 
@@ -1244,7 +1235,6 @@ namespace DCSSMeetingScheduler.Faculty
             dateTimePicker1.ShowUpDown = true;
             dateTimePicker1.Size = new Size(475, 31);
             dateTimePicker1.TabIndex = 1;
-            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // lblStartTime
             // 
@@ -1269,7 +1259,6 @@ namespace DCSSMeetingScheduler.Faculty
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(475, 33);
             comboBox1.TabIndex = 1;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged_1;
             // 
             // lblDayOfWeek
             // 
@@ -1282,7 +1271,6 @@ namespace DCSSMeetingScheduler.Faculty
             lblDayOfWeek.Size = new Size(128, 28);
             lblDayOfWeek.TabIndex = 2;
             lblDayOfWeek.Text = "Day of Week";
-            lblDayOfWeek.Click += label2_Click;
             // 
             // tabSettings
             // 
@@ -1729,7 +1717,6 @@ namespace DCSSMeetingScheduler.Faculty
             pnlFacultyProfile.Name = "pnlFacultyProfile";
             pnlFacultyProfile.Size = new Size(506, 390);
             pnlFacultyProfile.TabIndex = 1;
-            pnlFacultyProfile.Paint += pnlFacultyProfile_Paint;
             // 
             // btnEditProfile
             // 
@@ -1835,7 +1822,6 @@ namespace DCSSMeetingScheduler.Faculty
             txtFacultyName.ReadOnly = true;
             txtFacultyName.Size = new Size(298, 31);
             txtFacultyName.TabIndex = 1;
-            txtFacultyName.TextChanged += txtFacultyName_TextChanged;
             // 
             // lblProfileHeading
             // 
@@ -1883,7 +1869,6 @@ namespace DCSSMeetingScheduler.Faculty
             lblTitleSetting.Size = new Size(181, 55);
             lblTitleSetting.TabIndex = 1;
             lblTitleSetting.Text = "Settings";
-            lblTitleSetting.Click += label2_Click_1;
             // 
             // lblTitle
             // 
@@ -1896,7 +1881,6 @@ namespace DCSSMeetingScheduler.Faculty
             lblTitle.Size = new Size(282, 54);
             lblTitle.TabIndex = 1;
             lblTitle.Text = "Faculty Portal";
-            lblTitle.Click += label7_Click;
             // 
             // lblSubtitle
             // 
