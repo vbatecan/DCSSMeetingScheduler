@@ -1075,6 +1075,7 @@ namespace DCSSMeetingScheduler.Faculty
             EditBTN.TabIndex = 4;
             EditBTN.Text = "Edit";
             EditBTN.UseVisualStyleBackColor = false;
+            EditBTN.Click += EditBTN_Click;
             // 
             // DeleteBTN
             // 
@@ -1088,6 +1089,7 @@ namespace DCSSMeetingScheduler.Faculty
             DeleteBTN.TabIndex = 3;
             DeleteBTN.Text = "Delete";
             DeleteBTN.UseVisualStyleBackColor = false;
+            DeleteBTN.Click += DeleteBTN_Click;
             // 
             // SearchBTN
             // 
@@ -1101,6 +1103,7 @@ namespace DCSSMeetingScheduler.Faculty
             SearchBTN.TabIndex = 1;
             SearchBTN.Text = "Search";
             SearchBTN.UseVisualStyleBackColor = false;
+            SearchBTN.Click += SearchBTN_Click;
             // 
             // textBox2
             // 
@@ -1130,6 +1133,7 @@ namespace DCSSMeetingScheduler.Faculty
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(1161, 411);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // groupBox1
             // 

@@ -14,6 +14,7 @@ namespace DCSSMeetingScheduler.Faculty
     public partial class FacultyForm : Form
     {
         private User? loggedInUser = null;
+        private int selectedAvailabilityId = -1;
 
         public FacultyForm()
         {
@@ -31,6 +32,7 @@ namespace DCSSMeetingScheduler.Faculty
             LoadFacultyProfile();
             LoadApplicationInfo();
             InitializePreferences();
+            LoadAvailability();
         }
 
         private void LoadFacultyProfile()
@@ -259,8 +261,6 @@ namespace DCSSMeetingScheduler.Faculty
             grpRecentMeet.Visible = true;
             grpOverview.Visible = true;
 
-            ApplyTheme("Default (Green)");
-
             MessageBox.Show("Preferences reset to default values.", "Preferences", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -275,112 +275,6 @@ namespace DCSSMeetingScheduler.Faculty
             }
         }
 
-
-        private void ApplyTheme(string theme)
-        {
-            if (theme == "Dark")
-            {
-                tabSettings.BackColor = Color.FromArgb(45, 45, 48);
-                tabHome.BackColor = Color.FromArgb(45, 45, 48);
-                tabRequest.BackColor = Color.FromArgb(45, 45, 48);
-                tabAvailability.BackColor = Color.FromArgb(45, 45, 48);
-
-                pnlFacultyProfile.BackColor = Color.FromArgb(60, 60, 65);
-                pnlAppInfo.BackColor = Color.FromArgb(60, 60, 65);
-                pnlAccountSettings.BackColor = Color.FromArgb(60, 60, 65);
-                pnlPreferences.BackColor = Color.FromArgb(60, 60, 65);
-                pnlHeaderSetting.BackColor = Color.FromArgb(60, 60, 65);
-
-                lblTitleSetting.ForeColor = Color.LightGreen;
-                lblProfileHeading.ForeColor = Color.LightGreen;
-                lblAppInforHeading.ForeColor = Color.LightGreen;
-                lblAccountSettingsHeading.ForeColor = Color.LightGreen;
-                lblPreferencesHeading.ForeColor = Color.LightGreen;
-
-                lblSettingSub.ForeColor = Color.WhiteSmoke;
-                lblProfilSub.ForeColor = Color.WhiteSmoke;
-                lblAppInfoSub.ForeColor = Color.WhiteSmoke;
-                lblAccountSub.ForeColor = Color.WhiteSmoke;
-                lblPreferencesSub.ForeColor = Color.WhiteSmoke;
-
-                lblName.ForeColor = Color.WhiteSmoke;
-                lblEmail.ForeColor = Color.WhiteSmoke;
-                lblDepartment.ForeColor = Color.WhiteSmoke;
-                lblPosition.ForeColor = Color.WhiteSmoke;
-
-                lblCurrentPassword.ForeColor = Color.WhiteSmoke;
-                lblNewPassword.ForeColor = Color.WhiteSmoke;
-                lblConfirmPassword.ForeColor = Color.WhiteSmoke;
-
-                lblDefaultTab.ForeColor = Color.WhiteSmoke;
-                lblNotifications.ForeColor = Color.WhiteSmoke;
-                lblDisplaySettings.ForeColor = Color.WhiteSmoke;
-
-                chkEmailNotif.ForeColor = Color.WhiteSmoke;
-                chkDesktopNotif.ForeColor = Color.WhiteSmoke;
-                chkConsultationReminder.ForeColor = Color.WhiteSmoke;
-                chkShowRequestDashboard.ForeColor = Color.WhiteSmoke;
-                chkShowRecentRequestDashboard.ForeColor = Color.WhiteSmoke;
-
-                lblVersion.ForeColor = Color.WhiteSmoke;
-                lblDatabase.ForeColor = Color.WhiteSmoke;
-                lblLastLogin.ForeColor = Color.WhiteSmoke;
-                lblVersionValue.ForeColor = Color.LightGray;
-                lblDatabaseValue.ForeColor = Color.LightGray;
-                lblLastLoginValue.ForeColor = Color.LightGray;
-            }
-            else
-            {
-                tabSettings.BackColor = Color.WhiteSmoke;
-                tabHome.BackColor = Color.WhiteSmoke;
-                tabRequest.BackColor = Color.WhiteSmoke;
-                tabAvailability.BackColor = Color.WhiteSmoke;
-
-                pnlFacultyProfile.BackColor = Color.White;
-                pnlAppInfo.BackColor = Color.White;
-                pnlAccountSettings.BackColor = Color.White;
-                pnlPreferences.BackColor = Color.White;
-                pnlHeaderSetting.BackColor = Color.White;
-
-                lblTitleSetting.ForeColor = Color.DarkGreen;
-                lblProfileHeading.ForeColor = Color.DarkGreen;
-                lblAppInforHeading.ForeColor = Color.DarkGreen;
-                lblAccountSettingsHeading.ForeColor = Color.DarkGreen;
-                lblPreferencesHeading.ForeColor = Color.DarkGreen;
-
-                lblSettingSub.ForeColor = Color.Black;
-                lblProfilSub.ForeColor = Color.Black;
-                lblAppInfoSub.ForeColor = Color.Black;
-                lblAccountSub.ForeColor = Color.Black;
-                lblPreferencesSub.ForeColor = Color.Black;
-
-                lblName.ForeColor = Color.Black;
-                lblEmail.ForeColor = Color.Black;
-                lblDepartment.ForeColor = Color.Black;
-                lblPosition.ForeColor = Color.Black;
-
-                lblCurrentPassword.ForeColor = Color.Black;
-                lblNewPassword.ForeColor = Color.Black;
-                lblConfirmPassword.ForeColor = Color.Black;
-
-                lblDefaultTab.ForeColor = Color.Black;
-                lblNotifications.ForeColor = Color.Black;
-                lblDisplaySettings.ForeColor = Color.Black;
-
-                chkEmailNotif.ForeColor = Color.Black;
-                chkDesktopNotif.ForeColor = Color.Black;
-                chkConsultationReminder.ForeColor = Color.Black;
-                chkShowRequestDashboard.ForeColor = Color.Black;
-                chkShowRecentRequestDashboard.ForeColor = Color.Black;
-
-                lblVersion.ForeColor = Color.Black;
-                lblDatabase.ForeColor = Color.Black;
-                lblLastLogin.ForeColor = Color.Black;
-                lblVersionValue.ForeColor = Color.DimGray;
-                lblDatabaseValue.ForeColor = Color.DimGray;
-                lblLastLoginValue.ForeColor = Color.DimGray;
-            }
-        }
 
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -397,22 +291,241 @@ namespace DCSSMeetingScheduler.Faculty
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void LoadAvailability(string search = "")
         {
+            if (loggedInUser == null)
+            {
+                return;
+            }
 
+            try
+            {
+                using (MySqlConnection conn = Connection.GetConnection())
+                {
+                    string query = "SELECT availability_id, days AS 'Day', TIME_FORMAT(start_time, '%h:%i %p') AS 'Start Time', TIME_FORMAT(end_time, '%h:%i %p') AS 'End Time', location AS 'Location' FROM faculty_availability WHERE faculty_id = @facultyId";
+
+                    if (!string.IsNullOrWhiteSpace(search))
+                    {
+                        query += " AND (days LIKE @search OR location LIKE @search)";
+                    }
+
+                    query += " ORDER BY FIELD(days, 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'), start_time";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@facultyId", loggedInUser.UserId);
+
+                        if (!string.IsNullOrWhiteSpace(search))
+                        {
+                            cmd.Parameters.AddWithValue("@search", "%" + search.Trim() + "%");
+                        }
+
+                        using (MySqlDataAdapter da = new MySqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            dataGridView1.DataSource = dt;
+
+                            DataGridViewColumn? col = dataGridView1.Columns["availability_id"];
+                            if (col != null)
+                            {
+                                col.Visible = false;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading availability: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
+            if (loggedInUser == null)
+            {
+                MessageBox.Show("Please log in first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            if (comboBox1.SelectedIndex == -1 || comboBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a day of week.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                comboBox1.Focus();
+                return;
+            }
+
+            TimeSpan startTime = dateTimePicker1.Value.TimeOfDay;
+            TimeSpan endTime = dateTimePicker3.Value.TimeOfDay;
+
+            if (startTime >= endTime)
+            {
+                MessageBox.Show("Start time must be earlier than end time.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string day = comboBox1.SelectedItem.ToString() ?? "";
+            string location = textBox1.Text.Trim();
+            if (location == "e.g Room 101, Online etc.")
+            {
+                location = "";
+            }
+
+            try
+            {
+                using (MySqlConnection conn = Connection.GetConnection())
+                {
+                    if (selectedAvailabilityId == -1)
+                    {
+                        string insertQuery = "INSERT INTO faculty_availability (faculty_id, days, start_time, end_time, location) VALUES (@facultyId, @days, @startTime, @endTime, @location)";
+                        using (MySqlCommand cmd = new MySqlCommand(insertQuery, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@facultyId", loggedInUser.UserId);
+                            cmd.Parameters.AddWithValue("@days", day);
+                            cmd.Parameters.AddWithValue("@startTime", startTime.ToString(@"hh\:mm\:ss"));
+                            cmd.Parameters.AddWithValue("@endTime", endTime.ToString(@"hh\:mm\:ss"));
+                            cmd.Parameters.AddWithValue("@location", location);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        MessageBox.Show("Consultation hours added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        string updateQuery = "UPDATE faculty_availability SET days = @days, start_time = @startTime, end_time = @endTime, location = @location WHERE availability_id = @id AND faculty_id = @facultyId";
+                        using (MySqlCommand cmd = new MySqlCommand(updateQuery, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@days", day);
+                            cmd.Parameters.AddWithValue("@startTime", startTime.ToString(@"hh\:mm\:ss"));
+                            cmd.Parameters.AddWithValue("@endTime", endTime.ToString(@"hh\:mm\:ss"));
+                            cmd.Parameters.AddWithValue("@location", location);
+                            cmd.Parameters.AddWithValue("@id", selectedAvailabilityId);
+                            cmd.Parameters.AddWithValue("@facultyId", loggedInUser.UserId);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        MessageBox.Show("Consultation hours updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+                ClearAvailabilityInputs();
+                LoadAvailability();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving consultation hours: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ClearAvailabilityInputs();
+        }
+
+        private void ClearAvailabilityInputs()
+        {
+            comboBox1.SelectedIndex = -1;
+            dateTimePicker1.Value = DateTime.Today.AddHours(8);
+            dateTimePicker3.Value = DateTime.Today.AddHours(9);
+            textBox1.Text = "  e.g Room 101, Online etc.";
+            selectedAvailabilityId = -1;
+            AddBTN.Text = "+ Add";
+        }
+
+        private void EditBTN_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null || dataGridView1.CurrentRow.Index < 0)
+            {
+                MessageBox.Show("Please select an item to edit.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            selectedAvailabilityId = Convert.ToInt32(dataGridView1.CurrentRow.Cells["availability_id"].Value);
+            string day = dataGridView1.CurrentRow.Cells["Day"].Value?.ToString() ?? "";
+            string startTimeStr = dataGridView1.CurrentRow.Cells["Start Time"].Value?.ToString() ?? "";
+            string endTimeStr = dataGridView1.CurrentRow.Cells["End Time"].Value?.ToString() ?? "";
+            string location = dataGridView1.CurrentRow.Cells["Location"].Value?.ToString() ?? "";
+
+            comboBox1.SelectedItem = day;
+
+            if (DateTime.TryParse(startTimeStr, out DateTime sTime))
+            {
+                dateTimePicker1.Value = sTime;
+            }
+
+            if (DateTime.TryParse(endTimeStr, out DateTime eTime))
+            {
+                dateTimePicker3.Value = eTime;
+            }
+
+            textBox1.Text = location;
+            AddBTN.Text = "Save";
+        }
+
+        private void DeleteBTN_Click(object sender, EventArgs e)
+        {
+            if (loggedInUser == null)
+            {
+                MessageBox.Show("Please log in first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (dataGridView1.CurrentRow == null || dataGridView1.CurrentRow.Index < 0)
+            {
+                MessageBox.Show("Please select an item to delete.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this schedule?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["availability_id"].Value);
+
+                try
+                {
+                    using (MySqlConnection conn = Connection.GetConnection())
+                    {
+                        string deleteQuery = "DELETE FROM faculty_availability WHERE availability_id = @id AND faculty_id = @facultyId";
+                        using (MySqlCommand cmd = new MySqlCommand(deleteQuery, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@id", id);
+                            cmd.Parameters.AddWithValue("@facultyId", loggedInUser.UserId);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+
+                    MessageBox.Show("Consultation hours deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearAvailabilityInputs();
+                    LoadAvailability();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error deleting schedule: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void SearchBTN_Click(object sender, EventArgs e)
+        {
+            LoadAvailability(textBox2.Text);
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
+            LoadAvailability(textBox2.Text);
+        }
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
         }
 
         private void AvailabilityPage_Click(object sender, EventArgs e)
+        {
+            LoadAvailability();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }
@@ -493,11 +606,6 @@ namespace DCSSMeetingScheduler.Faculty
         }
 
         private void tabHome_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
         {
 
         }
