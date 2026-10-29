@@ -15,6 +15,7 @@ namespace DCSSMeetingScheduler.Faculty
     {
         private User? loggedInUser = null;
         private int selectedAvailabilityId = -1;
+        private static int defaultTabIndex = 0;
 
         public FacultyForm()
         {
@@ -33,6 +34,11 @@ namespace DCSSMeetingScheduler.Faculty
             LoadApplicationInfo();
             InitializePreferences();
             LoadAvailability();
+
+            if (defaultTabIndex >= 0 && defaultTabIndex < tabFaculty.TabCount)
+            {
+                tabFaculty.SelectedIndex = defaultTabIndex;
+            }
         }
 
         private void LoadFacultyProfile()
@@ -79,13 +85,21 @@ namespace DCSSMeetingScheduler.Faculty
 
         private void InitializePreferences()
         {
-
+            cmbDefaultTab.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbDefaultTab.Items.Clear();
             cmbDefaultTab.Items.Add("Home");
             cmbDefaultTab.Items.Add("Request");
             cmbDefaultTab.Items.Add("Availability");
             cmbDefaultTab.Items.Add("Setting");
-            cmbDefaultTab.SelectedIndex = 0;
+
+            if (defaultTabIndex >= 0 && defaultTabIndex < cmbDefaultTab.Items.Count)
+            {
+                cmbDefaultTab.SelectedIndex = defaultTabIndex;
+            }
+            else
+            {
+                cmbDefaultTab.SelectedIndex = 0;
+            }
 
             chkEmailNotif.Checked = true;
             chkDesktopNotif.Checked = true;
@@ -241,6 +255,12 @@ namespace DCSSMeetingScheduler.Faculty
 
         private void btnSavePreferences_Click(object sender, EventArgs e)
         {
+            if (cmbDefaultTab.SelectedIndex >= 0)
+            {
+                defaultTabIndex = cmbDefaultTab.SelectedIndex;
+                tabFaculty.SelectedIndex = defaultTabIndex;
+            }
+
             grpRecentMeet.Visible = chkShowRecentRequestDashboard.Checked;
             grpOverview.Visible = chkShowRequestDashboard.Checked;
 
@@ -249,7 +269,9 @@ namespace DCSSMeetingScheduler.Faculty
 
         private void btnRefreshPreferences_Click(object sender, EventArgs e)
         {
+            defaultTabIndex = 0;
             cmbDefaultTab.SelectedIndex = 0;
+            tabFaculty.SelectedIndex = 0;
 
             chkEmailNotif.Checked = true;
             chkDesktopNotif.Checked = true;
@@ -262,6 +284,14 @@ namespace DCSSMeetingScheduler.Faculty
             grpOverview.Visible = true;
 
             MessageBox.Show("Preferences reset to default values.", "Preferences", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void cmbDefaultTab_SelectedIndexChanged(object? sender, EventArgs e)
+        {
+            if (cmbDefaultTab.SelectedIndex >= 0)
+            {
+                defaultTabIndex = cmbDefaultTab.SelectedIndex;
+            }
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

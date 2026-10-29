@@ -1451,6 +1451,7 @@ namespace DCSSMeetingScheduler.Faculty
             cmbDefaultTab.Name = "cmbDefaultTab";
             cmbDefaultTab.Size = new Size(361, 33);
             cmbDefaultTab.TabIndex = 5;
+            cmbDefaultTab.SelectedIndexChanged += cmbDefaultTab_SelectedIndexChanged;
             // 
             // lblDefaultTab
             // 
