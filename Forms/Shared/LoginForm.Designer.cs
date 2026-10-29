@@ -36,6 +36,9 @@ namespace DCSSMeetingScheduler {
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            loginErrorProvider = new ErrorProvider(components);
+            ((System.ComponentModel.ISupportInitialize)loginErrorProvider).BeginInit();
             lblTitle = new Label();
             lblSubtitle = new Label();
             lblEmail = new Label();
@@ -198,6 +201,10 @@ namespace DCSSMeetingScheduler {
             // 
             // LoginForm
             // 
+            loginErrorProvider.ContainerControl = this;
+            loginErrorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            txtEmail.TextChanged += LoginInput_TextChanged;
+            txtPassword.TextChanged += LoginInput_TextChanged;
             AcceptButton = btnLogin;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -224,12 +231,14 @@ namespace DCSSMeetingScheduler {
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DCSS Meeting Scheduler - Login";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)loginErrorProvider).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
+        private ErrorProvider loginErrorProvider;
         private PictureBox pictureBox1;
     }
 }
