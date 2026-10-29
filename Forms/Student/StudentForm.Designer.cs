@@ -885,9 +885,9 @@ namespace DCSSMeetingScheduler.Forms.Student
             // 
             // cmbYearLevel
             // 
-            cmbYearLevel.AutoCompleteCustomSource.AddRange(new string[] { "1st Year", "2nd Year", "3rd Year", "4th Year" });
             cmbYearLevel.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbYearLevel.FormattingEnabled = true;
+            cmbYearLevel.Items.AddRange(new object[] { "1st Year", "2nd Year", "3rd Year", "4th Year" });
             cmbYearLevel.Location = new Point(124, 190);
             cmbYearLevel.Name = "cmbYearLevel";
             cmbYearLevel.Size = new Size(150, 23);

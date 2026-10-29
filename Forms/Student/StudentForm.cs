@@ -56,6 +56,7 @@ namespace DCSSMeetingScheduler.Forms.Student
             LoadMeetingRequests();
             LoadFaculty();
             LoadStudentProfile();
+            InitializeSettings();
         }
 
         private void LoadKPI()
@@ -802,3 +803,4 @@ namespace DCSSMeetingScheduler.Forms.Student
         }
     }
 }
+
