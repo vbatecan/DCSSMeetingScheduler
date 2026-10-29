@@ -1,5 +1,4 @@
 using System.Data;
-using System.Text.RegularExpressions;
 using DCSSMeetingScheduler.Admin;
 using DCSSMeetingScheduler.Faculty;
 using DCSSMeetingScheduler.Forms.Student;
@@ -17,63 +16,95 @@ namespace DCSSMeetingScheduler
 
         private void btnLogin_Click(object? sender, EventArgs e)
         {
+            loginErrorProvider.Clear();
             lblErrorMessage.Text = "";
-            if (!LoginUtils.ValidateEmail(txtEmail.Text))
+            string email = txtEmail.Text.Trim();
+            bool valid = true;
+            if (!LoginUtils.ValidateEmail(email))
             {
-                lblErrorMessage.Text = "Please enter a valid UE email.";
-                txtEmail.Focus();
+                loginErrorProvider.SetError(txtEmail, "Please enter a valid UE email.");
+                valid = false;
+            }
+            if (!LoginUtils.ValidatePassword(txtPassword.Text))
+            {
+                loginErrorProvider.SetError(txtPassword, "Please enter a password of at least 6 characters.");
+                valid = false;
+            }
+            if (!valid)
+            {
+                if (loginErrorProvider.GetError(txtEmail).Length > 0) txtEmail.Focus();
+                else txtPassword.Focus();
                 return;
             }
 
-            if (LoginUtils.ValidatePassword(txtPassword.Text) == false)
+            User? user;
+            try
             {
-                lblErrorMessage.Text = "Please enter your password.";
+                using var conn = Connection.GetConnection();
+                using var cmd = new MySqlCommand("SELECT * FROM users WHERE ue_email = @email AND user_password = @password", conn);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@password", txtPassword.Text);
+                using var reader = cmd.ExecuteReader(CommandBehavior.SingleRow);
+                user = reader.Read() ? User.FromReader(reader) : null;
+            }
+            catch (MySqlException)
+            {
+                MessageBox.Show(this, "Unable to connect to the database. Please try again.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (user == null || !user.UeEmail.Equals(email, StringComparison.OrdinalIgnoreCase) || user.UserPassword != txtPassword.Text)
+            {
+                loginErrorProvider.SetError(txtPassword, "Invalid email or password.");
+                MessageBox.Show(this, "Invalid email or password. Please try again.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPassword.SelectAll();
                 txtPassword.Focus();
                 return;
             }
 
-            using (MySqlConnection conn = Connection.GetConnection())
+            Form? dashboard = user.Role switch
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM users WHERE ue_email = @email AND user_password = @password", conn);
-                cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                cmd.Parameters.AddWithValue("@password", txtPassword.Text);
-                using (MySqlDataReader reader = cmd.ExecuteReader(CommandBehavior.SingleRow))
-                {
-                    if (reader.Read())
-                    {
-                        User user = User.FromReader(reader);
-
-                        if (user.UeEmail.Equals(txtEmail.Text, StringComparison.OrdinalIgnoreCase) && user.UserPassword == txtPassword.Text)
-                        {
-                            // Dito yung login successful.
-                            Hide();
-                            switch (user.Role)
-                            {
-                                case UserRole.Admin:
-                                    AdminForm adminForm = new AdminForm(user);
-                                    adminForm.Show();
-                                    break;
-                                case UserRole.Faculty:
-                                    FacultyForm facultyForm = new FacultyForm(user);
-                                    facultyForm.Show();
-                                    break;
-                                case UserRole.Student:
-                                    StudentForm studentForm = new StudentForm(user);
-                                    studentForm.Show();
-                                    break;
-                            }
-                        }
-                        else
-                        {
-                            lblErrorMessage.Text = "Invalid email or password.";
-                            return;
-                        }
-
-                    }
-                }
+                UserRole.Admin => new AdminForm(user),
+                UserRole.Faculty => new FacultyForm(user),
+                UserRole.Student => new StudentForm(user),
+                _ => null
+            };
+            if (dashboard == null)
+            {
+                MessageBox.Show(this, "This account has an unsupported role.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+            dashboard.Owner = this;
+            Hide();
+            dashboard.Show();
+        }
 
-            DialogResult = DialogResult.OK;
+        private void LoginInput_TextChanged(object? sender, EventArgs e)
+        {
+            if (sender is Control input)
+                loginErrorProvider.SetError(input, "");
+        }
+
+        internal void DashboardClosed(Form dashboard)
+        {
+            dashboard.Owner = null;
+            if (IsDisposed || Disposing)
+                return;
+
+            if (dashboard.DialogResult == DialogResult.Retry)
+            {
+                loginErrorProvider.Clear();
+                txtPassword.Clear();
+                chkShowPassword.Checked = false;
+                lblErrorMessage.Text = "";
+                Show();
+                Activate();
+                txtPassword.Focus();
+            }
+            else
+            {
+                Close();
+            }
         }
 
         private void btnCancel_Click(object? sender, EventArgs e)

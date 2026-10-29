@@ -16,7 +16,6 @@ namespace DCSSMeetingScheduler {
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.LinkLabel lnkSignUp;
-        private System.Windows.Forms.LinkLabel lnkForgotPassword;
 
         /// <summary>
         ///  Clean up any resources being used.
@@ -35,7 +34,11 @@ namespace DCSSMeetingScheduler {
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
+            components = new System.ComponentModel.Container();
+            loginErrorProvider = new ErrorProvider(components);
+            ((System.ComponentModel.ISupportInitialize)loginErrorProvider).BeginInit();
             lblTitle = new Label();
             lblSubtitle = new Label();
             lblEmail = new Label();
@@ -47,7 +50,6 @@ namespace DCSSMeetingScheduler {
             btnLogin = new Button();
             btnCancel = new Button();
             lnkSignUp = new LinkLabel();
-            lnkForgotPassword = new LinkLabel();
             pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -131,22 +133,6 @@ namespace DCSSMeetingScheduler {
             chkShowPassword.UseVisualStyleBackColor = true;
             chkShowPassword.CheckedChanged += chkShowPassword_CheckedChanged;
             // 
-            // lnkForgotPassword
-            // 
-            lnkForgotPassword.ActiveLinkColor = Color.FromArgb(85, 121, 69);
-            lnkForgotPassword.AutoSize = true;
-            lnkForgotPassword.Cursor = Cursors.Hand;
-            lnkForgotPassword.Font = new Font("Segoe UI", 9F);
-            lnkForgotPassword.LinkColor = Color.FromArgb(0, 64, 0);
-            lnkForgotPassword.Location = new Point(265, 350);
-            lnkForgotPassword.Name = "lnkForgotPassword";
-            lnkForgotPassword.Size = new Size(100, 15);
-            lnkForgotPassword.TabIndex = 7;
-            lnkForgotPassword.TabStop = true;
-            lnkForgotPassword.Text = "Forgot password?";
-            lnkForgotPassword.TextAlign = ContentAlignment.MiddleRight;
-            lnkForgotPassword.LinkClicked += lnkForgotPassword_LinkClicked;
-            // 
             // lblErrorMessage
             // 
             lblErrorMessage.Font = new Font("Segoe UI", 9F);
@@ -215,6 +201,10 @@ namespace DCSSMeetingScheduler {
             // 
             // LoginForm
             // 
+            loginErrorProvider.ContainerControl = this;
+            loginErrorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            txtEmail.TextChanged += LoginInput_TextChanged;
+            txtPassword.TextChanged += LoginInput_TextChanged;
             AcceptButton = btnLogin;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -233,7 +223,6 @@ namespace DCSSMeetingScheduler {
             Controls.Add(btnLogin);
             Controls.Add(btnCancel);
             Controls.Add(lnkSignUp);
-            Controls.Add(lnkForgotPassword);
             Font = new Font("Segoe UI", 9F);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
@@ -242,12 +231,14 @@ namespace DCSSMeetingScheduler {
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DCSS Meeting Scheduler - Login";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)loginErrorProvider).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
+        private ErrorProvider loginErrorProvider;
         private PictureBox pictureBox1;
     }
 }
